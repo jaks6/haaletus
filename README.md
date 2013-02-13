@@ -1,6 +1,6 @@
 haaletus
 ========
 
-veebirakenduste loomine jaks erik
-testin 18:39 13.02.13
-testin 2 
+veebirakenduste loomine jaks 
+Erik test 19:10
+Erik test 19:11
