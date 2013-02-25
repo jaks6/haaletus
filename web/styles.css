@@ -1,0 +1,225 @@
+@import url(http://fonts.googleapis.com/css?family=Abel);
+
+#container{
+	font-family: 'Abel', 'Times New Roman';
+	width: 70%;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	
+}
+
+#top{
+	height: 18px;
+	padding-bottom: 10px;
+	margin-bottom: 40px;
+	border-bottom-style:solid;
+	border-bottom-color:#333333;
+	position: relative;
+	
+}
+
+ a{
+text-decoration:none;
+color:#333333;
+	/* Ülemise riba lingid*/
+}
+#top a:hover{
+	text-decoration:overline;
+	color:#333366;
+}
+#navmenu {
+	padding: 0;
+}
+#navmenu a{
+	font-size: 13pt;
+}
+
+#navmenu  li{
+	font-size:12pt;
+	text-transform:uppercase;
+	text-shadow:#003399;
+	display:inline-block;
+	padding: 0px 5px 0px 5px;
+	
+	
+}
+
+#navbar {
+	
+	width: 494px;
+	margin: 0px auto;
+	text-align:center;
+}
+#help {
+	position: absolute;
+	left:0;
+	top:0;
+	padding-left: 16px;
+}
+
+#login {
+	position: absolute;
+	right:0;
+	top:0;
+	padding-right:16px;
+}
+#button_style {
+	font-family:'Abel';
+	text-align:left;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+#button_style input {
+	 color:#000000;
+	 font-size:18pt;
+	 border-style:solid;
+	 border-color:#000000;
+}
+
+#button_style input:hover{
+	background-color:gray;
+}
+
+
+h1 {
+	font-size: 30pt;
+	margin-bottom: 40px;
+	padding: 0 0 0 3%;
+	border-bottom: thin;
+	border-bottom-style:solid;
+}
+#content {
+	width: 66%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color:#EFEFEF;
+	padding: 1px 30px 40px 30px;
+}
+
+#footer {
+	width: 220px;
+	margin: 0 auto;
+}
+#footer a {
+	color:#666666;
+}
+#footer li {
+	padding: 0 8px 0 0;
+	font-size:11pt;
+	display:inline-block;
+}
+#footer a:hover{
+	color:#000000;
+}
+#kandidaadid{
+	width:95%;
+	padding-left:15px;
+	font-size:20px;
+}
+
+#k_inputs{
+	text-align:right;
+}
+#k_inputs table{
+	width:100%;
+}
+
+#k_inputs label{
+	border-collapse:collapse;
+	display:inline-block;
+	float:left;
+	text-align:left;
+}
+
+#k_table th, td{
+	width:1%;
+	border:2px solid black;
+}
+#k_table table{
+	text-align:left;
+	overflow-y:scroll;
+	width:100%;
+	background-color:white;
+	border-collapse:collapse;
+	border:1px solid black;
+	margin-bottom:20%;
+	display:block;
+}
+
+#abi li{
+	font-size:20px;
+	text-decoration:underline;
+}
+/*small, "mobile" view:
+top bar spans wider, fonts larger for better readability on dense screens.*/
+@media only screen and (max-width: 1024px) {
+h1 {
+	font-size: 2em;
+}
+a{
+	font-size: 120%;
+	}
+#navmenu a{
+	font-size: 150%;
+}
+#top {
+	height: 160px;
+	padding-bottom: 50px;
+	margin-bottom: 10px;
+}
+
+#navmenu  li{
+
+	display:block; 
+	background-color:#DBD7CA;
+	padding: 0 0 2px 0;
+	margin-top: 2px;
+
+}
+#login {
+	font-size:1.5em;
+}
+#help {
+	font-size:1.5em;
+}
+#footermenu a{
+	font-size:2em;
+}
+#footer{
+	width:50%;
+	text-align:center;
+}
+
+#navmenu {
+	text-align: center;
+}
+#navbar {
+	
+	padding-top:20px;
+	padding-bottom: 100px;
+	
+	width: 100%;
+	margin: 0 auto;
+}
+#content {
+	width: auto;
+}
+
+#k_inputs label{
+	/* Ajuvaba22 aga töötab */
+	min-width:100%;
+}
+#k_inputs table{
+	display:block;
+}
+#k_table table{
+	border-collapse:collapse;
+}
+
+
+
+
+}
