@@ -136,6 +136,7 @@ h1 {
 }
 
 #k_inputs label{
+	min-width:69px;
 	border-collapse:collapse;
 	display:inline-block;
 	float:left;
@@ -314,6 +315,87 @@ a{
 .bigbutton a{
 	width:85%;
 }
+
+/* Tulemuste lehe asjad
+############################################################*/
+
+#tulemustabs li + li:before{
+    content: " | ";
+    padding: 0 1px;
+}
+#tulemustabs li{
+	
+	display: inline;
+}
+#tulemustabs ul{
+	
+	background-color:#CCCCCC;
+}
+/* make the header row stand in place*/
+.tableheader {
+	margin-top:2px;
+	position: absolute;
+	top: 0;
+}
+.header-background {
+	background-color: #CCCCCC;
+	height: 25px;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+/* make the header row be fixed relative to the actual table area*/
+#tulemustabel-wrapper {
+	position: relative;
+	min-width: 290px;
+}
+#tulemustabel {
+	overflow:auto;
+	height: 200px;
+}
+
+#tulemustabel  table{
+	margin-top:22px;
+	width: 100%;
+	border-collapse: collapse;
+	border: none;
+	background-color:#E9E9E9;
+	
+	
+}
+a.poke img{
+	display:none;
+	position: fixed;
+	left: 39%;
+	top: 25%;
+	z-index: 2;
+}
+a.poke:hover img{
+	display:block;
+}
+
+#tulemustabel th{
+	text-transform:uppercase;
+}
+	
+
+
+
+.statisticpic img{
+	max-width: 100%;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+.statisticpic {
+	border-top-style: solid;
+	border-top-color: #666;
+	
+	padding-top: 50px;
+}
+
+/*TULEMUSTE lehe ASJADE L6PP ############################## */
 
 #liikuv_bar{
 	display:none;
