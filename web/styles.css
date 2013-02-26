@@ -6,9 +6,7 @@
 	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
-	min-width: 321px;
-	
-	
+	min-width: 321px;	
 }
 
 #top{
@@ -17,25 +15,27 @@
 	margin-bottom: 40px;
 	border-bottom-style:solid;
 	border-bottom-color:#333333;
-	
-	position: relative;
-	
+	position: relative;	
 }
 
- a{
-text-decoration:none;
-color:#333333;
-	/* Ülemise riba lingid*/
+a{
+	text-decoration:none;
+	color:#333333;
+	/* ï¿½lemise riba lingid*/
 }
 #top a:hover{
 	text-decoration:overline;
 	color:#333366;
 }
+
 #navmenu {
-padding: 0;}
+	padding: 0;
+}
+
 #navmenu a{
 	font-size: 13pt;
 }
+
 #navmenu  li{
 	font-size:12pt;
 	text-transform:uppercase;
@@ -85,37 +85,40 @@ padding: 0;}
 	background-color:red;
 }
 
-/* uus lõpp */
+/* uus lï¿½pp */
 
 h1 {
-font-size: 30pt;
-margin-bottom: 40px;
-padding: 0 0 0 3%;
-border-bottom: thin;
-border-bottom-style:solid;
+	font-size: 30pt;
+	margin-bottom: 40px;
+	padding: 0 0 0 3%;
+	border-bottom: thin;
+	border-bottom-style:solid;
 }
 #content {
-width: 66%;
+	width: 66%;
 	margin-left: auto;
 	margin-right: auto;
-background-color:#C9BFAF;
-padding: 1px 30px 40px 30px;
+	background-color:#C9BFAF;
+	padding: 1px 30px 40px 30px;
 }
 
 #footer {
 	width: 220px;
 	margin: 0 auto;
 }
+
 #footer a {
-color:#666666;
+	color:#666666;
 }
+
 #footer li {
 	padding: 0 8px 0 0;
 	font-size:11pt;
 	display:inline-block;
 }
+
 #footer a:hover{
-color:#000000;
+	color:#000000;
 }
 
 /* jaksi css */
@@ -159,11 +162,11 @@ color:#000000;
 	text-decoration:underline;
 }
 
-/* jaksi cssi lõpp */
+/* jaksi cssi lï¿½pp */
 
  /* uus algus */
  
- #kandideerimine label {
+#kandideerimine label {
 	display: block;
 	float: left;
 	width: 150px;
@@ -188,11 +191,11 @@ color:#000000;
 }
 
 #keskele {
-  text-align:center;
+    text-align:center;
 } 
 
 
-/* uus lõpp */
+/* uus lï¿½pp */
 /* uus algus */
 
 #abi li{
@@ -246,63 +249,72 @@ a{
 	font-size: 150%;
 }
 #top {
-height: 160px;
-padding-bottom: 50px;
-margin-bottom: 10px;}
+	height: 160px;
+	padding-bottom: 50px;
+	margin-bottom: 10px;
+}
 
 #navmenu  li{
-
-display:block; 
-background-color:#DBD7CA;
-padding: 0 0 2px 0;
-margin-top: 2px;
-
+	display:block; 
+	background-color:#DBD7CA;
+	padding: 0 0 2px 0;
+	margin-top: 2px;
 }
 
 #login {
 	font-size:1.5em;
 }
+
 #help {
 	font-size:1.5em;
 }
+
 #footermenu a{
 	font-size:2em;
 }
+
 #footer{
 	width:50%;
 	text-align:center;
 }
+
 #navmenu {
 	text-align: center;
 }
+
 #navbar {
-	
 	padding-top:16px;
 	padding-bottom: 100px;
-	
 	width: 100%;
 	margin: 0 auto;
 }
+
 #content {
-width: auto;
+	width: auto;
 }
+
 #k_inputs label{
-	/* Ajuvaba22 aga töötab */
+	/* Ajuvaba22 aga tï¿½ï¿½tab */
 	min-width:100%;
 }
+
 #k_inputs table{
 	display:block;
 }
+
 #k_table table{
 	border-collapse:collapse;
 }
+
 .bigbutton {
 	text-align:center;
 	width:100%;
 }
+
 .bigbutton a{
 	width:85%;
 }
+
 #liikuv_bar{
 	display:none;
 }
