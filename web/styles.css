@@ -193,10 +193,45 @@ color:#000000;
 
 
 /* uus lõpp */
+/* uus algus */
 
+#abi li{
+	font-size:20px;
+	text-decoration:underline;
+}
+#kontakt tr, th{
+	text-align:left;
+	padding-right:20px;
+}
 
+.bigbutton {
+	text-align:center;
+	width: 75%;
+	margin: 0 auto;
+}
 
+.bigbutton a {
+	text-align:center;
+	display:inline-block;
+	height: 100px;
+	width: 42%;
+	text-transform: uppercase;
+	font-size: 1.9em;
+	background-color:#999999;
+	padding: 30px 10px;
+	line-height: 110px;
+	margin: 8px;
+}
+.bigbutton a:hover{
+	box-shadow:5px 5px 15px #232129;
+	background-color: #CCC;
+}
+#liikuv_bar{
+	margin:20px auto;
+	text-align:center;
+}
 
+/* uus lopp */
 
 /*small, "mobile" view:
 top bar spans wider, fonts larger for better readability on dense screens.*/
@@ -224,7 +259,19 @@ margin-top: 2px;
 
 }
 
-
+#login {
+	font-size:1.5em;
+}
+#help {
+	font-size:1.5em;
+}
+#footermenu a{
+	font-size:2em;
+}
+#footer{
+	width:50%;
+	text-align:center;
+}
 #navmenu {
 	text-align: center;
 }
@@ -238,5 +285,25 @@ margin-top: 2px;
 }
 #content {
 width: auto;
+}
+#k_inputs label{
+	/* Ajuvaba22 aga töötab */
+	min-width:100%;
+}
+#k_inputs table{
+	display:block;
+}
+#k_table table{
+	border-collapse:collapse;
+}
+.bigbutton {
+	text-align:center;
+	width:100%;
+}
+.bigbutton a{
+	width:85%;
+}
+#liikuv_bar{
+	display:none;
 }
 }
