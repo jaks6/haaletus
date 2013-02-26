@@ -6,6 +6,7 @@
 	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
+	min-width: 321px;
 	
 	
 }
@@ -16,6 +17,7 @@
 	margin-bottom: 40px;
 	border-bottom-style:solid;
 	border-bottom-color:#333333;
+	
 	position: relative;
 	
 }
@@ -30,26 +32,22 @@ color:#333333;
 	color:#333366;
 }
 #navmenu {
-	padding: 0;
-}
+padding: 0;}
 #navmenu a{
 	font-size: 13pt;
 }
-
 #navmenu  li{
 	font-size:12pt;
 	text-transform:uppercase;
 	text-shadow:#003399;
 	display:inline-block;
 	padding: 0px 5px 0px 5px;
-	
-	
 }
 
 #navbar {
-	
-	width: 494px;
-	margin: 0px auto;
+	min-width: 321px;
+	width: 642px;
+	margin: 0 auto;
 	text-align:center;
 }
 #help {
@@ -65,38 +63,43 @@ color:#333333;
 	top:0;
 	padding-right:16px;
 }
+
+ /* uus algus */
+ 
 #button_style {
-	font-family:'Abel';
-	text-align:left;
-	padding-top:20px;
-	padding-bottom:20px;
+	 padding-top: 25px;
+	 padding-bottom: 25px;
+	 text-align: center; 
+	 font-family: 'Abel', 'Times New Roman';
 }
 
 #button_style input {
-	 color:#000000;
-	 font-size:18pt;
-	 border-style:solid;
-	 border-color:#000000;
+	color:#000000;
+	font-size:18pt;
+	text-transform:uppercase;
+	border-style:solid;
+	border-color:#000000;
 }
 
 #button_style input:hover{
-	background-color:gray;
+	background-color:red;
 }
 
+/* uus lõpp */
 
 h1 {
-	font-size: 30pt;
-	margin-bottom: 40px;
-	padding: 0 0 0 3%;
-	border-bottom: thin;
-	border-bottom-style:solid;
+font-size: 30pt;
+margin-bottom: 40px;
+padding: 0 0 0 3%;
+border-bottom: thin;
+border-bottom-style:solid;
 }
 #content {
-	width: 66%;
+width: 66%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color:#EFEFEF;
-	padding: 1px 30px 40px 30px;
+background-color:#C9BFAF;
+padding: 1px 30px 40px 30px;
 }
 
 #footer {
@@ -104,7 +107,7 @@ h1 {
 	margin: 0 auto;
 }
 #footer a {
-	color:#666666;
+color:#666666;
 }
 #footer li {
 	padding: 0 8px 0 0;
@@ -112,8 +115,10 @@ h1 {
 	display:inline-block;
 }
 #footer a:hover{
-	color:#000000;
+color:#000000;
 }
+
+/* jaksi css */
 #kandidaadid{
 	width:95%;
 	padding-left:15px;
@@ -153,11 +158,51 @@ h1 {
 	font-size:20px;
 	text-decoration:underline;
 }
+
+/* jaksi cssi lõpp */
+
+ /* uus algus */
+ 
+ #kandideerimine label {
+	display: block;
+	float: left;
+	width: 150px;
+}
+
+
+#haaletamine table{
+	background-color:white;
+	float:right;
+	border-collapse:collapse;
+	height:200px;
+	width:100%;
+	display:block;
+	overflow-y: scroll;
+	border:none;
+}
+
+#haaletamine th, td {
+    border: 1px solid black;
+    overflow: hidden;
+    width: 150px;
+}
+
+#keskele {
+  text-align:center;
+} 
+
+
+/* uus lõpp */
+
+
+
+
+
 /*small, "mobile" view:
 top bar spans wider, fonts larger for better readability on dense screens.*/
 @media only screen and (max-width: 1024px) {
 h1 {
-	font-size: 2em;
+font-size: 18pt;
 }
 a{
 	font-size: 120%;
@@ -166,60 +211,32 @@ a{
 	font-size: 150%;
 }
 #top {
-	height: 160px;
-	padding-bottom: 50px;
-	margin-bottom: 10px;
-}
+height: 160px;
+padding-bottom: 50px;
+margin-bottom: 10px;}
 
 #navmenu  li{
 
-	display:block; 
-	background-color:#DBD7CA;
-	padding: 0 0 2px 0;
-	margin-top: 2px;
+display:block; 
+background-color:#DBD7CA;
+padding: 0 0 2px 0;
+margin-top: 2px;
 
 }
-#login {
-	font-size:1.5em;
-}
-#help {
-	font-size:1.5em;
-}
-#footermenu a{
-	font-size:2em;
-}
-#footer{
-	width:50%;
-	text-align:center;
-}
+
 
 #navmenu {
 	text-align: center;
 }
 #navbar {
 	
-	padding-top:20px;
+	padding-top:16px;
 	padding-bottom: 100px;
 	
 	width: 100%;
 	margin: 0 auto;
 }
 #content {
-	width: auto;
+width: auto;
 }
-
-#k_inputs label{
-	/* Ajuvaba22 aga töötab */
-	min-width:100%;
-}
-#k_inputs table{
-	display:block;
-}
-#k_table table{
-	border-collapse:collapse;
-}
-
-
-
-
 }

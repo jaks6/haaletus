@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>The Site: What?</title>
+<title>e-Valimised</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="styles.css" rel="stylesheet" type="text/css" media="screen" />
 <link rel='stylesheet' media='small' href='css/medium.css' />
@@ -12,10 +12,10 @@
 		<div id="navbar">
 			<ul id="navmenu">
 				<li><a href="index.html">Esileht</a></li>
-				<li><a href="#">H&auml;&auml;letamine</a></li>
-				<li><a href="#">Tulemused</a></li>
-				<li><a href="#">Kandideerimine</a></li>
-				<li><a href="#">Kandidaadid</a></li>
+				<li><a href="haaletamine.html">H&auml;&auml;letamine</a></li>
+				<li><a href="tulemused.html">Tulemused</a></li>
+				<li><a href="kandideerimine.html">Kandideerimine</a></li>
+				<li><a href="kandidaadid.html">Kandidaadid</a></li>
 			</ul>
 		</div>
         
@@ -34,11 +34,27 @@
 	
 	<div id="content">
 	
-		<div id="haaletamine">
+		
 			<h1> Hääletamine </h1>
-				<div id="h_inputs">
-				
-				</div>
+				<div id="k_inputs">
+				<table>
+					<form action="demo_form.asp">
+						<tr>
+							<th><label>Nimi:</label><input type="text" name="FirstName" value="Nimi" size="30"><th>
+							<th><label>Partei:</label><input type="text" name="LastName" value="Partei" size="30"><th>
+						</tr>
+						<tr>
+							<th><label>Piirkond:</label><input type="text" name="LastName" value="Piirkond" size="30"><th>
+							<th><label>ID:</label><input type="text" name="LastName" value="ID" size="30"><th><br>
+						</tr>
+					</form>
+				</table>
+			</div>
+		<div id="haaletamine">
+			<div id="button_style">
+				<input type="submit" value="Otsi">
+			</div>
+			
 						<table border="1">
 							<tr>
 								<th>Valik</th>
@@ -137,8 +153,8 @@
     <div id="footer">
         <ul id="footermenu">
                     <li><a href="index.html">Esileht</a></li>
-                    <li><a href="#">Abi</a></li>
-                    <li><a href="#">Kontakt</a></li>
+                    <li><a href="abi.html">Abi</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
 
 		</ul>
     

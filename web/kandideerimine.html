@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>The Site: What?</title>
+<title>e-Valimised</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="styles.css" rel="stylesheet" type="text/css" media="screen" />
 <link rel='stylesheet' media='small' href='css/medium.css' />
@@ -12,10 +12,10 @@
 		<div id="navbar">
 			<ul id="navmenu">
 				<li><a href="index.html">Esileht</a></li>
-				<li><a href="#">H&auml;&auml;letamine</a></li>
-				<li><a href="#">Tulemused</a></li>
-				<li><a href="#">Kandideerimine</a></li>
-				<li><a href="#">Kandidaadid</a></li>
+				<li><a href="haaletamine.html">H&auml;&auml;letamine</a></li>
+				<li><a href="tulemused.html">Tulemused</a></li>
+				<li><a href="kandideerimine.html">Kandideerimine</a></li>
+				<li><a href="kandidaadid.html">Kandidaadid</a></li>
 			</ul>
 		</div>
         
@@ -40,7 +40,7 @@
 		
 		<div id="kandideerimine">
 
-		<form name="kandideerimise_info" action="html_form_action.asp"
+		<form id="kandideerimise_vorm" name="kandideerimise_info" action="html_form_action.asp"
 		method="get">
 		
 			<fieldset style="border-color:#000000; border-style: solid;">
@@ -49,13 +49,30 @@
 					<label>Perenimi:</label><input type="text" size="30"><br>
 					<label>E-mail:</label><input type="text" size="30"><br>
 					<label>Sünnikuupäev:</label><input type="date" size="30"><br>
-					<label>Partei:</label><input type="text" size="30"><br>
-					<label>Piirkond:</label><input type="text" size="30"><br>
+					
+					<label>Partei:</label><select form="kandideerimise_vorm" name="Partei valik">
+						  <option value="keskerakond">Keskerakond</option>
+						  <option value="erakond">Niisama</option>
+						  <option value="erakond">Muu</option>
+						  <option value="erakond">Algebraerakond</option>
+					</select><br>
+					
+					<label>Piirkond:</label><select form="kandideerimise_vorm" name="Piirkonna valik">
+						  <option value="harjumaa">Harjumaa</option>
+						  <option value="tartumaa">Tartumaa</option>
+						  <option value="pärnumaa">Pärnumaa</option>
+						  <option value="muu">Muu</option>
+					</select><br>
 			</fieldset>
 			
 			<fieldset style="border-color:#000000; border-style: solid;">
 				<legend><b>Lisa info:</b></legend>
-					<label>Perekonna seis:</label><input type="text" size="30"><br>
+					<label>Perekonna seis:</label><select form="kandideerimise_vorm" name="Perekonna seis">
+						  <option value="abielus">Abielus</option>
+						  <option value="vallaline">Vallaline</option>
+						  <option value="suhtes">Suhtes</option>
+						  <option value="lahutanud">Lahutanud</option>
+					</select><br>
 					<label>Lapsed:</label><input type="text" size="30"><br>
 					<label>Haridus:</label><input type="text" size="30"><br>
 					<label>Töökäik:</label><input type="text" size="30"><br>
@@ -71,8 +88,8 @@
     <div id="footer">
         <ul id="footermenu">
                     <li><a href="index.html">Esileht</a></li>
-                    <li><a href="#">Abi</a></li>
-                    <li><a href="#">Kontakt</a></li>
+                    <li><a href="abi.html">Abi</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
 
 		</ul>
     
