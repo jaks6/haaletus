@@ -6,8 +6,7 @@
 	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
-	
-	
+	min-width: 321px;	
 }
 
 #top{
@@ -16,22 +15,23 @@
 	margin-bottom: 40px;
 	border-bottom-style:solid;
 	border-bottom-color:#333333;
-	position: relative;
-	
+	position: relative;	
 }
 
- a{
-text-decoration:none;
-color:#333333;
-	/* Ülemise riba lingid*/
+a{
+	text-decoration:none;
+	color:#333333;
+	/* ï¿½lemise riba lingid*/
 }
 #top a:hover{
 	text-decoration:overline;
 	color:#333366;
 }
+
 #navmenu {
 	padding: 0;
 }
+
 #navmenu a{
 	font-size: 13pt;
 }
@@ -42,14 +42,12 @@ color:#333333;
 	text-shadow:#003399;
 	display:inline-block;
 	padding: 0px 5px 0px 5px;
-	
-	
 }
 
 #navbar {
-	
-	width: 494px;
-	margin: 0px auto;
+	min-width: 321px;
+	width: 642px;
+	margin: 0 auto;
 	text-align:center;
 }
 #help {
@@ -65,24 +63,29 @@ color:#333333;
 	top:0;
 	padding-right:16px;
 }
+
+ /* uus algus */
+ 
 #button_style {
-	font-family:'Abel';
-	text-align:left;
-	padding-top:20px;
-	padding-bottom:20px;
+	 padding-top: 25px;
+	 padding-bottom: 25px;
+	 text-align: center; 
+	 font-family: 'Abel', 'Times New Roman';
 }
 
 #button_style input {
-	 color:#000000;
-	 font-size:18pt;
-	 border-style:solid;
-	 border-color:#000000;
+	color:#000000;
+	font-size:18pt;
+	text-transform:uppercase;
+	border-style:solid;
+	border-color:#000000;
 }
 
 #button_style input:hover{
-	background-color:gray;
+	background-color:red;
 }
 
+/* uus lï¿½pp */
 
 h1 {
 	font-size: 30pt;
@@ -95,7 +98,7 @@ h1 {
 	width: 66%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color:#EFEFEF;
+	background-color:#C9BFAF;
 	padding: 1px 30px 40px 30px;
 }
 
@@ -103,17 +106,22 @@ h1 {
 	width: 220px;
 	margin: 0 auto;
 }
+
 #footer a {
 	color:#666666;
 }
+
 #footer li {
 	padding: 0 8px 0 0;
 	font-size:11pt;
 	display:inline-block;
 }
+
 #footer a:hover{
 	color:#000000;
 }
+
+/* jaksi css */
 #kandidaadid{
 	width:95%;
 	padding-left:15px;
@@ -153,11 +161,86 @@ h1 {
 	font-size:20px;
 	text-decoration:underline;
 }
+
+/* jaksi cssi lï¿½pp */
+
+ /* uus algus */
+ 
+#kandideerimine label {
+	display: block;
+	float: left;
+	width: 150px;
+}
+
+
+#haaletamine table{
+	background-color:white;
+	float:right;
+	border-collapse:collapse;
+	height:200px;
+	width:100%;
+	display:block;
+	overflow-y: scroll;
+	border:none;
+}
+
+#haaletamine th, td {
+    border: 1px solid black;
+    overflow: hidden;
+    width: 150px;
+}
+
+#keskele {
+    text-align:center;
+} 
+
+
+/* uus lï¿½pp */
+/* uus algus */
+
+#abi li{
+	font-size:20px;
+	text-decoration:underline;
+}
+#kontakt tr, th{
+	text-align:left;
+	padding-right:20px;
+}
+
+.bigbutton {
+	text-align:center;
+	width: 75%;
+	margin: 0 auto;
+}
+
+.bigbutton a {
+	text-align:center;
+	display:inline-block;
+	height: 100px;
+	width: 42%;
+	text-transform: uppercase;
+	font-size: 1.9em;
+	background-color:#999999;
+	padding: 30px 10px;
+	line-height: 110px;
+	margin: 8px;
+}
+.bigbutton a:hover{
+	box-shadow:5px 5px 15px #232129;
+	background-color: #CCC;
+}
+#liikuv_bar{
+	margin:20px auto;
+	text-align:center;
+}
+
+/* uus lopp */
+
 /*small, "mobile" view:
 top bar spans wider, fonts larger for better readability on dense screens.*/
 @media only screen and (max-width: 1024px) {
 h1 {
-	font-size: 2em;
+font-size: 18pt;
 }
 a{
 	font-size: 120%;
@@ -172,22 +255,24 @@ a{
 }
 
 #navmenu  li{
-
 	display:block; 
 	background-color:#DBD7CA;
 	padding: 0 0 2px 0;
 	margin-top: 2px;
-
 }
+
 #login {
 	font-size:1.5em;
 }
+
 #help {
 	font-size:1.5em;
 }
+
 #footermenu a{
 	font-size:2em;
 }
+
 #footer{
 	width:50%;
 	text-align:center;
@@ -196,30 +281,41 @@ a{
 #navmenu {
 	text-align: center;
 }
+
 #navbar {
-	
-	padding-top:20px;
+	padding-top:16px;
 	padding-bottom: 100px;
-	
 	width: 100%;
 	margin: 0 auto;
 }
+
 #content {
 	width: auto;
 }
 
 #k_inputs label{
-	/* Ajuvaba22 aga töötab */
+	/* Ajuvaba22 aga tï¿½ï¿½tab */
 	min-width:100%;
 }
+
 #k_inputs table{
 	display:block;
 }
+
 #k_table table{
 	border-collapse:collapse;
 }
 
+.bigbutton {
+	text-align:center;
+	width:100%;
+}
 
+.bigbutton a{
+	width:85%;
+}
 
-
+#liikuv_bar{
+	display:none;
+}
 }
