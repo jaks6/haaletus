@@ -82,7 +82,7 @@ a{
 }
 
 #button_style input:hover{
-	background-color:red;
+	background-color:#CCC;
 }
 
 /* uus l�pp */
@@ -98,7 +98,7 @@ h1 {
 	width: 66%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color:#C9BFAF;
+	background-color:#999999;
 	padding: 1px 30px 40px 30px;
 }
 
