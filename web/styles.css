@@ -6,7 +6,7 @@
 	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
-	min-width: 321px;	
+	min-width: 220px;	
 }
 
 #top{
@@ -371,6 +371,7 @@ a{
 }
 
 #navbar {
+	min-width:0;
 	padding-top:16px;
 	padding-bottom: 100px;
 	width: 100%;
@@ -387,7 +388,9 @@ a{
 #kontakt tr, th {
     padding-right: 0;
 }
-
+#k_inputs {
+	padding-left: 20px;
+}
 #k_inputs label{
 	/* Ajuvaba22 aga t��tab */
 	min-width:100%;
@@ -423,9 +426,13 @@ a{
 /*medium, "mobile" view:
 top bar spans wider, fonts larger for better readability on dense screens.*/
 @media only screen and (max-width: 480px) {
-	#content {
-
+#content {
     padding: 0;
-
+}
+h1 {
+	margin-bottom:0;
+}
+#k_inputs input{
+	width:70px;
 }
 }
