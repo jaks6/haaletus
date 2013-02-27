@@ -98,7 +98,7 @@ h1 {
 	width: 66%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color:#999999;
+	background-color:#e7e7e7;
 	padding: 1px 30px 40px 30px;
 }
 
@@ -303,7 +303,7 @@ a.poke:hover img{
 	width: 42%;
 	text-transform: uppercase;
 	font-size: 1.9em;
-	background-color:#999999;
+	background-color:#bfbfbf;
 	padding: 30px 10px;
 	line-height: 110px;
 	margin: 8px;
@@ -435,4 +435,14 @@ h1 {
 #k_inputs input{
 	width:70px;
 }
+#tulemustabel-wrapper {
+	min-width: 230px;
+}
+.header-background {
+	display:none;
+}
+.tableheader {
+    position: inherit;
+}
+
 }
