@@ -135,7 +135,15 @@ h1 {
 #k_inputs table{
 	width:100%;
 }
+#k_inputs select, input{
+	/*box-sizing is a fix to force select and input to have an equal width*/
+	box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	width: 50%; 
 
+}
 #k_inputs label{
 	min-width:69px;
 	border-collapse:collapse;
