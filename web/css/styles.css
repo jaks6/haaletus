@@ -222,20 +222,7 @@ h1 {
 	
 	background-color:#CCCCCC;
 }
-/* make the header row stand in place*/
-.tableheader {
-	margin-top:2px;
-	position: absolute;
-	top: 0;
-}
-.header-background {
-	background-color: #CCCCCC;
-	height: 25px;
-	left: 0;
-	position: absolute;
-	right: 0;
-	top: 0;
-}
+
 /* make the header row be fixed relative to the actual table area*/
 #tulemustabel-wrapper {
 	position: relative;

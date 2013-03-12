@@ -5,7 +5,9 @@
 <link href="css/styles.css" rel="stylesheet" type="text/css" media="screen" />
 <!-- Include Print CSS -->
 <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
-<script src="scripts/sorttable.js"></script>
+
+<script src="scripts/jquery-1.9.1.js"></script>
+<script src="scripts/sorttable2.js"></script>
 
 </head>
 <body>
@@ -54,21 +56,38 @@
                     <li><a href="#">Kandidaatide l&otilde;ikes</a></li>
 		</ul>
     </div>
+    
     <div id="tulemustabel-wrapper">
 
     <div id="tulemustabel">
         
-	<div class="header-background"> </div>
+	
     
 	<table class ="sortable" border="1">
 
 	  <tr>
-      	<th scope="col"><div class="tableheader">#</div></th>
-	    <th scope="col"><div class="tableheader">Nimi</div></th>
-	    <th scope="col"><div class="tableheader">ID</div></th>
-	    <th scope="col"><div class="tableheader">HÄÄli</div></th>
-	    <th scope="col"><div class="tableheader">Partei</div></th>
-	    <th scope="col"><div class="tableheader">Piirkond</div></th>
+      	<th scope="col"><span class="tableheader">
+      		#
+      	</span></th>
+      	
+	    <th scope="col"><span class="tableheader">
+	    	Nimi
+	    </span></th>
+	    
+	    <th scope="col"><span class="tableheader">
+	    	ID
+	    </span></th>
+	    <th scope="col"><span class="tableheader">
+	    	HÄÄli
+	    </span></th>
+	    
+	    <th scope="col"><span class="tableheader">
+	    	Partei
+	    </span></th>
+	    
+	    <th scope="col"><span class="tableheader">
+	    	Piirkond
+	    </span></th>
       </tr>
       
 
@@ -89,28 +108,12 @@
 	    <td>Tartumaa</td>
       </tr>
 	  <tr>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-      </tr>
-	  <tr>
-	    <td>last row</td>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
-	    <td>&nbsp;</td>
+	    <td>3</td>
+	    <td>Metsa Mees</td>
+	    <td>112</td>
+	    <td>2</td>
+	    <td>Omaerakond</td>
+	    <td>Liwonia</td>
       </tr>
 	  </table>
       
