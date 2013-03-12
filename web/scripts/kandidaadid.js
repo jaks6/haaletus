@@ -2,7 +2,20 @@
 $(document).ready(function(){
 	
 	$("#kandidaadid_form").on('submit',function(){	//when the submit button ("OTSI") is pressed...
-
+		
+		  $("#content").css("opacity", "0.4");
+		  $("#pic").fadeIn(500);
+		  $("#pic").fadeOut(500);
+		   
+		   $('#content')
+			  .delay(1000)
+			  .queue( function(next){ 
+			    $(this).css('opacity','1'); 
+			    next(); 
+			  });
+			  
+		setTimeout(function(){
+    	 
 		//Conditions to check which file to load.
 		if ($("select[name=Partei]").val()!== "allPartys"){
 			if ($("select[name=Piirkond]").val()!== "allAreas"){
@@ -19,6 +32,8 @@ $(document).ready(function(){
 						$("select[name=Piirkond]").val(), undefined);
 			}
 		}
+		
+		}, 1000);
 
 		/*----------------------------------------------------implemented for DEBUGGING
 		//Iterate over input fields (Name id)
@@ -40,6 +55,7 @@ $(document).ready(function(){
 		return false; 	//needed for AJAX .submit() stuff to work properly. without this line clicking
 						//SUBMIT will refresh the entire page.
 	});
+	
 });
 
 //fetches data from a predestined .json file, outputs it to the table with the id "candidateList"

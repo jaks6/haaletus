@@ -325,7 +325,15 @@ a.poke:hover img{
 
 #liikuv_bar{
 	margin:20px auto;
-	text-align:center;
+<	text-align:center;
+}
+
+
+#loading img{
+   position: fixed;
+	left: 45%;
+	top: 35%;
+	z-index: 2;
 }
 
 
@@ -430,7 +438,6 @@ a{
 	display:none;
 }
 
-}
 
 /*medium, "mobile" view:
 top bar spans wider, fonts larger for better readability on dense screens.*/
