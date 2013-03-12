@@ -3,6 +3,10 @@
 <title>e-Valimised: Kandideerimine</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script src="scripts/jquery-1.9.1.js"></script>
+<script src="scripts/kinnitaKandideerimine.js"></script>
+
 </head>
 <body>
 	<div id="container">
@@ -39,7 +43,7 @@
 		
 		<div id="kandideerimine">
 
-		<form id="kandideerimise_vorm" name="kandideerimise_info" action="html_form_action.asp"
+		<form id="kandideerimise_vorm" name="kandideerimise_info" action="kandideerimine.html"
 		method="get">
 		
 			<fieldset style="border-color:#000000; border-style: solid;">
@@ -77,7 +81,7 @@
 					<label>Töökäik:</label><input type="text" size="30"><br>
 			</fieldset>
 		<div id="button_style">
-			<br><input type="submit" value="Kinnita">
+			<br><input type="submit" value="Kinnita" onclick="kinnitaKandideerimine()">
 		</div>
 		</form>
 		</div>
