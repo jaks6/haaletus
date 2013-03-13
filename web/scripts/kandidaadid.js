@@ -3,6 +3,19 @@ $(document).ready(function(){
 	
 	$("#kandidaadid_form").on('submit',function(){	//when the submit button ("OTSI") is pressed...
 		
+		  $("#content").css("opacity", "0.4");
+		  $("#pic").fadeIn(500);
+		  $("#pic").fadeOut(500);
+		   
+		   $('#content')
+			  .delay(1000)
+			  .queue( function(next){ 
+			    $(this).css('opacity','1'); 
+			    next(); 
+			  });
+			  
+		setTimeout(function(){
+    	 
 		//Conditions to check which file to load.
 		if ($("select[name=Partei]").val()!== "allPartys"){
 			if ($("select[name=Piirkond]").val()!== "allAreas"){
@@ -19,6 +32,8 @@ $(document).ready(function(){
 						$("select[name=Piirkond]").val(), undefined);
 			}
 		}
+		
+		}, 1000);
 
 		
 		

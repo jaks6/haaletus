@@ -128,7 +128,15 @@ h1 {
 	padding-left:15px;
 	font-size:20px;
 }
-
+#k_left{
+	width:20%;
+}
+#k_right{
+	width:20%;
+	margin:-104px auto;
+	margin-bottom:10px;
+	
+}
 #k_inputs{
 	text-align:right;
 }
@@ -181,7 +189,17 @@ h1 {
 	float: left;
 	width: 150px;
 }
-
+#kandideerimise_vorm span{
+	color: red;
+	margin-left:20px;
+}
+#kandideerimine select{
+	 box-sizing:border-box;
+ 	-ms-box-sizing:border-box;
+ 	-moz-box-sizing:border-box;
+ 	-webkit-box-sizing:border-box;
+ 	 width: 34.6%;
+}
 
 #haaletamine table{
 	background-color:white;
@@ -229,7 +247,20 @@ img[id^="asc"], img[id^="desc"]{
 	
 	background-color:#CCCCCC;
 }
-
+/* make the header row stand in place*/
+.tableheader {
+	margin-top:2px;
+	position: absolute;
+	top: 0;
+}
+.header-background {
+	background-color: #CCCCCC;
+	height: 25px;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
 /* make the header row be fixed relative to the actual table area*/
 #tulemustabel-wrapper {
 	position: relative;
@@ -323,6 +354,14 @@ a.poke:hover img{
 }
 
 
+#loading img{
+   position: fixed;
+	left: 45%;
+	top: 35%;
+	z-index: 2;
+}
+
+
 
 
 /* uus lopp */
@@ -391,6 +430,11 @@ a{
 #kontakt tr, th {
     padding-right: 0;
 }
+#k_right{
+	margin:0px;
+	margin-bottom:0px;
+}
+
 #k_inputs {
 	padding-left: 20px;
 }
@@ -424,7 +468,6 @@ a{
 	display:none;
 }
 
-}
 
 /*medium, "mobile" view:
 top bar spans wider, fonts larger for better readability on dense screens.*/
