@@ -2,7 +2,7 @@
 $(document).ready(function(){
 	
 	$("#kandidaadid_form").on('submit',function(){	//when the submit button ("OTSI") is pressed...
-
+		
 		//Conditions to check which file to load.
 		if ($("select[name=Partei]").val()!== "allPartys"){
 			if ($("select[name=Piirkond]").val()!== "allAreas"){
@@ -20,21 +20,6 @@ $(document).ready(function(){
 			}
 		}
 
-		/*----------------------------------------------------implemented for DEBUGGING
-		//Iterate over input fields (Name id)
-		$("input[type=text]").each(function(index) {	//each() on jQuery for loop, 
-			//index annab tsükli parasjagu i väärtuse (0,1,..)
-			console.log( index + ": " + $(this).val() );	
-			//võtame form fieldilt tema praeguse value ning prindime konsoolis.
-		});
-		*/
-		
-		/*----------------------------------------------------implemented for DEBUGGING
-		//Iterate over dropdown menus (party & region)
-		$("select").each(function(index) {	
-			console.log( index + ": " + $(this).val() );	
-	
-		});*/
 		
 		
 		return false; 	//needed for AJAX .submit() stuff to work properly. without this line clicking

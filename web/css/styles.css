@@ -210,6 +210,13 @@ h1 {
 /* Tulemuste lehe asjade algus
 ############################################################*/
 
+
+.sortIcon :hover{
+	
+}
+img[id^="asc"], img[id^="desc"]{
+	display: none;
+}
 #tulemustabs li + li:before{
     content: " | ";
     padding: 0 1px;
