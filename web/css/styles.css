@@ -128,7 +128,15 @@ h1 {
 	padding-left:15px;
 	font-size:20px;
 }
-
+#k_left{
+	width:20%;
+}
+#k_right{
+	width:20%;
+	margin:-104px auto;
+	margin-bottom:10px;
+	
+}
 #k_inputs{
 	text-align:right;
 }
@@ -181,7 +189,17 @@ h1 {
 	float: left;
 	width: 150px;
 }
-
+#kandideerimise_vorm span{
+	color: red;
+	margin-left:20px;
+}
+#kandideerimine select{
+	 box-sizing:border-box;
+ 	-ms-box-sizing:border-box;
+ 	-moz-box-sizing:border-box;
+ 	-webkit-box-sizing:border-box;
+ 	 width: 34.6%;
+}
 
 #haaletamine table{
 	background-color:white;
@@ -298,7 +316,9 @@ a.poke:hover img{
 	text-align:left;
 	padding-right:20px;
 }
-
+#homemenu{
+	width: 100%;
+}
 .bigbutton {
 	text-align:center;
 	width: 75%;
@@ -405,6 +425,11 @@ a{
 #kontakt tr, th {
     padding-right: 0;
 }
+#k_right{
+	margin:0px;
+	margin-bottom:0px;
+}
+
 #k_inputs {
 	padding-left: 20px;
 }
