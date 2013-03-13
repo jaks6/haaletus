@@ -228,6 +228,13 @@ h1 {
 /* Tulemuste lehe asjade algus
 ############################################################*/
 
+
+.sortIcon :hover{
+	
+}
+img[id^="asc"], img[id^="desc"]{
+	display: none;
+}
 #tulemustabs li + li:before{
     content: " | ";
     padding: 0 1px;
@@ -248,7 +255,7 @@ h1 {
 }
 .header-background {
 	background-color: #CCCCCC;
-	height: 25px;s
+	height: 25px;
 	left: 0;
 	position: absolute;
 	right: 0;
@@ -316,9 +323,7 @@ a.poke:hover img{
 	text-align:left;
 	padding-right:20px;
 }
-#homemenu{
-	width: 100%;
-}
+
 .bigbutton {
 	text-align:center;
 	width: 75%;
@@ -345,7 +350,7 @@ a.poke:hover img{
 
 #liikuv_bar{
 	margin:20px auto;
-<	text-align:center;
+	text-align:center;
 }
 
 
