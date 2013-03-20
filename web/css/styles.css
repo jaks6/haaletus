@@ -323,7 +323,6 @@ a.poke:hover img{
 
 /*TULEMUSTE lehe ASJADE L6PP ############################## */
 
-/* uus algus */
 
 #abi li{
 	font-size:20px;
@@ -336,7 +335,6 @@ a.poke:hover img{
 
 .bigbutton {
 	text-align:center;
-	width: 75%;
 	margin: 0 auto;
 }
 
@@ -344,7 +342,7 @@ a.poke:hover img{
 	text-align:center;
 	display:inline-block;
 	height: 100px;
-	width: 42%;
+	width: 43%;
 	text-transform: uppercase;
 	font-size: 1.9em;
 	background-color:#bfbfbf;
@@ -364,6 +362,8 @@ a.poke:hover img{
 }
 
 
+/* Progress bar */
+
 #loading img{
    position: fixed;
 	left: 45%;
@@ -371,10 +371,6 @@ a.poke:hover img{
 	z-index: 2;
 }
 
-
-
-
-/* uus lopp */
 
 /*medium, "mobile" view:
 top bar spans wider, fonts larger for better readability on dense screens.*/
