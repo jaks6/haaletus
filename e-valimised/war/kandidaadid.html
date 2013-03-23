@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>e-Valimised: Kandidaadid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="css/styles.css" rel="stylesheet" type="text/css"
+	media="screen" />
+<link rel='stylesheet' media='small' href='css/medium.css' />
+
+<script src="scripts/jquery-1.9.1.js"></script>
+<script src="scripts/kandidaadid.js"></script>
+
+</head>
+
+<body>
+	
+	<div id="loading">
+				<img id = "pic" src="images/progress2.gif" style="display:none" />
+			</div>
+			
+	
+	<div id="container">
+		<div id="top">
+
+			<div id="navbar">
+				<ul id="navmenu">
+					<li><a href="index.html">Esileht</a></li>
+					<li><a href="haaletamine.html">H&auml;&auml;letamine</a></li>
+					<li><a href="tulemused.html">Tulemused</a></li>
+					<li><a href="kandideerimine.html">Kandideerimine</a></li>
+					<li><a href="kandidaadid.html">Kandidaadid</a></li>
+				</ul>
+			</div>
+
+
+			<div id="login">
+				<a href="#">Logi sisse</a>
+			</div>
+
+			<div id="help">
+				<a href="abi.html">Abi</a>
+			</div>
+
+
+
+		</div>
+
+
+	
+		<div id="content">
+			
+			<div id="loading">
+				<img id = "pic" src="images/progress2.gif" style="display:none" />
+			</div>
+			
+			<h1>Kandidaadid</h1>
+			<div id="kandidaadid">
+				<div id="k_inputs">
+					<form id="kandidaadid_form" action="#">
+						<table>
+							<tr>
+								<th><label>Nimi:</label><input type="text" name="Name"
+									value=""></th>
+								<th><label>Partei:</label> <select name="Partei">
+										<option value="allPartys">Kõik parteid</option>
+										<option value="Ordurüütlid">Ordurüütlid</option>
+										<option value="Mustpead">Mustpead</option>
+										<option value="Vapsid">Vapsid</option>
+								</select></th>
+							</tr>
+							<tr>
+								<th><label>Piirkond:</label> <select name="Piirkond">
+										<option value="allAreas">Kõik piirkonnad</option>
+										<option value="Liivimaa">Liivimaa</option>
+										<option value="Eestimaa">Eestimaa</option>
+										<option value="Kuramaa">Kuramaa</option>
+								</select></th>
+								<th><label>ID:</label> <input type="text" name="ID"
+									value=""></th>
+							</tr>
+						</table>
+						<div id="button_style">
+							<input type="submit" value="Otsi">
+						</div>
+					</form>
+				</div>
+
+
+				
+				<div id="k_table">
+
+
+
+					<table id="candidateList">
+						<thead>
+							<tr>
+								<th>Nimi</th>
+								<th>ID</th>
+								<th>Partei</th>
+								<th>Piirkond</th>
+								<th>Hääli</th>
+							</tr>
+						</thead>
+					</table>
+					
+				</div>
+
+			</div>
+		</div>
+		<div id="footer">
+			<ul id="footermenu">
+				<li><a href="index.html">Esileht</a></li>
+				<li><a href="abi.html">Abi</a></li>
+				<li><a href="kontakt.html">Kontakt</a></li>
+
+			</ul>
+
+		</div>
+
+	</div>
+</body>
+</html>
