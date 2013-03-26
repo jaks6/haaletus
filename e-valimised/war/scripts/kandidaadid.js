@@ -1,20 +1,20 @@
 
+function getFieldValues(){
+	var party = $("select[name=Partei]").val();
+	var region = $("select[name=Piirkond]").val();
+	var person = $("input[name=Nimi22]").val();
+	var personid = $("input[name=ID]").val();
+	
+	alert(person+ party+ region+ personid+ "minutekst");
+}
+
 $(document).ready(function(){
 	
 	$("#kandidaadid_form").on('submit',function(){	//when the submit button ("OTSI") is pressed...
 		
-		  $("#content").css("opacity", "0.4");
-		  $("#pic").fadeIn(500);
-		  $("#pic").fadeOut(500);
-		   
-		   $('#content')
-			  .delay(1000)
-			  .queue( function(next){ 
-			    $(this).css('opacity','1'); 
-			    next(); 
-			  });
-			  
-		setTimeout(function(){
+		getFieldValues();
+		playLoadingAnimation();
+		setTimeout(function(){ //delay the following a bit.
     	 
 		//Conditions to check which file to load.
 		if ($("select[name=Partei]").val()!== "allPartys"){
@@ -73,14 +73,29 @@ function getCandidates(filename, region, party){
             	party = val.party.name;
             }
             
-            $("#candidateList").append(
-            		'<tr>	<td>'+ name +'</td>\
-            		<td>'+ id +'</td>\
-            		<td>'+ party +'</td>\
-            		<td>'+ region +'</td>\
-            		<td>'+ "X" +'</td>\
-            		</tr>');
+            appendRow2Table("candidateList", name, id, party, region, "X")
         });
     });
 }
-   
+//appends a row to a table with specified ID with given args
+function appendRow2Table(tableId, name, id, party, region, votes){
+	$("#"+tableId).append(
+			'<tr><td>'+ name +'</td>\
+			<td>'+ id +'</td>\
+			<td>'+ party +'</td>\
+			<td>'+ region +'</td>\
+			<td>'+ votes +'</td>\
+	</tr>');
+}
+function playLoadingAnimation(){
+	$("#content").css("opacity", "0.4");
+	$("#pic").fadeIn(500);
+	$("#pic").fadeOut(500);
+
+	$('#content')
+	.delay(1000)
+	.queue( function(next){ 
+		$(this).css('opacity','1'); 
+		next(); 
+		  });
+}   

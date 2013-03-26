@@ -1,11 +1,12 @@
 //an alternative way to load pages.....
-/*function fetchHtmlContent(filename){
+
+function fetchHtmlContent(filename){
 	alert("IN fetch, filename:" + filename);
 	$("#content-wrapper").empty();
-	
 	$("#content-wrapper").load(filename+" #content");
-
-}*/
+	
+	$("#content").css('background-color','#E7E7E7');
+}
 
 
 function display(newDiv){
