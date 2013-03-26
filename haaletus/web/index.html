@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<head>
+<title>e-Valimised: Kandideerimine</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="css/styles.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script src="scripts/jquery-1.9.1.js"></script>
+<script src="scripts/navigation.js"></script>
+<script src="scripts/kandidaadid.js"></script>
+<script src="scripts/kandideerimine.js"></script>
+<script src="scripts/sorttable2.js"></script>
+</head>
+<body>
+	<div id="container">
+	<div id="top">
+    	
+		<div id="navbar">
+			<ul id="navmenu">
+				<li><a href="#" onClick="display(homemenu)">Esileht</a></li>
+				<li><a href="#" onClick="display(haaletaminehtml)">H&auml;&auml;letamine</a></li>
+				<li><a href="#" onClick="display(tulemusedhtml)">Tulemused</a></li>
+				<li><a href="#" onClick="display(kandideeriminehtml)">Kandideerimine</a></li>
+				<li><a href="#" onClick="display(kandidaadidhtml)">Kandidaadid</a></li>
+			</ul>
+		</div>
+        
+        
+        <div id="login">
+			<a href="#">Logi sisse</a>
+		</div>
+        
+        <div id="help">
+			<a href="#" onClick="display(abihtml)">Abi</a>
+		</div>
+        
+        
+        
+	</div>
+	
+	
+	<div id="content-wrapper">
+	<div id="content">
+<!--  ------------------- START OF HOME MENU-------------------- -->	
+		<div id="homemenu" class="bigbutton">
+			<a href="#" onClick="display(haaletaminehtml)">H&auml;&auml;letamine</a>
+			<a href="#" onClick="display(tulemusedhtml)">Tulemused</a>
+			<a href="#" onClick="display(kandideeriminehtml)">Kandideerimine</a>
+			<a href="#" onClick="display(kandidaadidhtml)">Kandidaadid</a>
+		</div>
+<!--  ------------------- END OF HOME MENU-------------------- -->	
+<!--  ------------------- START OF KANDIDEERIMINE-------------------- -->			
+		<div id="kandideeriminehtml">
+		<h1> Kandideerimine </h1>
+			<p><b>Tere,</b><br>
+			kandideerimiseks palun täitke all olev kandideerimise vorm ning lisainfo vorm:</p>
+		
+
+		<form id="kandideerimise_vorm" name="kandideerimise_info" action="kandideerimine.html"
+		method="get" onSubmit="return submitEvents()">
+		
+			<fieldset style="border-color:#000000; border-style: solid;">
+				<legend><b>Kandideerimise vorm:</b></legend>
+					<label>E-mail:*</label><input type="text" size="30" name="email" ><br>
+					<label>S&uuml;nnikuup&auml;ev:*</label><input type="date" size="30" name="bdate"  ><br>
+					
+					<label>Partei:*</label><select form="kandideerimise_vorm" name="Partei valik">
+						  <option value="">---</option>
+						  <option value="keskerakond">Keskerakond</option>
+						  <option value="erakond">Niisama</option>
+						  <option value="erakond">Muu</option>
+						  <option value="erakond">Algebraerakond</option>
+					</select><br>
+					
+					<label>Piirkond:*</label><select form="kandideerimise_vorm" name="Piirkonna valik">
+						  <option value="">---</option>
+						  <option value="harju">Harju maakond</option>
+						  <option value="hiiu">Hiiu maakond</option>
+						  <option value="idaviru">Ida-Viru maakond</option>
+						  <option value="j&otilde;geva">J&otilde;geva maakond</option>
+						  <option value="j&auml;rva">J&auml;rva maakond</option>
+						  <option value="l&auml;&auml;ne">L&auml;&auml;ne maakond</option>
+						  <option value="l&auml;&auml;neviru">L&auml;&auml;ne-Viru maakond</option>
+						  <option value="p&otilde;lva">P&otilde;lva maakond</option>
+						  <option value="p&auml;rnu">P&auml;rnu maakond</option>
+						  <option value="rapla">Rapla maakond</option>
+						  <option value="saare">Saare maakond</option>
+						  <option value="tartu">Tartu maakond</option>
+						  <option value="valga">Valga maakond</option>
+						  <option value="viljandi">Viljandi maakond</option>
+						  <option value="v&otilde;ru">V&otilde;ru maakond</option>
+					</select><br>
+			</fieldset>
+			
+			<fieldset style="border-color:#000000; border-style: solid;">
+				<legend><b>Lisainfo:</b></legend>
+					<label>Perekonna seis:</label><select form="kandideerimise_vorm" name="Perekonna seis">
+						  <option value="abielus">Abielus</option>
+						  <option value="vallaline">Vallaline</option>
+						  <option value="suhtes">Suhtes</option>
+						  <option value="lahutanud">Lahutanud</option>
+					</select><br>
+					<label>Lapsed:</label><input type="text" size="30" name="kids"><br>
+					<label>Haridus:</label><input type="text" size="30" name="education"><br>
+					<label>T&ouml;&ouml;k&auml;ik:</label><input type="text" size="30" name="work"><br>
+			</fieldset>
+		<div id="button_style">
+			<br><input type="submit" value="Kinnita" >
+		</div>
+		</form>
+		</div>
+<!--  ------------------- END OF KANDIDEERIMINE-------------------- -->	
+		
+<!--  ------------------- Start OF Kandidaadid--------------------- -->
+		<div id="kandidaadidhtml">
+			
+			<div id="loading">
+				<img id = "pic" src="images/progress2.gif" style="display:none" />
+			</div>
+			
+			<h1>Kandidaadid</h1>
+			<div id="kandidaadid">
+				<div id="k_inputs">
+					<form id="kandidaadid_form" action="#">
+						<table>
+							<tr>
+								<th><label>Nimi:</label><input type="text" name="Name"
+									value=""></th>
+								<th><label>Partei:</label> <select name="Partei">
+										<option value="allPartys">Kõik parteid</option>
+										<option value="Ordurüütlid">Ordurüütlid</option>
+										<option value="Mustpead">Mustpead</option>
+										<option value="Vapsid">Vapsid</option>
+								</select></th>
+							</tr>
+							<tr>
+								<th><label>Piirkond:</label> <select name="Piirkond">
+										<option value="allAreas">Kõik piirkonnad</option>
+										<option value="Liivimaa">Liivimaa</option>
+										<option value="Eestimaa">Eestimaa</option>
+										<option value="Kuramaa">Kuramaa</option>
+								</select></th>
+								<th><label>ID:</label> <input type="text" name="ID"
+									value=""></th>
+							</tr>
+						</table>
+						<div id="button_style">
+							<input type="submit" value="Otsi">
+						</div>
+					</form>
+				</div>
+
+
+				
+				<div id="k_table">
+
+
+
+					<table id="candidateList">
+						<thead>
+							<tr>
+								<th>Nimi</th>
+								<th>ID</th>
+								<th>Partei</th>
+								<th>Piirkond</th>
+								<th>Hääli</th>
+							</tr>
+						</thead>
+					</table>
+					
+				</div>
+
+			</div>
+		</div>
+		
+<!--  ------------------- END OF Kandidaadid--------------------- -->
+<!--  ------------------- Start OF abi--------------------- -->
+<div id="abihtml">
+	<div id="abi">
+				<h1> Abi </h1>
+				<ul>
+					<li>Õpetus1</li>
+					<p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+					<li>Õpetus2</li>
+					<p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+					<li>Õpetus3</li>
+					<p>T"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+					
+				
+				</ul>
+	</div>
+</div>
+<!--  ------------------- END OF abi--------------------- -->
+<!--  ------------------- Start OF Tulemused--------------------- -->
+<div id="tulemusedhtml">
+    <h1>Tulemused / Statistika</h1>
+	
+	
+	<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et felis ac augue interdum lobortis feugiat quis tellus. </p>
+    
+    
+    
+    
+    
+    <div id="tulemustabs">
+    	<ul>
+                    <li><a href="index.html">Riigis</a></li>
+                    <li><a href="#">Piirkonniti</a></li>
+                    <li><a href="#">Parteide kaupa</a></li>
+                    <li><a href="#">Kandidaatide l&otilde;ikes</a></li>
+		</ul>
+    </div>
+    
+    <div id="tulemustabel-wrapper">
+
+    <div id="tulemustabel">
+        
+	
+    
+	<table class ="sortable" border="1">
+
+	  <tr>
+      	<th scope="col"><span class="tableheader">
+      		#
+      	</span></th>
+      	
+	    <th scope="col"><span class="tableheader">
+	    	Nimi
+	    </span></th>
+	    
+	    <th scope="col"><span class="tableheader">
+	    	ID
+	    </span></th>
+	    <th scope="col"><span class="tableheader">
+	    	HÄÄli
+	    </span></th>
+	    
+	    <th scope="col"><span class="tableheader">
+	    	Partei
+	    </span></th>
+	    
+	    <th scope="col"><span class="tableheader">
+	    	Piirkond
+	    </span></th>
+      </tr>
+      
+
+	  <tr>
+	    <td>1</td>
+	    <td><a class="poke" href="#">Edgar Savisaar<img src="images/ets.jpg" ></img></a></td>
+	    <td>994</td>
+	    <td>9001</td>
+	    <td>Keskerakond</td>
+	    <td>Harju</td>
+      </tr>
+	  <tr>
+	    <td>2</td>
+	    <td><a class="poke" href="#">Mesine Mees<img src="images/mesi.jpg" ></a></td>
+	    <td>213</td>
+	    <td>1999</td>
+	    <td>Lefterakond</td>
+	    <td>Tartumaa</td>
+      </tr>
+	  <tr>
+	    <td>3</td>
+	    <td>Metsa Mees</td>
+	    <td>112</td>
+	    <td>2</td>
+	    <td>Omaerakond</td>
+	    <td>Liwonia</td>
+      </tr>
+	  </table>
+      
+     </div>
+     </div>
+
+     
+	<p>&nbsp;</p>
+    
+      
+    <div id="kaart" class="statisticpic">
+        <img src="images/maakonnad.png" alt="Statistika kaardil">
+	</div>
+    <div id="graph" class="statisticpic">
+    <img src="images/graph1.png" alt="Statistika tulpadena">
+    </div>
+    <br style="clear:both" />
+    
+    
+    </div>
+<!--  ------------------- END OF Tulemused--------------------- -->
+		
+		
+<!--  ------------------- Start OF Haaletamine--------------------- -->	
+<div id="haaletaminehtml">
+	
+		
+			<h1> Hääletamine </h1>
+				<div id="k_inputs">
+				<table>
+					<form action="demo_form.asp">
+						<tr>
+							<th><label>Nimi:</label><input type="text" name="FirstName" value="Nimi" ><th>
+							<th><label>Partei:</label><input type="text" name="LastName" value="Partei" ><th>
+						</tr>
+						<tr>
+							<th><label>Piirkond:</label><input type="text" name="LastName" value="Piirkond" size="auto"><th>
+							<th><label>ID:</label><input type="text" name="LastName" value="ID" size="auto"><th><br>
+						</tr>
+					</form>
+				</table>
+			</div>
+		<div id="haaletamine">
+			<div id="button_style">
+				<input type="submit" value="Otsi">
+			</div>
+			
+						<table border="1" width="100%">
+							<col width="40">
+							<col width="450">
+							<col width="100">
+							<col width="350">
+							<col width="350">
+							<col width="200">
+							<tr>
+								<th id="keskele">Valik</th>
+								<th>Nimi</th>
+								<th>ID</th>
+								<th>Partei</th>
+								<th>Piirkond</th>
+								<th id="keskele">Lisa</th>
+							</tr>
+							
+							<tr>
+								<td  id="keskele"><input type="radio" name="radioB"/></td>
+								<td>Edgars Savisaar</td>
+								<td id="keskele">994</td>
+								<td>Keskerakond</td>
+								<td>Harjumaa</td>
+								<td id="keskele"><a class="poke" href="#">Lisa info.<img src="images/ets.jpg">
+							</tr>
+							
+							<tr>
+								<td id="keskele"><input type="radio" name="radioB"/></td>
+								<td>Mesine Mees</td>
+								<td id="keskele">213</td>
+								<td>Lefterakond</td>
+								<td>Tartumaa</td>
+								<td id="keskele"><a class="poke" href="#">Lisa info.<img src="images/mesi.jpg"> 
+							</tr>								
+							</tr>							
+							<tr>
+								<td  id="keskele"><input type="radio" name="radioB"/></td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+							</tr>							
+							<tr>
+								<td id="keskele"><input type="radio" name="radioB"/></td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								
+							</tr>							
+							<tr>
+								<td id="keskele"><input type="radio" name="radioB"/></td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+							</tr>	
+							<tr>
+								<td id="keskele"><input type="radio" name="radioB"/></td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+							</tr>
+							<tr>
+								<td id="keskele"><input type="radio" name="radioB"/></td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+							</tr>
+							<tr>
+								<td id="keskele"><input type="radio" name="radioB"/></td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+							</tr>
+							<tr>
+								<td id="keskele"><input type="radio" name="radioB"/></td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+								<td>..</td>
+							</tr>
+						</table>
+						<br style="clear:both"/>
+			</div>
+			<div id="button_style">
+			<br><input type="submit" value="Hääleta!" 
+				onclick="alert('Olete hääletanud!')">
+		</div>	
+	</div>
+<!--  ------------------- END OF Haaletamine-------------------- -->	
+		
+		
+		
+		
+		
+	</div>
+	</div>
+	<div id="liikuv_bar">
+		<img src="images/liikuv_bar.gif">
+	</div>
+    <div id="footer">
+        <ul id="footermenu">
+                    <li><a href="#" onClick="display(homemenu)">Esileht</a></li>
+                    <li><a href="#" onClick="display(abihtml)">Abi</a></li>
+                    <li><a href="#">Kontakt</a></li>
+
+		</ul>
+    
+    </div>
+
+	</div>
+</body>
+</html>

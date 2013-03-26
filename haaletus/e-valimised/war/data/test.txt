@@ -1,0 +1,24 @@
+
+<table border="2">
+						<tr>
+							<th>Nimi</th>
+							<th>ID</th>
+							<th>Partei</th>
+							<th>Piirkond</th>
+							<th>H‰‰li</th>
+						</tr>
+						<tr>
+							<td>Edgar Savisaar</td>
+							<td>341</td>
+							<td>Keskerakond</td>
+							<td>Harjumaa</td>
+							<td>54342</td>
+						</tr>
+						<tr>
+							<td>M‰gi Aiver</td>
+							<td>666</td>
+							<td>M‰ekond</td>
+							<td>Viimsi</td>
+							<td>5666</td>
+						</tr>
+</table>
