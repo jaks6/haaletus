@@ -1,2 +1,0 @@
-# Module e_valimised
-# RPC service class, partial path of RPC policy file
