@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<head>
+<title>e-Valimised: Kandideerimine</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="css/styles.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script src="scripts/jquery-1.9.1.js"></script>
+<script src="scripts/kandideerimine.js"></script>
+
+</head>
+<body>
+	<div id="container">
+	<div id="top">
+    	
+		<div id="navbar">
+			<ul id="navmenu">
+				<li><a href="index.html">Esileht</a></li>
+				<li><a href="haaletamine.html">H&auml;&auml;letamine</a></li>
+				<li><a href="tulemused.html">Tulemused</a></li>
+				<li><a href="kandideerimine.html">Kandideerimine</a></li>
+				<li><a href="kandidaadid.html">Kandidaadid</a></li>
+			</ul>
+		</div>
+        
+        
+        <div id="login">
+			<a href="#">Logi sisse</a>
+		</div>
+        
+        <div id="help">
+			<a href="abi.html">Abi</a>
+		</div>
+        
+        
+        
+	</div>
+	
+	<div id="content">
+		
+		<h1> Kandideerimine </h1>
+			<p><b>Tere,</b><br>
+			kandideerimiseks palun täitke all olev kandideerimise vorm ning lisainfo vorm:</p>
+		
+		<div id="kandideerimine">
+
+		<form id="kandideerimise_vorm" name="kandideerimise_info" action="kandideerimine.html"
+		method="get" onSubmit="return submitEvents()">
+		
+			<fieldset style="border-color:#000000; border-style: solid;">
+				<legend><b>Kandideerimise vorm:</b></legend>
+					<label>E-mail:*</label><input type="text" size="30" name="email" ><br>
+					<label>S&uuml;nnikuup&auml;ev:*</label><input type="date" size="30" name="bdate"  ><br>
+					
+					<label>Partei:*</label><select form="kandideerimise_vorm" name="Partei valik">
+						  <option value="">---</option>
+						  <option value="keskerakond">Keskerakond</option>
+						  <option value="erakond">Niisama</option>
+						  <option value="erakond">Muu</option>
+						  <option value="erakond">Algebraerakond</option>
+					</select><br>
+					
+					<label>Piirkond:*</label><select form="kandideerimise_vorm" name="Piirkonna valik">
+						  <option value="">---</option>
+						  <option value="harju">Harju maakond</option>
+						  <option value="hiiu">Hiiu maakond</option>
+						  <option value="idaviru">Ida-Viru maakond</option>
+						  <option value="j&otilde;geva">J&otilde;geva maakond</option>
+						  <option value="j&auml;rva">J&auml;rva maakond</option>
+						  <option value="l&auml;&auml;ne">L&auml;&auml;ne maakond</option>
+						  <option value="l&auml;&auml;neviru">L&auml;&auml;ne-Viru maakond</option>
+						  <option value="p&otilde;lva">P&otilde;lva maakond</option>
+						  <option value="p&auml;rnu">P&auml;rnu maakond</option>
+						  <option value="rapla">Rapla maakond</option>
+						  <option value="saare">Saare maakond</option>
+						  <option value="tartu">Tartu maakond</option>
+						  <option value="valga">Valga maakond</option>
+						  <option value="viljandi">Viljandi maakond</option>
+						  <option value="v&otilde;ru">V&otilde;ru maakond</option>
+					</select><br>
+			</fieldset>
+			
+			<fieldset style="border-color:#000000; border-style: solid;">
+				<legend><b>Lisainfo:</b></legend>
+					<label>Perekonna seis:</label><select form="kandideerimise_vorm" name="Perekonna seis">
+						  <option value="abielus">Abielus</option>
+						  <option value="vallaline">Vallaline</option>
+						  <option value="suhtes">Suhtes</option>
+						  <option value="lahutanud">Lahutanud</option>
+					</select><br>
+					<label>Lapsed:</label><input type="text" size="30" name="kids"><br>
+					<label>Haridus:</label><input type="text" size="30" name="education"><br>
+					<label>T&ouml;&ouml;k&auml;ik:</label><input type="text" size="30" name="work"><br>
+			</fieldset>
+		<div id="button_style">
+			<br><input type="submit" value="Kinnita" >
+		</div>
+		</form>
+		</div>
+		
+	</div>
+	
+    <div id="footer">
+        <ul id="footermenu">
+                    <li><a href="index.html">Esileht</a></li>
+                    <li><a href="abi.html">Abi</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+
+		</ul>
+    
+    </div>
+
+	</div>
+</body>
+</html>
