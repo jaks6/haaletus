@@ -5,6 +5,7 @@
 gwt-unitCache/
 WEB_INF/deploy/
 deploy/
+e-valimised/war/WEB-INF/deploy/
 #################
 ## Eclipse
 #################
