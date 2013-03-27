@@ -31,6 +31,11 @@
     <servlet-name>HelloWorld</servlet-name>
     <servlet-class>evalimised.HelloWorld</servlet-class>
   </servlet>
+  
+  <servlet>
+    <servlet-name>Kandidaat</servlet-name>
+    <servlet-class>evalimised.Kandidaadid_Data</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>SystemServiceServlet</servlet-name>
@@ -41,6 +46,10 @@
   <servlet-mapping>
     <servlet-name>HelloWorld</servlet-name>
     <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Kandidaat</servlet-name>
+    <url-pattern>kandidaadid_data</url-pattern>
   </servlet-mapping>
 
 </web-app>

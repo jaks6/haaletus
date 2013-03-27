@@ -2,28 +2,26 @@ package evalimised;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** DB stuff */
 import com.google.appengine.api.rdbms.AppEngineDriver;
-import java.sql.*;
+import com.google.gson.Gson;
+import com.google.gwt.user.client.rpc.core.java.util.Collections;
+/** DB stuff */
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-//comment to test commit
-//second comment to test pulling via desktop program
-
-//third commenet to test conflict with desktop program
-
-//this comment was written after 1. and 2. after 3rd comment was commited but 
-//without pulling 3rd comment
-
-public class HelloWorld extends HttpServlet {
+public class Kandidaadid_Data extends HttpServlet {
 	
 	@Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -31,12 +29,18 @@ public class HelloWorld extends HttpServlet {
 		
 		
         resp.setContentType("text/plain");
-        resp.getWriter().println("Hello, world -----!");
+        resp.getWriter().println("---- greetings from KANDIDAADID_DATA servlet -----");
+        resp.getWriter().print(req);
+        
+        System.out.println("getattributenames: ");
+        Enumeration<String> paramNames =req.getParameterNames();
+        		while(paramNames.hasMoreElements()) {
+        			String paramName = (String)paramNames.nextElement();
+        			System.out.println(paramName);
+        		}
+        System.out.println();
+        System.out.println("getQueryString:   " + req.getQueryString());
     
-	
-	
-	
-	
 	
 	
 	
@@ -64,23 +68,25 @@ public class HelloWorld extends HttpServlet {
         		"ParteiID=Partei.ID &&\r\n" + 
         		"Kandidaat.PiirkondID = Piirkond.ID"
         		);
+        Gson gson = new Gson();
+        ArrayList<Kandidaat> candidates = new ArrayList<Kandidaat>();
+//        Collection<Kandidaat> candidates = Collections.EmptySet_CustomFieldSerializer;
         
-        while (rs.next()){
-            String eesnimi = rs.getString("Eesnimi");
-            String perenimi = rs.getString("Perenimi");
-            int id = rs.getInt("ID");
-            
-            resp.getWriter().println(eesnimi + " " + perenimi + " " +id);
-        }
         while (rs2.next()){
-            String nimi = rs2.getString("Nimi");
-            String partei = rs2.getString("Partei");
-            int id = rs2.getInt("ID");
-            String region = rs2.getString("Piirkond");
-            
-            resp.getWriter().println(nimi+ " "+ partei+ " "+ id+ " "+ region);
+        	candidates.add(new Kandidaat(
+        			rs2.getString("Nimi"),
+        			rs2.getString("Partei"),
+        			rs2.getInt("ID"),
+        			rs2.getString("Piirkond"))
+        	);
+        }
+        for (Kandidaat i: candidates){
+        	System.out.println(i);
         }
         
+        String json = gson.toJson(candidates);
+        System.out.println("--");
+        System.out.println(json);
         
       } catch (SQLException e) {
           e.printStackTrace();
@@ -105,26 +111,4 @@ public class HelloWorld extends HttpServlet {
 	
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-    
-    
-	public void doPost(HttpServletRequest req, HttpServletResponse res)
-		      throws ServletException, IOException {
-		    doGet(req, res);
-		  }
 }

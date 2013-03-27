@@ -6,13 +6,13 @@ $(document).ready(function(){
 
 function callKandidaadidScript(){
 $("#kandidaadid_form").on('submit',function(){	//when the submit button ("OTSI") is pressed...
-		getFieldValues();
+		contactServlet();
 		playLoadingAnimation();
 		setTimeout(function(){ //delay the following a bit.
     	 
 		//Conditions to check which file to load.
-		if ($("select[name=Partei]").val()!== "allPartys"){
-			if ($("select[name=Piirkond]").val()!== "allAreas"){
+		if ($("select[name=Partei]").val()!== ""){
+			if ($("select[name=Piirkond]").val()!== ""){
 				getCandidates('data/candidatesByRegionAndParty.json', 	//both region and party have been specified
 						$("select[name=Piirkond]").val(), $("select[name=Partei]").val());
 				
@@ -21,7 +21,7 @@ $("#kandidaadid_form").on('submit',function(){	//when the submit button ("OTSI")
 						undefined, $("select[name=Partei]").val());
 			}
 		} else {
-			if ($("select[name=Piirkond]").val()!== "allAreas"){
+			if ($("select[name=Piirkond]").val()!== ""){
 				getCandidates('data/candidatesByRegion.json', 			//just region has been specified
 						$("select[name=Piirkond]").val(), undefined);
 			}
@@ -39,10 +39,20 @@ $("#kandidaadid_form").on('submit',function(){	//when the submit button ("OTSI")
 function getFieldValues(){
 	var party = $("select[name=Partei]").val();
 	var region = $("select[name=Piirkond]").val();
-	var person = $("input[name=Nimi22]").val();
+	var person = $("input[name=Nimi]").val();
 	var personid = $("input[name=ID]").val();
 	
-	alert(person+ party+ region+ personid+ "minutekst");
+	return new Array(party, region, person, personid);
+	
+	
+	
+}
+
+function contactServlet(){
+	var data=getFieldValues();
+	$.get("kandidaadid_data",  {party: data[0], region: data[1],person:data[2], id:data[3] });
+	// http://w3schools.com/jquery/ajax_getjson.asp
+	//var json = $.getJSON("kandidaadid_data",data);
 }
 
 //fetches data from a predestined .json file, outputs it to the table with the id "candidateList"
