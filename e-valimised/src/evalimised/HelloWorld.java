@@ -16,7 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 
 //comment to test commit
 //second comment to test pulling via desktop program
+
 //third commenet to test conflict with desktop program
+
+//this comment was written after 1. and 2. after 3rd comment was commited but 
+//without pulling 3rd comment
+
 public class HelloWorld extends HttpServlet {
 	
 	@Override
