@@ -4,6 +4,7 @@
 /gwt-unitCache
 gwt-unitCache/
 WEB_INF/deploy/
+deploy/
 #################
 ## Eclipse
 #################
