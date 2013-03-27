@@ -1,17 +1,11 @@
-
-function getFieldValues(){
-	var party = $("select[name=Partei]").val();
-	var region = $("select[name=Piirkond]").val();
-	var person = $("input[name=Nimi22]").val();
-	var personid = $("input[name=ID]").val();
-	
-	alert(person+ party+ region+ personid+ "minutekst");
-}
-
 $(document).ready(function(){
+	callKandidaadidScript();
 	
-	$("#kandidaadid_form").on('submit',function(){	//when the submit button ("OTSI") is pressed...
-		
+});
+
+
+function callKandidaadidScript(){
+$("#kandidaadid_form").on('submit',function(){	//when the submit button ("OTSI") is pressed...
 		getFieldValues();
 		playLoadingAnimation();
 		setTimeout(function(){ //delay the following a bit.
@@ -40,7 +34,16 @@ $(document).ready(function(){
 		return false; 	//needed for AJAX .submit() stuff to work properly. without this line clicking
 						//SUBMIT will refresh the entire page.
 	});
-});
+}
+
+function getFieldValues(){
+	var party = $("select[name=Partei]").val();
+	var region = $("select[name=Piirkond]").val();
+	var person = $("input[name=Nimi22]").val();
+	var personid = $("input[name=ID]").val();
+	
+	alert(person+ party+ region+ personid+ "minutekst");
+}
 
 //fetches data from a predestined .json file, outputs it to the table with the id "candidateList"
 function getCandidates(filename, region, party){

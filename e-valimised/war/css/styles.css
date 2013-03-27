@@ -108,10 +108,10 @@ h1 {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 1px 30px 40px 30px;
-	background-color:#efefef;
+	/*background-color:#efefef;*/
 	/* FOLLOWING LINES COMMENTED OUT DUE TO NAVIGATION WITH MASTER INDEX.html*/
 	/*background-color:#e7e7e7;*/
-	box-shadow:  4px 4px 6px rgba(50, 50, 50, 0.4);
+	/*box-shadow:  4px 4px 6px rgba(50, 50, 50, 0.4);*/
 }
 
 #footer {

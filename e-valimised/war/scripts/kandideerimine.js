@@ -3,7 +3,7 @@
 function submitEvents(){
 	if (validateForm()){
 		kinnitaKandideerimine();
-		return true;
+		return false;
 	} else {
 		return false;
 	}
