@@ -3,7 +3,9 @@
 function fetchHtmlContent(filename){
 	alert("IN fetch, filename:" + filename);
 	$("#content-wrapper").empty();
-	$("#content-wrapper").load(filename+" #content");
+	$("#content-wrapper").load(filename+" #content", function() {
+		if (filename=='tulemused.html') callSortTable();
+	});
 	
 	$("#content").css('background-color','#E7E7E7');
 }

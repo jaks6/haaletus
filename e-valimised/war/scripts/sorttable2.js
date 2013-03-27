@@ -9,24 +9,28 @@ for ( var i = 0; i< 6; i++){	// -1 kui desc. ; 		0 kui sortimata
 
 var lastClickedColumn = 0;
 $(document).ready(function() {
+	callSortTable();
 	
-	$(".sortable th").each(function(index) {
-			//add  sorting icon-buttons to HTML table header 
-		   $(this).append('<a class="sortIcon"><img id="asc'+ index+'" src="./images/asc.png">');
-		   $(this).append('<a class="sortIcon"><img id="desc'+ index+'" src="./images/desc.png">');
-		   $(this).append('<a class="sortIcon"><img id="unsorted'+ index+'" src="./images/unsorted.png">');
-		});
-	
-	
-	//INITIALIZATION AS LAB MATERIALS REQUESTED
-	sortColumn("#tulemustabel tr:gt(0)", 0);  //set the left-most column as sorted, as required
-	toggleImage(0);
-	//END OF INITIALIZATION
-	
-	
-	sortColumnOnClick(".sortIcon");
 
 });
+
+function callSortTable(){
+	$(".sortable th").each(function(index) {
+		//add  sorting icon-buttons to HTML table header 
+		$(this).append('<a class="sortIcon"><img id="asc'+ index+'" src="./images/asc.png">');
+		$(this).append('<a class="sortIcon"><img id="desc'+ index+'" src="./images/desc.png">');
+		$(this).append('<a class="sortIcon"><img id="unsorted'+ index+'" src="./images/unsorted.png">');
+	});
+
+
+//	INITIALIZATION AS LAB MATERIALS REQUESTED
+	sortColumn("#tulemustabel tr:gt(0)", 0);  //set the left-most column as sorted, as required
+	toggleImage(0);
+//	END OF INITIALIZATION
+
+
+	sortColumnOnClick(".sortIcon");
+}
 
 //this function handles the flow of events when a click is made on a table header.
 function sortColumnOnClick(selector){ 		

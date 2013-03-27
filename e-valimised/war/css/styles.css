@@ -110,8 +110,8 @@ h1 {
 	padding: 1px 30px 40px 30px;
 	background-color:#efefef;
 	/* FOLLOWING LINES COMMENTED OUT DUE TO NAVIGATION WITH MASTER INDEX.html*/
-	/*background-color:#e7e7e7;
-	box-shadow:  4px 4px 6px rgba(50, 50, 50, 0.4);*/
+	/*background-color:#e7e7e7;*/
+	box-shadow:  4px 4px 6px rgba(50, 50, 50, 0.4);
 }
 
 #footer {
@@ -195,7 +195,7 @@ h1 {
 
  /* uus algus */
  
-#kandideeriminehtml label { /* <-- this used to be #kandideerimine label, changed to html suffix due to master html*/
+#kandideerimine label { /* <-- this used to be #kandideerimine label, changed to html suffix due to master html*/
 	display: block;
 	float: left;
 	width: 150px;
