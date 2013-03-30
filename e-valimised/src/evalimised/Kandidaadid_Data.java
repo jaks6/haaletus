@@ -72,19 +72,11 @@ public class Kandidaadid_Data extends HttpServlet {
         		"&& Kandidaat.ID LIKE '%"+ req.getParameter("id")+"%' \n" +
         		"&& Piirkond.Nimi LIKE '%"+ req.getParameter("region")+"%' \n" );
         
-        System.out.println(selectStatement);
 
         		
         ResultSet rs2 = c.createStatement().executeQuery(selectStatement);
-        		
-        		
-        
-        /** GSON*/
-        PrintWriter out = resp.getWriter();
-        Gson gson = new Gson();
+        //Create a list of 'candidate' java objects from the executed queries result set
         List<Kandidaat> candidates = new ArrayList<Kandidaat>();
-        resp.setContentType("application/json");
-        
         while (rs2.next()){
         	candidates.add(new Kandidaat(
         			rs2.getString("Nimi"),
@@ -94,10 +86,25 @@ public class Kandidaadid_Data extends HttpServlet {
         			rs2.getInt("HaalteArv"))
         	);
         }
-        for (Kandidaat i: candidates){
-        	System.out.println(i);
-        }
         
+        resp.setContentType("application/json");
+        PrintWriter out = resp.getWriter();
+        
+      
+//        for (Kandidaat i: candidates){
+//        	System.out.println(i);
+//        }
+        
+        //EMULATE LONG QUERY TIME
+//        try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//        // END OF EMULATION
+        /** GSON*/
+        Gson gson = new Gson();
         out.print(gson.toJson(candidates));
      
       
