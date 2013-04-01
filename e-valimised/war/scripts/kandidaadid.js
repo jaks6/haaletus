@@ -2,17 +2,18 @@ $(document).ready(function(){
 
 	callKandidaadidScript();
 
-
 });
 
 
 function callKandidaadidScript(){
+	doComplete();
 	$("#kandidaadid_form").on('submit',function(event){	//when the submit button ("OTSI") is pressed...
+		
 		event.preventDefault();
 		var locationHash = window.location.hash;
-		console.log("locationHash = " + locationHash);
-		//setLocationHash(locationhash + "?" + $("#kandidaadid_form").serialize());
-		contactServlet();
+		//console.log("locationHash = " + locationHash);
+		setLocationHash(locationHash + "?" + $("#kandidaadid_form").serialize());
+		contactServlet($("#kandidaadid_form").serialize()); //do the query with values from form fields.
 
 		return false; 	//needed for AJAX .submit() stuff to work properly. without this line clicking
 		//SUBMIT will refresh the entire page.
@@ -31,7 +32,7 @@ function getFieldValues(){
 
 
 
-function contactServlet(){
+function contactServlet(query){
 	loadingAnimation("start");
 	//var fields=getFieldValues();
 	
@@ -39,7 +40,7 @@ function contactServlet(){
 	// URL CHANGING
 	$("#candidateList > tbody").remove();	//clear previous data from table body
 	var fieldsPortionOfHash = window.location.hash.substring(12);
-	$.getJSON('/rest/hello' + fieldsPortionOfHash
+	$.getJSON('/rest/hello?' + query
 //			, 
 //			{
 //		party: fields[0],	//pass parameters along (field values entered by the user on html page)

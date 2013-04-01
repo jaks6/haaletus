@@ -13,17 +13,15 @@ var allowHashToUpdateApp = true;
 
 //an alternative way to load pages.....
 // FOR BACK AND FORWARD TO WORK, MIGHT WANT TO LOOK INTO : https://developers.google.com/tv/web/articles/location-hash-navigation
-function fetchHtmlContent(filename){
-	
+function fetchHtmlContent(hashName, queryString){
 	//empty previous content, then reload new content
 	$("#content-wrapper").empty();	
-	$("#content-wrapper").load(filename+" #content", function() {
-		initPageScripts(filename);
+	$("#content-wrapper").load(hashName+".html #content", function() {
+		initPageScripts(hashName, queryString);
 		
 		
 		//make homemenu bigbutton background disappear, reappear on other pages
-		//alert("filename: " + filename);
-		if (filename=='index.html'){
+		if (hashName=='index'){
 			$("#content").css('background-color','none');
 			$("#content").css('box-shadow','none');
 		} else {
@@ -36,26 +34,47 @@ function fetchHtmlContent(filename){
 	
 }
 
-/** Calls scripts specific to the page given in param
+/** Calls scripts, queries specific to the page given in param
  * @param filename - the page whose scripts must be loaded
  */
-function initPageScripts(filename){
-	if (filename=='tulemused.html'){ 
-		callSortTable();
-	} else if (filename=='kandidaadid.html'){
-		callKandidaadidScript();
+function initPageScripts(hashName, queryString){
+	var queryFlag = false;
+	if (queryString!=""){
+		queryFlag = true; // set the flag, so that we know that we should also make the queries
+		console.log("query wasnt empty! it was="+ queryString);
 	}
+	if (hashName=='tulemused'){ 
+		callSortTable();
+	} else if (hashName=='kandidaadid'){
+		callKandidaadidScript();
+		if (queryFlag) contactServlet(queryString);
+	}
+	
 }
 /**
  * Called to change the state of my app based on specified value.
  */
 function updateMyApp(value) {
-	console.log("updating app with" + value);
+	console.log("updating app with=" + value);
+	
+	var hashName;
+	var queryString;
+	var questionMarkPos = value.indexOf('?');
+	
+	if (questionMarkPos != -1){ //kui leidub queryString, siis eraldame selle
+		hashName = value.substring(0, value.indexOf('?')); // see osa stringist, mis eelneb ?-le
+		queryString = value.substring( questionMarkPos +1); // see osa, mis järngeb ?-le
+	} else {
+		hashName = value;	//kui ? pole, järelikult pole ka queryStringi urlis.
+		queryString = "";
+	}
+	console.log("hashName= "+ hashName);
+	console.log("queryString= " + queryString);
+	
 	window.location.hash = value;
 	
-	fetchHtmlContent(value+".html");
-  // Track state by updating location hash
-  //setLocationHash('state-N');
+	fetchHtmlContent(hashName, queryString);
+	
 }
 
 
@@ -73,7 +92,6 @@ function getLocationHash () {
 	return locHash;
 }
 
-// - UNUSED, TO BE REMOVED: ?
 /**
  * Called by my app to update location hash. Hash changes made through
  * this function should always be ignored by the hash change event handler.

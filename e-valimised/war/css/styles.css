@@ -185,6 +185,28 @@ h1 {
 	margin-bottom:20%;
 	display:block;
 }
+/* START OF AUTOCOMPLETE : */
+.ui-helper-hidden-accessible { display:none; }
+/*
+.ui-autocomplete{
+	background-color: #FFFFFF;
+	width: 100px;
+	list-style-type:none;
+}*/
+
+.ui-autocomplete a:hover{
+	border-color: #000000;
+	font-weight:bold;
+	
+}
+
+.ui-menu-item {
+	z-index:100;
+	margin-left:-40%;
+}
+
+/* END OF AUTOCOMPLETE : */
+
 
 #abi li{
 	font-size:20px;
