@@ -186,23 +186,12 @@ h1 {
 	display:block;
 }
 /* START OF AUTOCOMPLETE : */
-.ui-helper-hidden-accessible { display:none; }
-/*
-.ui-autocomplete{
-	background-color: #FFFFFF;
-	width: 100px;
-	list-style-type:none;
-}*/
-
-.ui-autocomplete a:hover{
-	border-color: #000000;
-	font-weight:bold;
-	
+.ui-helper-hidden-accessible {
+	display:none;	
 }
 
-.ui-menu-item {
-	z-index:100;
-	margin-left:-40%;
+.ui-autocomplete-input {
+	
 }
 
 /* END OF AUTOCOMPLETE : */
@@ -270,15 +259,20 @@ img[id^="asc"], img[id^="desc"]{
 }
 #tulemustabs li + li:before{
     content: " | ";
-    padding: 0 1px;
+    padding: 0 5px;
 }
 #tulemustabs li{
-	
 	display: inline;
 }
+
+#tulemustabs a:hover{
+	text-decoration:overline;
+	color:#333366;
+}
+
 #tulemustabs ul{
-	
 	background-color:#CCCCCC;
+	padding-left:38%;
 }
 /* make the header row stand in place*/
 .tableheader {
@@ -328,21 +322,13 @@ a.poke:hover img{
 	text-transform:uppercase;
 }
 	
-
-
-
 .statisticpic img{
 	max-width: 100%;
 	margin-left:auto;
 	margin-right:auto;
 	display:block;
 }
-.statisticpic {
-	border-top-style: solid;
-	border-top-color: #666;
-	
-	padding-top: 50px;
-}
+
 
 /*TULEMUSTE lehe ASJADE L6PP ############################## */
 
@@ -394,7 +380,17 @@ a.poke:hover img{
 	z-index: 2;
 }
 
+#riigis{
+	display:block;
+}
 
+#parteidekaupa{
+	display:none;
+}
+
+#piirkonniti{
+	display:none;
+}
 
 
 /* uus lopp */

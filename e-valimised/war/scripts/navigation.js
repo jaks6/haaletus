@@ -34,6 +34,20 @@ function fetchHtmlContent(hashName, queryString){
 	
 }
 
+function loadStatisticSubpage(hashName){
+	//empty previous content, then reload new content
+	event.preventDefault();
+	initPageScripts(hashName);
+	$("#piirkonniti").css('display', 'none');
+	$("#riigis").css('display', 'none');
+	$("#parteidekaupa").css('display', 'none');
+	
+	$("#"+hashName).css('display','block');
+	
+
+	
+}
+
 /** Calls scripts, queries specific to the page given in param
  * @param filename - the page whose scripts must be loaded
  */

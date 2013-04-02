@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	doComplete();
 });
+
+
 function doComplete(){
 	var availableTags = [
 	                     "ilves",

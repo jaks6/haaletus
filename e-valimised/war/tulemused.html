@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+
+
 <head>
 <title>e-Valimised: Tulemused/Statistika</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -8,10 +11,15 @@
 
 <script src="scripts/jquery-1.9.1.js"></script>
 <script src="scripts/sorttable2.js"></script>
-
 </head>
+
+
+   
 <body>
 	<div id="container">
+		
+		   <!--- TOP START ---> 
+		   
 	<div id="top">
     	
 		<div id="navbar">
@@ -32,37 +40,39 @@
         <div id="help">
 			<a href="abi.html">Abi</a>
 		</div>
-        
-        
-        
+
 	</div>
+		   <!--- TOP END ---> 
 	
+	   <!--- CONTENT START ---> 
+	   
 	<div id="content">
     <h1>Tulemused / Statistika</h1>
 	
 	
 	<p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et felis ac augue interdum lobortis feugiat quis tellus. </p>
-    
+    Valimise tulemused. 
+    Erinevate vaadete vahel saab navigeerida kasutades all olevaid nuppe. </p>
+
     
     
     
     
     <div id="tulemustabs">
-    	<ul>
-                    <li><a href="index.html">Riigis</a></li>
-                    <li><a href="#">Piirkonniti</a></li>
-                    <li><a href="#">Parteide kaupa</a></li>
-                    <li><a href="#">Kandidaatide l&otilde;ikes</a></li>
-		</ul>
-    </div>
-    
-    <div id="tulemustabel-wrapper">
+    	
 
-    <div id="tulemustabel">
-        
-	
-    
+    	<ul>
+                    <li><a href="" onClick="loadStatisticSubpage('riigis')">RIIK</a></li>
+                    <li><a href="" onClick="loadStatisticSubpage('piirkonniti')">PIIRKOND</a></li>
+                    <li><a href="" onClick="loadStatisticSubpage('parteidekaupa')">PARTEI</a></li>
+		</ul>
+		
+    </div>
+
+
+    <div id="riigis">
+    <div id="tulemustabel-wrapper">
+    <div id="tulemustabel"> 
 	<table class ="sortable" border="1">
 
 	  <tr>
@@ -119,21 +129,29 @@
       
      </div>
      </div>
-
-     
-	<p>&nbsp;</p>
-    
-      
-    <div id="kaart" class="statisticpic">
-        <img src="images/maakonnad.png" alt="Statistika kaardil">
+ 	</div>
+	
+	
+	<div id="piirkonniti">
+    	<div id="kaart" class="statisticpic">
+   	     <img src="images/maakonnad.png" alt="Statistika kaardil">
+		</div>
 	</div>
-    <div id="graph" class="statisticpic">
-    <img src="images/graph1.png" alt="Statistika tulpadena">
-    </div>
+	
+	<div id="parteidekaupa">
+	    <div id="graph" class="statisticpic">
+	    	<img src="images/graph1.png" alt="Statistika tulpadena">
+	    </div>
+	</div>    
+	 
     <br style="clear:both" />
     
-    
-    </div>
+	</div>
+   
+
+       <!--- CONTENT END ---> 
+       
+       <!--- FOOTER START ---> 
     <div id="footer">
         <ul id="footermenu">
                     <li><a href="index.html">Esileht</a></li>
@@ -143,7 +161,7 @@
 		</ul>
     
     </div>
-
+   <!--- FOOTER END ---> 
 	</div>
 </body>
 </html>
