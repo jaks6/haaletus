@@ -1,8 +1,17 @@
 @import url(http://fonts.googleapis.com/css?family=Abel);
 
-#fakebanner{
+#fakebannertop{
 	color:red;
 	text-align:center;
+	border-bottom-style:solid;
+	border-bottom-color:red;
+}
+
+#fakebannerbottom{
+	color:red;
+	text-align:center;
+	border-top-style:solid;
+	border-top-color:red;
 }
 
 #container{
