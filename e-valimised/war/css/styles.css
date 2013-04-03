@@ -1,18 +1,34 @@
 @import url(http://fonts.googleapis.com/css?family=Abel);
-
+/*
 #fakebannertop{
 	color:red;
 	text-align:center;
+	
 	border-bottom-style:solid;
 	border-bottom-color:red;
+	repeat: 
+}*/
+
+#fakebannerbottom, #fakebannertop{
+	font-family: 'Abel', 'Times New Roman';
+	background-color: #B80000;
+	color: white;
+	text-align:center;
+	background-repeat: repeat-x;
+	width: 100%;
+	left: 0;
+
+	
 }
 
 #fakebannerbottom{
-	color:red;
-	text-align:center;
-	border-top-style:solid;
-	border-top-color:red;
+	position: fixed;
+    bottom: 0; 
 }
+ #fakebannertop{
+	position:absolute;
+ 	top: 0;
+ }
 
 #container{
 	font-family: 'Abel', 'Times New Roman';
@@ -20,7 +36,8 @@
 	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
-	min-width: 220px;	
+	min-width: 220px;
+	padding-bottom: 50px;	
 }
 
 
@@ -99,10 +116,6 @@ a{
 #button_style input:hover{
 	background-color:#CCC;
 }
-/* HIDE THE FOLLOWING DIVS INITIALLY (NAVIGATION PURPOSES)*/
-#haaletaminehtml, #tulemusedhtml, #kandidaadidhtml, #kandideeriminehtml, #abihtml{
-	display: none;
-}
 #homemenu {
 	background: none;
 	box-shadow: none;
@@ -147,11 +160,24 @@ h1 {
 	color:#000000;
 }
 
+#ticker {
+	color: white;
+}
+
 /* jaksi css */
 #kandidaadid{
 	width:95%;
 	padding-left:15px;
 	font-size:20px;
+}
+
+#k_table th.hover, #k_table th {
+   background-color: white;
+}
+#k_table tr.hover {
+   cursor: pointer;
+   background-color: #D0D4D9;
+   /* whatever other hover styles you want */
 }
 #k_left{
 	width:20%;
@@ -199,9 +225,16 @@ h1 {
 	margin-bottom:20%;
 	display:block;
 }
-/* START OF AUTOCOMPLETE : */
+/* START OF HaaletamienE : */
 
-/* END OF AUTOCOMPLETE : */
+#haaletamine_refused {
+	
+}
+#haaletamine{
+	display:none;
+}
+
+/* END OF HAALATAMINE : */
 
 
 #abi li{
@@ -230,22 +263,15 @@ h1 {
  	 width: 34.6%;
 }
 
-#haaletamine table{
+#candidate_info ul{
 	background-color:white;
-	float:right;
-	border-collapse:collapse;
-	height:200px;
-	width:100%;
-	display:block;
-	overflow-y: scroll;
-	border:none;
+	font-size: x-large;
+	list-style-type: none;
+
 }
 
-#haaletamine th, td {
-    border: 1px solid black;
-    overflow: hidden;
-    width: 150px;
-}
+
+
 
 #keskele {
     text-align:center;
@@ -337,6 +363,9 @@ a.poke:hover img{
 }
 
 
+
+
+
 /*TULEMUSTE lehe ASJADE L6PP ############################## */
 
 /* uus algus */
@@ -386,7 +415,7 @@ a.poke:hover img{
 	top: 35%;
 	z-index: 2;
 }
-
+/*
 #riigis{
 	display:block;
 }
@@ -398,7 +427,7 @@ a.poke:hover img{
 #piirkonniti{
 	display:none;
 }
-
+*/
 
 /* uus lopp */
 

@@ -1,14 +1,29 @@
-//returns false if we have invalid field (and highlights them)
-//returns true if field are filled, and pops up confirmation window
+$(document).ready(function(){
+	kandideerimineInit();
+
+});
+
+
 function kandideerimineInit(){
-	
+	getDropdownOptions("region", "party");
+	$("#kandideerimise_vorm").on('submit',function(){
+		submitEvents();
+
+		return false;
+	});
 }
 
+function contactKandideerimineServlet(){
+	console.log("kandid-vorm="+$("#kandideerimise_vorm").serialize());
+	$.post("rest/Kandideerimine",$("#kandideerimise_vorm").serialize())
+	
+}
 function submitEvents(){
 	
 	
-	if (validateForm()){
+	if (validateForm()){ //used to be validateForm()
 		kinnitaKandideerimine();
+		
 		return false;
 	} else {
 		return false;
@@ -16,6 +31,8 @@ function submitEvents(){
 }
 
 
+//returns false if we have invalid field (and highlights them)
+//returns true if field are filled, and pops up confirmation window
 function validateForm(){
         $("#kandideerimise_vorm span").remove();
         var fields_empty=false;
@@ -50,5 +67,6 @@ function kinnitaKandideerimine(){
 
         var r=confirm("Kinnitage kandideerimine.");
         if (r==true)
-          {alert("Olete lisatud kandidatuuri!")}
+          {alert("Olete lisatud kandidatuuri!")
+        	contactKandideerimineServlet();}
 }

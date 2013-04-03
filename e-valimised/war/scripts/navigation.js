@@ -1,5 +1,8 @@
-//this deals with situations of actual page loading (ie hitting f5)
+//NAVIGATION INSPIRED BY : https://developers.google.com/tv/web/articles/location-hash-navigation
 //!TODO: START USING /#! hashbangs!
+
+
+//this deals with situations of actual page loading (ie hitting f5)
 $(document).ready(function(){
 	allowHashToUpdateApp = false;
 	updateMyApp(getLocationHash());
@@ -13,12 +16,15 @@ $(document).ready(function(){
  */
 var allowHashToUpdateApp = true;
 
-//FOR BACK AND FORWARD TO WORK, MIGHT WANT TO LOOK INTO : https://developers.google.com/tv/web/articles/location-hash-navigation
-function fetchHtmlContent(hashName, queryString){
+function fetchHtmlContent(hashName, subpageName, queryString){
 	//empty previous content, then reload new content
 	$("#content-wrapper").empty();	
 	$("#content-wrapper").load(hashName+".html #content", function() {
-
+		//Load subpage:
+		if (subpageName!=""){
+			loadStatisticSubpage(subpageName);
+		}
+		
 		//make homemenu bigbutton background disappear, reappear on other pages
 		if (hashName=='index'){
 			$("#content").css('background-color','none');
@@ -29,22 +35,22 @@ function fetchHtmlContent(hashName, queryString){
 
 		}
 
-		loadingAnimation("start");
 		initPageScripts(hashName, queryString);
-		loadingAnimation("stop");
 	});
 
 }
 
 function loadStatisticSubpage(hashName){
 	//empty previous content, then reload new content
-	event.preventDefault();
-	initPageScripts(hashName);
+	//event.preventDefault();
+	
+	//initPageScripts(hashName);
 	$("#piirkonniti").css('display', 'none');
 	$("#riigis").css('display', 'none');
 	$("#parteidekaupa").css('display', 'none');
 	
 	$("#"+hashName).css('display','block');
+	setLocationHash("tulemused/"+hashName);
 	
 
 	
@@ -55,13 +61,19 @@ function loadStatisticSubpage(hashName){
  *  @param queryString - the query to be passed, if there is one
  */
 function initPageScripts(hashName, queryString){
+	loadingAnimation("start");
+
 	var queryFlag = false;
 	if (queryString!=""){
 		queryFlag = true; // set the flag, so that we know that we should also make the queries
 	}
 	
     $.getScript("scripts/"+ hashName +".js", function(){
-    	if (queryFlag) contactServlet(queryString);
+    	if (queryFlag){
+    		contactServlet(queryString);
+    	}
+    	loadingAnimation("stop");
+
     }); 
 	
 
@@ -71,21 +83,40 @@ function initPageScripts(hashName, queryString){
  */
 function updateMyApp(value) {
 	var hashName;
-	var queryString;
+	var queryString ="";
 	var questionMarkPos = value.indexOf('?');
+	var slashPos = value.indexOf('/');
+	var subpageName ="";
+	
+	
 
-	if (questionMarkPos != -1){ //kui leidub queryString, siis eraldame selle
-		hashName = value.substring(0, value.indexOf('?')); // see osa stringist, mis eelneb ?-le
+	
+	if (questionMarkPos != -1 &&  slashPos!= -1){
+		hashName = value.substring(0, slashPos);
+		subpageName = value.substring( slashPos +1, questionMarkPos);
 		queryString = value.substring( questionMarkPos +1); // see osa, mis järngeb ?-le
-	} else {
-		hashName = value;	//kui ? pole, järelikult pole ka queryStringi urlis.
-		queryString = "";
 	}
-//	console.log("hashName= "+ hashName);
-//	console.log("queryString= " + queryString);
+	else if (questionMarkPos != -1){ //kui leidub queryString, siis eraldame selle
+		hashName = value.substring(0, questionMarkPos); // see osa stringist, mis eelneb ?-le
+		queryString = value.substring( questionMarkPos +1); // see osa, mis järngeb ?-le
+		
+	} else if (slashPos!= -1) {
+		hashName = value.substring(0, slashPos);
+		subpageName = value.substring( slashPos +1);
+	}
+	else {
+		hashName = value;	//kui ? pole, järelikult pole ka queryStringi urlis.
+	}
 
 	window.location.hash = value;
-	fetchHtmlContent(hashName, queryString);
+//	console.log("hashName= "+ hashName);
+//	console.log("subPage= " + subpageName);
+//	console.log("queryString= " + queryString);
+	fetchHtmlContent(hashName, subpageName, queryString);
+	
+	if (slashPos != -1){	//erilahendus tulemuste lehele, võiks üldisema variandi kunagi kirjutada
+		//loadStatisticSubpage(subpageName);
+	}
 	allowHashToUpdateApp = false;
 
 }
