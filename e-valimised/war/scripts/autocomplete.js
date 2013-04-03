@@ -1,21 +1,8 @@
 $(document).ready(function() {
 	doComplete();
 });
-<<<<<<< HEAD
 
-
-function doComplete(){
-	var availableTags = [
-	                     "ilves",
-	                     "mees",
-	                     "mõnus",
-	                     "mesine"
-	                     ];
-
-=======
 function doComplete(){	
-	
->>>>>>> origin/jakobiBranch
 	$( "#nimiFull" ).autocomplete({ 
 		source: ( "/rest/autocomplete"),
 		
