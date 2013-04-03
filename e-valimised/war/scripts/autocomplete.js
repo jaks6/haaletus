@@ -1,18 +1,20 @@
 $(document).ready(function() {
 	doComplete();
 });
-function doComplete(){
-	var availableTags = [
-	                     "ilves",
-	                     "mees",
-	                     "mõnus",
-	                     "mesine"
-	                     ];
-
+function doComplete(){	
+	
 	$( "#nimiFull" ).autocomplete({ 
-		source: availableTags,
+		source: ( "/rest/autocomplete"),
+		
 		noResults: '',
-        results: function() {}
+		minLength: 2,
+        results: function() {},
+	
+		select: function(e, ui){
+        
+        // comment out this line to see the difference
+        $('#nimiFull').val(ui.item.value);
+        contactServlet($("#kandidaadid_form").serialize());}
 		});
 }
 

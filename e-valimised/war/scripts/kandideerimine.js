@@ -1,6 +1,12 @@
 //returns false if we have invalid field (and highlights them)
 //returns true if field are filled, and pops up confirmation window
+function kandideerimineInit(){
+	
+}
+
 function submitEvents(){
+	
+	
 	if (validateForm()){
 		kinnitaKandideerimine();
 		return false;

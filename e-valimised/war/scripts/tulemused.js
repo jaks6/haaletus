@@ -9,12 +9,12 @@ for ( var i = 0; i< 6; i++){	// -1 kui desc. ; 		0 kui sortimata
 
 var lastClickedColumn = 0;
 $(document).ready(function() {
-	callSortTable();
+	tulemusedInit();
 	
 
 });
 
-function callSortTable(){
+function tulemusedInit(){
 	$(".sortable th").each(function(index) {
 		//add  sorting icon-buttons to HTML table header 
 		$(this).append('<a class="sortIcon"><img id="asc'+ index+'" src="./images/asc.png">');

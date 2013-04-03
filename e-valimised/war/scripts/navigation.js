@@ -1,5 +1,7 @@
 //this deals with situations of actual page loading (ie hitting f5)
+//!TODO: START USING /#! hashbangs!
 $(document).ready(function(){
+	allowHashToUpdateApp = false;
 	updateMyApp(getLocationHash());
 });
 
@@ -11,15 +13,12 @@ $(document).ready(function(){
  */
 var allowHashToUpdateApp = true;
 
-//an alternative way to load pages.....
-// FOR BACK AND FORWARD TO WORK, MIGHT WANT TO LOOK INTO : https://developers.google.com/tv/web/articles/location-hash-navigation
+//FOR BACK AND FORWARD TO WORK, MIGHT WANT TO LOOK INTO : https://developers.google.com/tv/web/articles/location-hash-navigation
 function fetchHtmlContent(hashName, queryString){
 	//empty previous content, then reload new content
 	$("#content-wrapper").empty();	
 	$("#content-wrapper").load(hashName+".html #content", function() {
-		initPageScripts(hashName, queryString);
-		
-		
+
 		//make homemenu bigbutton background disappear, reappear on other pages
 		if (hashName=='index'){
 			$("#content").css('background-color','none');
@@ -27,40 +26,40 @@ function fetchHtmlContent(hashName, queryString){
 		} else {
 			$("#content").css('background-color','#E7E7E7');
 			$("#content").css('box-shadow', ' 4px 4px 6px rgba(50, 50, 50, 0.4)');
-			
+
 		}
-		
+
+		loadingAnimation("start");
+		initPageScripts(hashName, queryString);
+		loadingAnimation("stop");
 	});
-	
+
 }
 
 /** Calls scripts, queries specific to the page given in param
- * @param filename - the page whose scripts must be loaded
+ * @param hashName - the page whose scripts must be loaded
+ *  @param queryString - the query to be passed, if there is one
  */
 function initPageScripts(hashName, queryString){
 	var queryFlag = false;
 	if (queryString!=""){
 		queryFlag = true; // set the flag, so that we know that we should also make the queries
-		console.log("query wasnt empty! it was="+ queryString);
-	}
-	if (hashName=='tulemused'){ 
-		callSortTable();
-	} else if (hashName=='kandidaadid'){
-		callKandidaadidScript();
-		if (queryFlag) contactServlet(queryString);
 	}
 	
+    $.getScript("scripts/"+ hashName +".js", function(){
+    	if (queryFlag) contactServlet(queryString);
+    }); 
+	
+
 }
 /**
  * Called to change the state of my app based on specified value.
  */
 function updateMyApp(value) {
-	console.log("updating app with=" + value);
-	
 	var hashName;
 	var queryString;
 	var questionMarkPos = value.indexOf('?');
-	
+
 	if (questionMarkPos != -1){ //kui leidub queryString, siis eraldame selle
 		hashName = value.substring(0, value.indexOf('?')); // see osa stringist, mis eelneb ?-le
 		queryString = value.substring( questionMarkPos +1); // see osa, mis järngeb ?-le
@@ -68,13 +67,13 @@ function updateMyApp(value) {
 		hashName = value;	//kui ? pole, järelikult pole ka queryStringi urlis.
 		queryString = "";
 	}
-	console.log("hashName= "+ hashName);
-	console.log("queryString= " + queryString);
-	
+//	console.log("hashName= "+ hashName);
+//	console.log("queryString= " + queryString);
+
 	window.location.hash = value;
-	
 	fetchHtmlContent(hashName, queryString);
-	
+	allowHashToUpdateApp = false;
+
 }
 
 
@@ -87,7 +86,7 @@ function getLocationHash () {
 	if (locHash.length == 0) { //if were loading the homepage without any hash, set the hash to #index
 		return "index";
 	} else {
-		
+
 	}
 	return locHash;
 }
@@ -97,9 +96,9 @@ function getLocationHash () {
  * this function should always be ignored by the hash change event handler.
  */
 function setLocationHash(str) {
-  // Tell the event handler to ignore this change since its manually updated.
-  allowHashToUpdateApp = false;
-  window.location.hash = str;
+	// Tell the event handler to ignore this change since its manually updated.
+	allowHashToUpdateApp = false;
+	window.location.hash = str;
 }
 
 /**
@@ -107,10 +106,10 @@ function setLocationHash(str) {
  * propagate updates to my app.
  */
 window.onhashchange = function(e) {
-	console.log("in hashchange");
-  if (allowHashToUpdateApp) {
-    updateMyApp(getLocationHash());
-  } else {
-    allowHashToUpdateApp = true;
-  }
+	if (allowHashToUpdateApp) {
+		updateMyApp(getLocationHash());
+		allowHashToUpdateApp = true;
+	} else {
+		allowHashToUpdateApp = true;
+	}
 };
