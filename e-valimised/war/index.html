@@ -6,15 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/styles.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="css/homepage_style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
 
 <script src="scripts/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 
 <script src="scripts/navigation.js"></script>
-<script src="scripts/kandidaadid.js"></script>
+<script src="scripts/index.js"></script>
+<!--<script src="scripts/kandidaadid.js"></script>
+ <script src="scripts/kandideerimine.js"></script> 
+<script src="scripts/tulemused.js"></script>-->
 <script src="scripts/autocomplete.js"></script>
-<script src="scripts/kandideerimine.js"></script>
-<script src="scripts/sorttable2.js"></script>
 </head>
 
 <body>
@@ -46,10 +48,10 @@
 	<div id="content-wrapper">
 	<div id="content">
 	<div id="homemenu" class="bigbutton">
-		<a href="#" onClick="updateMyApp('haaletamine')">H&auml;&auml;letamine</a>
-		<a href="#" onClick="updateMyApp('tulemused)">Tulemused</a>
-		<a href="#" onClick="updateMyApp('kandideerimine')">Kandideerimine</a>
-		<a href="#" onClick="updateMyApp('kandidaadid')">Kandidaadid</a>
+		<a href="#index" onClick="updateMyApp('haaletamine')">H&auml;&auml;letamine</a>
+		<a href="#haaletamine" onClick="updateMyApp('tulemused)">Tulemused</a>
+		<a href="#kandideerimine" onClick="updateMyApp('kandideerimine')">Kandideerimine</a>
+		<a href="#kandidaadid" onClick="updateMyApp('kandidaadid')">Kandidaadid</a>
 	</div>
 	</div>
     </div>

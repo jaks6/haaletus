@@ -34,64 +34,92 @@ public class JerseyHello {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String sayJSONHello(
+	public String getKandidaadid(
 			@QueryParam("party") String party,
 			@QueryParam("person") String person,
 			@QueryParam("id") String id,
-			@QueryParam("region") String region
+			@QueryParam("region") String region,
+			@QueryParam("listingsFlag") int listingsFlag
 			){
-		System.out.println("printing params");
-		System.out.println(party +  person+ id + region);
+//		System.out.println("printing params");
+//		System.out.println(party +  person+ id + region+listingsFlag);
 
+		Gson gson = new Gson();
 		/** DB */
 		Connection c = null;
 		try {
 			DriverManager.registerDriver(new AppEngineDriver());
 			c = DriverManager.getConnection("jdbc:google:rdbms://valimisrakendus:e-valimised/valimisedDB");
-			String selectStatement = (
-					"Select \r\n" + 
-							"CONCAT(Eesnimi, ' ', Perenimi) as Nimi ,\r\n" + 
-							"Kandidaat.ID,\r\n" + 
-							"Partei.Nimetus as Partei,\r\n" + 
-							"Piirkond.Nimi as Piirkond,\r\n" + 
-							"HaalteArv\r\n" + 
-							"from Isik, Kandidaat, Partei, Piirkond\r\n" + 
-							"\r\n" + 
-							"\r\n" + 
-							"WHERE \r\n" + 
-							"Kandidaat.IsikID=Isik.ID && \r\n" + 
-							"ParteiID=Partei.ID &&\r\n" + 
-					"Kandidaat.PiirkondID = Piirkond.ID  \r\n");
-
-			//kitsendame päringut lisades WHERE osa lõppu tingimusi
-			selectStatement=selectStatement.concat(
-					"&& Partei.Nimetus LIKE '%"+ party+"%' \n" +
-							"&& CONCAT(Eesnimi, ' ', Perenimi) LIKE '%"+ person +"%' \n" +
-							"&& Kandidaat.ID LIKE '%"+ id +"%' \n" +
-							"&& Piirkond.Nimi LIKE '%"+ region +"%' \n" );
 
 
 
-			ResultSet rs2 = c.createStatement().executeQuery(selectStatement);
-			//Create a list of 'candidate' java objects from the executed queries result set
-			List<Kandidaat> candidates = new ArrayList<Kandidaat>();
-			System.out.println("about to itreate");
-			while (rs2.next()){
-				candidates.add(new Kandidaat(
-						rs2.getString("Nimi"),
-						rs2.getString("Partei"),
-						rs2.getInt("ID"),
-						rs2.getString("Piirkond"),
-						rs2.getInt("HaalteArv"))
-						);
+			if (listingsFlag!=1){
+				String selectStatement = (
+						"Select \r\n" + 
+								"CONCAT(Eesnimi, ' ', Perenimi) as Nimi ,\r\n" + 
+								"Kandidaat.ID,\r\n" + 
+								"Partei.Nimetus as Partei,\r\n" + 
+								"Piirkond.Nimi as Piirkond,\r\n" + 
+								"HaalteArv\r\n" + 
+								"from Isik, Kandidaat, Partei, Piirkond\r\n" + 
+								"\r\n" + 
+								"\r\n" + 
+								"WHERE \r\n" + 
+								"Kandidaat.IsikID=Isik.ID && \r\n" + 
+								"ParteiID=Partei.ID &&\r\n" + 
+						"Kandidaat.PiirkondID = Piirkond.ID  \r\n");
+
+				//kitsendame päringut lisades WHERE osa lõppu tingimusi
+				selectStatement=selectStatement.concat(
+						"&& Partei.Nimetus LIKE '%"+ party+"%' \n" +
+								"&& CONCAT(Eesnimi, ' ', Perenimi) LIKE '%"+ person +"%' \n" +
+								"&& Kandidaat.ID LIKE '%"+ id +"%' \n" +
+								"&& Piirkond.Nimi LIKE '%"+ region +"%' \n" );
+
+
+
+				ResultSet rs2 = c.createStatement().executeQuery(selectStatement);
+				//Create a list of 'candidate' java objects from the executed queries result set
+				List<Kandidaat> candidates = new ArrayList<Kandidaat>();
+				while (rs2.next()){
+					candidates.add(new Kandidaat(
+							rs2.getString("Nimi"),
+							rs2.getString("Partei"),
+							rs2.getInt("ID"),
+							rs2.getString("Piirkond"),
+							rs2.getInt("HaalteArv"))
+							);
+				}
+				return gson.toJson(candidates);
+				
+				
+				
+			} else { // DROPDOWN LISTIDELE INFO HANKIMISE OSA
+
+				List<String> regionsList = new ArrayList<String>();
+				List<String> partiesList = new ArrayList<String>();
+				List<List<String>> responseList = new ArrayList<List<String>>();
+
+				ResultSet parties = c.createStatement().executeQuery("Select Partei.Nimetus from Partei");
+				ResultSet regions = c.createStatement().executeQuery("Select Piirkond.Nimi from Piirkond");
+				
+				while(regions.next()){
+					regionsList.add((String) regions.getObject(1));
+
+				}
+				while(parties.next()){
+					partiesList.add((String) parties.getObject(1));
+
+				}
+
+				responseList.add(regionsList);
+				responseList.add(partiesList);
+				return gson.toJson(responseList);
 			}
-		
 
 
-		/** GSON*/
-        Gson gson = new Gson();
-        return gson.toJson(candidates);
-        
+			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -102,30 +130,9 @@ public class JerseyHello {
 				}
 		}
 		return "Error: gson return statement failed to get called in JerseyHello.java";
-		
+
 	}
 
 
-//	// This method is called if TEXT_PLAIN is request
-//	@GET
-//	@Produces(MediaType.TEXT_PLAIN)
-//	public String sayPlainTextHello() {
-//		return "Hello Jerse";
-//	}
-//
-//	// This method is called if XML is request
-//	@GET
-//	@Produces(MediaType.TEXT_XML)
-//	public String sayXMLHello() {
-//		return "<?xml version=\"1.0\"?>" + "<hello> Hello Jersey" + "</hello>";
-//	}
-//
-//	// This method is called if HTML is request
-//	@GET
-//	@Produces(MediaType.TEXT_HTML)
-//	public String sayHtmlHello() {
-//		return "<html> " + "<title>" + "Hello Jersey" + "</title>"
-//				+ "<body><h1>" + "Hello Jersey" + "</body></h1>" + "</html> ";
-//	}
 
 } 

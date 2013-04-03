@@ -1,23 +1,38 @@
 $(document).ready(function(){
-
-	callKandidaadidScript();
+	kandidaadidInit();
 
 });
 
 
-function callKandidaadidScript(){
+function kandidaadidInit(){
 	doComplete();
+	getDropdownOptions();
 	$("#kandidaadid_form").on('submit',function(event){	//when the submit button ("OTSI") is pressed...
 		
 		event.preventDefault();
-		var locationHash = window.location.hash;
-		//console.log("locationHash = " + locationHash);
-		setLocationHash(locationHash + "?" + $("#kandidaadid_form").serialize());
+		
+		//updateURL
+		setLocationHash("kandidaadid?" + $("#kandidaadid_form").serialize());
+		
 		contactServlet($("#kandidaadid_form").serialize()); //do the query with values from form fields.
 
 		return false; 	//needed for AJAX .submit() stuff to work properly. without this line clicking
 		//SUBMIT will refresh the entire page.
 	});
+}
+
+function getDropdownOptions(){
+	
+	$.getJSON('/rest/partiesandregions' ,  function(data){
+		for (var region in data[0]) {
+			$("select[name=region]").append('<option value="'+data[0][region]+'">'+data[0][region]+'</option>');
+		}
+		for (var party in data[1]) {
+			$("select[name=party]").append('<option value="'+data[1][party]+'">'+data[1][party]+'</option>');
+		}
+	});
+	
+	
 }
 
 // .serialize() function of jQuery removes the need for the following function!! (.serialize() used in contactServlet())
@@ -36,21 +51,11 @@ function contactServlet(query){
 	loadingAnimation("start");
 	//var fields=getFieldValues();
 	
-	//!TODO:
-	// URL CHANGING
 	$("#candidateList > tbody").remove();	//clear previous data from table body
 	var fieldsPortionOfHash = window.location.hash.substring(12);
-	$.getJSON('/rest/hello?' + query
-//			, 
-//			{
-//		party: fields[0],	//pass parameters along (field values entered by the user on html page)
-//		region: fields[1],
-//		person:fields[2], 
-//		id: fields[3] 
-//			}
-	,
+	$.getJSON('/rest/hello?' + query,
 			function(data) {
-				var items = [];
+//				var items = [];
 				for (var candidate in data) {
 					var name = data[candidate].name;
 					var id = data[candidate].id;
@@ -73,18 +78,7 @@ function appendRow2Table(tableId, name, id, party, region, votes){
 			<td>'+ votes +'</td>\
 	</tr>');
 }
-//function playLoadingAnimation(delayTime){
-//	$("#content").css("opacity", "0.4");
-//	$("#pic").fadeIn(500);
-//	$("#pic").fadeOut(500);
-//
-//	$('#content')
-//	.delay(delayTime)
-//	.queue( function(next){ 
-//		$(this).css('opacity','1'); 
-//		next(); 
-//	});
-//}
+
 function loadingAnimation(action){
 	if (action=="start"){
 		$("#content").css("opacity", "0.4");
