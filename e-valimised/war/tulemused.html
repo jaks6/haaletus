@@ -9,8 +9,11 @@
 <!-- Include Print CSS -->
 <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
 
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
 <script src="scripts/jquery-1.9.1.js"></script>
 <script src="scripts/tulemused.js"></script>
+<script src="scripts/chart.js"></script>
 </head>
 
 
@@ -54,10 +57,6 @@
     Valimise tulemused. 
     Erinevate vaadete vahel saab navigeerida kasutades all olevaid nuppe. </p>
 
-    
-    
-    
-    <script src="scripts/sorttable2.js"></script>
     <div id="tulemustabs">
     	
 
@@ -70,7 +69,9 @@
     </div>
 
 
+	<div id="chart_div" style="width:400; height:300"></div>
     <div id="riigis">
+    
     <div id="tulemustabel-wrapper">
     <div id="tulemustabel"> 
 	<table class ="sortable" border="1">
