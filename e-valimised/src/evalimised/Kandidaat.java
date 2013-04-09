@@ -18,6 +18,12 @@ public Kandidaat(String name, String party, int id, String region, int votes) {
 	this.votes = votes;
 }
 
+public Kandidaat(String name,  int votes) {
+	super();
+	this.name = name;
+	this.votes = votes;
+}
+
 
 
 @Override

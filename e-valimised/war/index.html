@@ -16,26 +16,34 @@
 <!--<script src="scripts/kandidaadid.js"></script>
  <script src="scripts/kandideerimine.js"></script> 
 <script src="scripts/tulemused.js"></script>-->
+<script src="scripts/ticker.js"></script>
+<script src="scripts/authenticate.js"></script>
 <script src="scripts/autocomplete.js"></script>
 </head>
 
 <body>
+	
+	
+	
 	<div id="fakebannertop">
-	<p>Tegemist ei ole õigete valimistega!! Tegemist ei ole õigete valimistega!! Tegemist ei ole õigete valimistega!! Tegemist ei ole õigete valimistega!! Tegemist ei ole õigete valimistega!! Tegemist ei ole õigete valimistega!!</p>
+	Antud rakendus ei ole mõeldud kasutamiseks reaalsetel valimistel
 	</div>
+	<div id="loading">
+				<img id = "pic" src="images/progress2.gif" style="display:none" />
+			</div>
 	<div id="container">
 	<div id="top">    	
 		<div id="navbar">
 			<ul id="navmenu">
 				<li><a href="#index" onClick="updateMyApp('index')">Esileht</a></li>
 				<li><a href="#haaletamine" onClick="updateMyApp('haaletamine')">H&auml;&auml;letamine</a></li>
-				<li><a href="#tulemused" onClick="updateMyApp('tulemused')">Tulemused</a></li>
+				<li><a href="#tulemused/riigis" onClick="updateMyApp('tulemused/riigis')">Tulemused</a></li>
 				<li><a href="#kandideerimine" onClick="updateMyApp('kandideerimine')">Kandideerimine</a></li>
 				<li><a href="#kandidaadid" onClick="updateMyApp('kandidaadid')">Kandidaadid</a></li>
 			</ul>
 		</div>                
         <div id="login">
-			<a href="#">Logi sisse</a>
+			<a href="#index" onClick=authenticateUser()>Logi sisse</a>
 		</div>
         
         <div id="help">
@@ -48,15 +56,15 @@
 	<div id="content-wrapper">
 	<div id="content">
 	<div id="homemenu" class="bigbutton">
-		<a href="#index" onClick="updateMyApp('haaletamine')">H&auml;&auml;letamine</a>
-		<a href="#haaletamine" onClick="updateMyApp('tulemused)">Tulemused</a>
+		<a href="#haaletamine" onClick="updateMyApp('haaletamine')">H&auml;&auml;letamine</a>
+		<a href="#tulemused/riigis" onClick="updateMyApp('tulemused/riigis')">Tulemused</a>
 		<a href="#kandideerimine" onClick="updateMyApp('kandideerimine')">Kandideerimine</a>
 		<a href="#kandidaadid" onClick="updateMyApp('kandidaadid')">Kandidaadid</a>
 	</div>
 	</div>
     </div>
 	<div id="liikuv_bar">
-		<img src="images/liikuv_bar.gif">
+		<div id="ticker"></div> 
 	</div>
     <div id="footer">
         <ul id="footermenu">
@@ -66,11 +74,13 @@
 
 		</ul>
     
+    </div>	
     </div>
-	</div>	
 	<div id="fakebannerbottom">
-	<p>Tegemist ei ole õigete valimistega!! Tegemist ei ole õigete valimistega!! Tegemist ei ole õigete valimistega!! Tegemist ei ole õigete valimistega!! Tegemist ei ole õigete valimistega!! Tegemist ei ole õigete valimistega!!</p>
+	Rakenduses realiseeritud e-valimiste näide on realiseeritud tehnoloogiate praktiseerimise eesmärgil 
+	ning ei ole mõeldud reaalsete e-valimiste korraldamiseks. Kokkulangevused reaalse e-valimiste protsessiga on juhuslikud
 	</div>
+	
 </body>
 
 
