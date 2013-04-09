@@ -13,6 +13,7 @@ function logOut(){
 	document.cookie=("id=\"\";expires=-1;path=/");
 	$("#login").html("");
 	$("#login").append("<a href=\"#\" onclick=authenticateUser()>Logi Sisse</a>");
+	updateMyApp(getLocationHash());
 }
 
 function authenticateUser(){
@@ -30,6 +31,8 @@ function authenticateUser(){
 		logged_in=true;
 		document.cookie = "name=valimised; expires=0; path=/";
 		document.cookie = "id="+ID+"; expires=0; path=/";
+		
+		updateMyApp(getLocationHash());
 
 	}
 }

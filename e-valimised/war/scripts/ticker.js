@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	startticker();
+	//startticker();
 
 });
 
@@ -42,15 +42,31 @@ function fetchTopThree(){
 function startticker(){
 	fetchTopThree();
 	if (document.getElementById) {
-		var tick = '<div style="margin:0px auto;position:relative;width:'+tWidth+';height:'+tHeight+';overflow:hidden;background-color:'+tcolour+'"'; 
+		var tick = '<div style="\
+			margin:0px auto;\
+			position:relative;\
+			width:'+tWidth+';\
+			height:'+tHeight+';\
+			overflow:hidden;\
+			background-color:'+tcolour+'"'; 
+		
 		if (moStop) tick += ' onmouseover="cps=0" onmouseout="cps=tSpeed"'; 
-		tick +='><div id="mq" style="position:absolute;left:0px;top:0px;font-family:'+fontfamily+';font-size:'+fsz+'px;white-space:nowrap;"><\/div><\/div>'; 
+		
+		tick +='><div id="mq" style="\
+			position:absolute;\
+			left:0px;\
+			top:0px;\
+			font-family:'+fontfamily+';\
+			font-size:'+fsz+'px;\
+			white-space:nowrap;\
+			"><\/div><\/div>'; 
+		
 		document.getElementById('ticker').innerHTML = tick;
 		mq = document.getElementById("mq"); 
 		mq.style.left=(parseInt(tWidth)+10)+"px"; 
 		mq.innerHTML='<span id="tx">'+content+'<\/span>'; 
 		aw = document.getElementById("tx").offsetWidth; 
-		lefttime=setInterval("scrollticker()",50);
+		lefttime=setInterval("scrollticker()",30);
 		}
 	} 
 
