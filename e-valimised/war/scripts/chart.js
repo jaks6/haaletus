@@ -1,6 +1,4 @@
-
-    
-    // Load the Visualization API and the piechart package.
+   // Load the Visualization API and the piechart package.
      google.load('visualization', '1.0', {'packages':['corechart']});
     
     // Set a callback to run when the Google Visualization API is loaded.
@@ -30,6 +28,7 @@
                      'height':300};
 
       // Instantiate and draw our chart, passing in some options.
-      var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+      var chart = new google.visualization.PieChart(document.getElementById("googlechart"));
+      console.log("Creating new google pie chart");
       chart.draw(data, options);
     }
