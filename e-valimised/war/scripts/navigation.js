@@ -73,7 +73,7 @@ function loadStatisticSubpage(hashName){
  *  @param queryString - the query to be passed, if there is one
  */
 function initPageScripts(hashName, queryString){
-	loadingAnimation("start");
+	
 
 	var queryFlag = false;
 	if (queryString!=""){
@@ -86,6 +86,8 @@ function initPageScripts(hashName, queryString){
     	}
     	loadingAnimation("stop");
 
+    	
+
     }); 
 	
 
@@ -94,6 +96,7 @@ function initPageScripts(hashName, queryString){
  * Called to change the state of my app based on specified value.
  */
 function updateMyApp(value) {
+	loadingAnimation("start");
 	var hashName;
 	var queryString ="";
 	var questionMarkPos = value.indexOf('?');

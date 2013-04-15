@@ -6,6 +6,7 @@ gwt-unitCache/
 WEB_INF/deploy/
 deploy/
 e-valimised/war/WEB-INF/deploy/
+WEB_INF/lib/gwt-servlet.jar
 #################
 ## Eclipse
 #################

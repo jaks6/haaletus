@@ -87,7 +87,7 @@ function contactServlet(query){
 			
 			
 					$("#haaletamine").css('display','block');
-					$("#haaletamine").append("<p>Kinnitage, et soovite just antud kandidaadi poolt h&auml;&auml;letada:</p>" +
+					$("#haaletamine").html("<p>Kinnitage, et soovite just antud kandidaadi poolt h&auml;&auml;letada:</p>" +
 							"(Teie eelnev h&auml;&auml;lt t&uuml;histatakse!)" +
 						"<div id='candidate_info'></div>" +
 							"<div id='button_style'>" +
