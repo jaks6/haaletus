@@ -32,7 +32,7 @@
 
 #container{
 	font-family: 'Abel', 'Times New Roman';
-	width: 70%;
+	width: 90%;
 	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
@@ -310,7 +310,7 @@ img[id^="asc"], img[id^="desc"]{
 /* make the header row stand in place*/
 .tableheader {
 	margin-top:2px;
-	position: absolute;
+	/*position: absolute; */ /* välja kommenteerituna on sortIcon'id samal real headeri tekstiga. */
 	top: 0;
 }
 .header-background {
@@ -327,7 +327,6 @@ img[id^="asc"], img[id^="desc"]{
 	min-width: 290px;
 }
 #tulemustabel {
-	overflow:auto;
 	height: 200px;
 }
 

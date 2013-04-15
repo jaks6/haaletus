@@ -1,8 +1,3 @@
-$(document).ready(function(){
-	startticker();
-
-});
-
 var tWidth='800px';                  // width (in pixels)
 var tHeight='25px';                  // height (in pixels)
 var tcolour='gray';               // background colour:

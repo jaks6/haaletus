@@ -26,6 +26,7 @@ public class Autocomplete {
 			){
 
 		/** DB */
+		System.out.println(term);
 		Connection c = null;
 		try {
 			DriverManager.registerDriver(new AppEngineDriver());
@@ -33,7 +34,7 @@ public class Autocomplete {
 			String selectStatement = "SELECT CONCAT(Eesnimi, ' ', Perenimi) as Nimi " +
 					"from Isik WHERE Isik.Perenimi like '%" + term +"%'";
 
-
+			System.out.println(selectStatement);
 			ResultSet rs2 = c.createStatement().executeQuery(selectStatement);
 
 			ArrayList<String> namesList = new ArrayList<String>();
@@ -41,6 +42,7 @@ public class Autocomplete {
 				namesList.add(rs2.getString("Nimi"));
 			}
 
+			System.out.println(namesList);
 			/** GSON*/
 			Gson gson = new Gson();
 			return gson.toJson(namesList);

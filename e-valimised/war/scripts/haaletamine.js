@@ -1,51 +1,74 @@
-$(document).ready(function(){
-	haaletamineInit();
-
-});
+//$(document).ready(function(){
+////	haaletamineInit();
+//});
 
 
 function haaletamineInit(){
-	console.log("haalteamine init, cookei ="+get_cookie("id"));
-	if (get_cookie("id")!= "\"\""){
-		$("#haaletamine").css('display','block');
-		$("#haaletamine_refused").css('display','none');
-	} else {
-		console.log("MUSTVE BEEN EMPT COOKY");
-		$("#haaletamine").css('display','none');
-	}
+//	console.log("haalteamine init, cookei ="+get_cookie("id"));
+//	if (get_cookie("id")!= "\"\""){
+//		$("#haaletamine").css('display','block');
+//		$("#haaletamine_refused").css('display','none');
+//	} else {
+//		console.log("MUSTVE BEEN EMPT COOKY");
+//		$("#haaletamine").css('display','none');
+//	}
 	
 	
 }
 
-function isLogged(page){
-	if(get_cookie("name")=="valimised"){
-		return true;
-	}
-	else{
-		if(page="kand"){
-			$("#kandideerimine").html("Peate sisse logima, et kandideerida");
-		}
-		if(page="haal"){
-			$("#haaletamine").html("Peate sisse logima, et hjeeletada");
-			$("#k_inputs").html("");
-			$("#button_style").html("");
-		}
-		return false;
-	}
-}
 
 function getVote(){
-	var uID = get_cookie("id");
-	var kID = "5" //mingi usvaline kandidaadid ID
 	
-	$.post("/rest/haaletamine",{'uid' : uID,'kid' : kID});
+	//Check if current user has voted
+	var uID = get_cookie("id");
+	var ownerID = ""
+	$.ajaxSetup({async: false});
+	$.get("/rest/haaletamine",{'id' : uID}, function(data) {                            
+		for (var i in data) {
+			ownerID=data;
+		}
+	});
+	
+	
+	//If user has voted, check who has the vote
+	var vote = ""
+	if(ownerID!="NoVote"){
+		document.cookie=("votedFor="+ownerID+";expires=-1;path=/");
+			$.get("/rest/candidate",{ 'kandidaat' : ownerID},function(data){
+				for (var i in data) {
+					vote=vote+data[i];
+					console.log(data.length);
+					if(data.length != i){
+						vote=vote+", ";
+					}
+				}
+			});
+	}
+	return vote;
 }
 
 function postVote(haaleAndja, haaleSaaja){
 	$("#voteButton").click(function(){
-			$.post("/rest/haaletamine",{'uid' : haaleAndja,'kid' : haaleSaaja}
-					).done(function() { alert("H‰‰letatud!"); })
-					.fail(function() { alert("Ilmnes viga! :S "); })
+			
+			var eelmineHaal = get_cookie("votedFor");
+			var cID = get_cookie("cid");
+			
+			if(eelmineHaal==""){
+				eelmineHaal=0;
+			}
+			
+			console.log("PostVote "+haaleAndja+" "+haaleSaaja+" "+eelmineHaal);
+			if(haaleSaaja==eelmineHaal){
+				alert("Te ei saa sama kandidaadi poolt uuesti haaletada");
+			}
+			else if(haaleSaaja==cID){
+				alert("Te ei saa enda poolt haaletada");
+			}
+			else{
+				$.post("/rest/haaletamine",{'uid' : haaleAndja,'kid' : haaleSaaja, 'votedFor' : eelmineHaal});
+				window.location = "/";
+			}
+		
 			return false;
 		});
 	
@@ -86,6 +109,7 @@ function contactServlet(query){
 		
 		);
 	}
+	console.log("Contactservlet id on: "+id);
 	postVote(get_cookie("id"), id); // 1. param = h‰‰letaja, 2. param = h‰‰le saaja
 }
 

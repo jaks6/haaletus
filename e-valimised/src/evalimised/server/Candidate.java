@@ -60,6 +60,7 @@ public class Candidate {
 						rs2.getString("Piirkond"),
 						rs2.getInt("HaalteArv"))
 						;
+				System.out.println("jõuan siia"+currentCandidate);
 				return gson.toJson(currentCandidate);
 			}
 			

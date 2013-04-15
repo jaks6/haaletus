@@ -18,6 +18,7 @@ import javax.ws.rs.core.MediaType;
 import com.google.appengine.api.rdbms.AppEngineDriver;
 import com.google.cloud.sql.jdbc.Connection;
 import com.google.cloud.sql.jdbc.PreparedStatement;
+import com.google.cloud.sql.jdbc.Statement;
 
 @Path("/haaletamine")
 public class Haaletamine {
@@ -34,7 +35,7 @@ public class Haaletamine {
 		Connection c = null;
 		ArrayList<Integer> ID = new ArrayList<Integer>();
 		
-		
+		System.out.println("Haaletamine.java "+uID);
 		try {
 			DriverManager.registerDriver(new AppEngineDriver());
 			c = (Connection) DriverManager.getConnection("jdbc:google:rdbms://valimisrakendus:e-valimised/valimisedDB");
@@ -59,6 +60,7 @@ public class Haaletamine {
 			return "NoVote";
 		}
 		else{			//ID=X andis h‰‰le id.get(0) vanale
+			System.out.println("Haaletamine.java "+ID.get(0));
 			return ID.get(0)+"";
 		}
 		
@@ -68,47 +70,42 @@ public class Haaletamine {
 	@Produces("application/plain")
 	public String postVote(
 			@FormParam("uid") int uID, //omanikID 
-			@FormParam("kid") int kID){ //kandidaatID
+			@FormParam("kid") int kID, //uue kandidaatID
+			@FormParam("votedFor") int votedForID){  //eelmise h‰‰le ID
 		
 		ArrayList<Integer> Id_Vote = new ArrayList<Integer>();
+		System.out.println("uID="+uID+" kID="+kID+" votedFor="+votedForID);
 		try {
-			
-			System.out.println("uID="+uID+" kID="+kID);
 			DriverManager.registerDriver(new AppEngineDriver());
 			Connection c = (Connection) DriverManager.getConnection("jdbc:google:rdbms://valimisrakendus:e-valimised/valimisedDB");
 			
+			//Delete the previous vote from Haal
+			String delete = "DELETE FROM Haal WHERE OmanikID="+uID;
+			Statement statement = c.createStatement();
+			statement.executeUpdate(delete);
 			
-			String getMaxID_Votes = "SELECT MAX(Haal.ID)+1,HaalteArv FROM Kandidaat,Haal WHERE Kandidaat.IsikID="+kID;
-			//saan H‰‰le tabeli max ID+1 ning Kandidaadi tabelist kID'ga kandidaadi h‰‰tle arvu
-			
-			ResultSet rs = c.createStatement().executeQuery(getMaxID_Votes);
-//			
-			while(rs.next()){
-				Id_Vote.add(rs.getInt(1));
-				Id_Vote.add(rs.getInt(2));
+			//If user has voted for someone, decrease the vote count
+			if(votedForID!=0){
+				System.out.println("Lasen h‰‰le maha"+votedForID);
+				String decreaseVote = "UPDATE Kandidaat SET HaalteArv=HaalteArv-1 WHERE ID="+votedForID;
+				statement.executeUpdate(decreaseVote);
 			}
 			
+			//Update the selected candidates vote count
+			String increaseVote = "UPDATE Kandidaat SET HaalteArv=HaalteArv+1 WHERE ID="+kID;
+			statement.executeUpdate(increaseVote);
 			
-			
-			// !TODO:
-			// IF EXISTS :  HAAL , selline et OmanikID = uid THEN:
-			// V’TA SELLE HƒƒLe SaajaID, lahuta sellise ID-ga kandidaadilt 1 h‰‰l maha.
-			// N‹‹D MUUTA Selle Haale rea kid praegu h‰‰lt saavaks kid-ks
-			// LIIDA TALLE Haal +1
-			
-			
-			
+			//Insert new row to Haal
 			String haal ="INSERT INTO Haal (KandidaatID, OmanikID) VALUES(?,?)";
 			PreparedStatement stmt = (PreparedStatement) c.prepareStatement(haal);
-//			stmt.setInt(1,Id_Vote.get(0));    //Max ID+1
 			stmt.setInt(1, kID); //kandidaat ID
 			stmt.setInt(2, uID);  //Omanik ID
-//			stmthaal.setTimestamp(4, getCurrentTimeStamp()); 
 			stmt.execute();
 			
-			String kandidaat = "UPDATE Kandidaat SET HaalteArv=HaalteArv+1 WHERE ID="+kID;
-			PreparedStatement stmt_kandidaat = (PreparedStatement) c.prepareStatement(kandidaat);
-			stmt_kandidaat.execute(); 
+			c.close();
+			stmt.close();
+			statement.close();
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -29,7 +29,19 @@ function fetchHtmlContent(hashName, subpageName, queryString){
 		if (hashName=='index'){
 			$("#content").css('background-color','none');
 			$("#content").css('box-shadow','none');
-		} else {
+		
+		}
+		else if (hashName=='haaletamine'){
+			isLoggedIn();
+			$("#content").css('background-color','#E7E7E7');
+			$("#content").css('box-shadow', ' 4px 4px 6px rgba(50, 50, 50, 0.4)');
+		}
+		else if (hashName=='kandideerimine'){
+			isLoggedIn();
+			$("#content").css('background-color','#E7E7E7');
+			$("#content").css('box-shadow', ' 4px 4px 6px rgba(50, 50, 50, 0.4)');
+		}
+		else {
 			$("#content").css('background-color','#E7E7E7');
 			$("#content").css('box-shadow', ' 4px 4px 6px rgba(50, 50, 50, 0.4)');
 
