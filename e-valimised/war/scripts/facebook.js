@@ -1,4 +1,4 @@
-
+connectFB();
 function connectFB(){
 	console.log("in facebook.js - connectFB()");
 	(function(d){
@@ -19,17 +19,27 @@ function connectFB(){
 	    });
 	
 	    FB.getLoginStatus(function(response) {
+	    	userStatus = response.status;
 			  if (response.status === 'connected') {
 				  console.log("Connected to FB");
+				  userStatus = response.status;
 				  getData(function (){
 					 user();
 				  });
 			  } else if (response.status === 'not_authorized') {
 				  console.log("not authorized");	
-				  login();
+				 // login();
+				  $("#login a").click(function(event){
+						event.preventDefault();
+						login();
+					});
 			  } else {
 				  console.log("not connected");
-				  login();
+				 // login();
+				  $("#login a").click(function(event){
+						event.preventDefault();
+						login();
+					});
 			  }
 			 });
 	    
@@ -43,6 +53,7 @@ function connectFB(){
   
 
   function login() {
+	  console.log("IN LOGIN()");
 	    FB.login(function(response) {
 	        if (response.authResponse) {
 	        	 getData(function (){

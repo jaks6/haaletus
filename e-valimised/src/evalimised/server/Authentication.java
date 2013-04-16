@@ -24,7 +24,7 @@ public class Authentication {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String authenticate(@QueryParam("name") String name){
-		
+		System.out.println("authentication.java, name="+name);
 		String fname = name.split(" ")[0];
 		String lname = name.split(" ")[1];
 		
@@ -56,6 +56,9 @@ public class Authentication {
 		}
 		if(ID.size()==0){
 			return "No_account";
+		}
+		else if (ID.size()==1){
+			return ID.get(0)+";-1";			//if the person isn't a candidate, mark candidateID as -1.
 		}
 		else{
 			return ID.get(0)+";"+ID.get(1);

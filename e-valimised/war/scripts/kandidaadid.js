@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	displayVote();
 	kandidaadidInit();
 });
 
@@ -16,8 +15,9 @@ function displayVote(){
 
 
 function kandidaadidInit(){
-	doComplete();
+	doComplete();	//initialize autocomplete fields
 	getDropdownOptions("region", "party");
+	displayVote();	//display previous vote
 	$("[name='otsiButton']").click(function(){	//when the submit button ("OTSI") is pressed...
 		console.log("otsi pressde");
 		

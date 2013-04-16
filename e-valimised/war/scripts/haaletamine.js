@@ -37,7 +37,6 @@ function getVote(){
 			$.get("/rest/candidate",{ 'kandidaat' : ownerID},function(data){
 				for (var i in data) {
 					vote=vote+data[i];
-					console.log(data.length);
 					if(data.length != i){
 						vote=vote+", ";
 					}
@@ -48,12 +47,12 @@ function getVote(){
 }
 
 function postVote(haaleAndja, haaleSaaja){
-	$("#voteButton").click(function(){
+	$("[name='voteButton']").click(function(){
 			
 			var eelmineHaal = get_cookie("votedFor");
 			var cID = get_cookie("cid");
 			
-			if(eelmineHaal==""){
+			if(eelmineHaal=="" || eelmineHaal=="\"\""){
 				eelmineHaal=0;
 			}
 			
@@ -90,8 +89,8 @@ function contactServlet(query){
 					$("#haaletamine").html("<p>Kinnitage, et soovite just antud kandidaadi poolt h&auml;&auml;letada:</p>" +
 							"(Teie eelnev h&auml;&auml;lt t&uuml;histatakse!)" +
 						"<div id='candidate_info'></div>" +
-							"<div id='button_style'>" +
-							"<br> <input type='button' id='voteButton' value='H&auml;&auml;leta!'>" +
+							"<br><div id='button_style'>" +
+							"<button type='button' name='voteButton' >H&auml;&auml;leta!</button> " +
 							"</div>");
 					
 					$("#haaletamine_refused").css('display','none');

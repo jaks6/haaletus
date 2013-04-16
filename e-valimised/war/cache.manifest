@@ -1,9 +1,11 @@
 CACHE MANIFEST
-#20:52
+#17.04 23:04
 
 # Explicitly cached 'master entries'.
 CACHE:
-###
+####################
+### HTML
+####################
 index.html
 abi.html
 channel.html
@@ -12,20 +14,42 @@ kandidaadid.html
 kandideerimine.html
 kontakt.html
 tulemused.html
-###start of scripts
+
+####################
+### Scripts
+####################
+scripts/authenticate.js
+scripts/autocomplete.js
+scripts/caching.js
+scripts/chart.js
+scripts/haaletamine.js
+scripts/index.js
+scripts/kandidaadid.js
+scripts/kandideerimine.js
 scripts/navigation.js
+scripts/ticker.js
+scripts/tulemused.js
+####################
+### Stylesheets
+####################
 css/styles.css
 
-
-
-
-
-FALLBACK:
-*.html /offline.html
-
-offline.html
-
+####################
+### Images
+####################
+images/asc.png
+images/desc.png
+images/maakonnad.png
+images/unsorted.png
+images/progress2.gif
+images/mesi.jpg
+images/ets.jpg
 
 # Resources that require the user to be online.
 NETWORK:
 *
+FALLBACK:
+/ /offline.html
+*.html /offline.html
+.js scripts/index.js
+
