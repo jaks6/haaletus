@@ -1,3 +1,19 @@
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+
+# gwt caches and compiled units #
+war/gwt_bree/
+gwt-unitCache/
+
+war/WEB-INF/deploy/
+war/WEB-INF/classes/
+
+
+
 #################
 ## Google App Engine
 #################
@@ -7,6 +23,10 @@ WEB_INF/deploy/
 deploy/
 e-valimised/war/WEB-INF/deploy/
 WEB_INF/lib/gwt-servlet.jar
+e-valimised/war/WEB-INF/deploy/index/
+deploy/
+**/deploy/
+morriss.css
 #################
 ## Eclipse
 #################

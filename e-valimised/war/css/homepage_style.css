@@ -1,8 +1,9 @@
 @media only screen and (max-width: 1024px) {
+	/*
 #navbar {
 	display:none;
-}
+}*/
 #top {
-	height: 0;
+	/*height: 0;*/
 }
 }

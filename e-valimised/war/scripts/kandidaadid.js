@@ -18,9 +18,8 @@ function displayVote(){
 function kandidaadidInit(){
 	doComplete();
 	getDropdownOptions("region", "party");
-	$("#kandidaadid_form").on('submit',function(event){	//when the submit button ("OTSI") is pressed...
-		
-		event.preventDefault();
+	$("[name='otsiButton']").click(function(){	//when the submit button ("OTSI") is pressed...
+		console.log("otsi pressde");
 		
 		//updateURL
 		setLocationHash("kandidaadid?" + $("#kandidaadid_form").serialize());

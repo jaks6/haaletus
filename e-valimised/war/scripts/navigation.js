@@ -17,6 +17,7 @@ $(document).ready(function(){
 var allowHashToUpdateApp = true;
 
 function fetchHtmlContent(hashName, subpageName, queryString){
+	
 	//empty previous content, then reload new content
 	$("#content-wrapper").empty();	
 	$("#content-wrapper").load(hashName+".html #content", function() {
@@ -29,7 +30,8 @@ function fetchHtmlContent(hashName, subpageName, queryString){
 		if (hashName=='index'){
 			$("#content").css('background-color','none');
 			$("#content").css('box-shadow','none');
-		
+
+		//some conditionals by jaagup for isLoggedIn();
 		}
 		else if (hashName=='haaletamine'){
 			isLoggedIn();
@@ -40,29 +42,32 @@ function fetchHtmlContent(hashName, subpageName, queryString){
 			isLoggedIn();
 			$("#content").css('background-color','#E7E7E7');
 			$("#content").css('box-shadow', ' 4px 4px 6px rgba(50, 50, 50, 0.4)');
-		}
-		else {
+		} //end of isLoggedin() portion!
+
+		} else {
+			$("#navbar").show();
 			$("#content").css('background-color','#E7E7E7');
 			$("#content").css('box-shadow', ' 4px 4px 6px rgba(50, 50, 50, 0.4)');
 
 		}
-
+		console.log("initiating page scripts");
 		initPageScripts(hashName, queryString);
 	});
 
 }
 
 function loadStatisticSubpage(hashName){
-	//empty previous content, then reload new content
-	//event.preventDefault();
-	
-	//initPageScripts(hashName);
+	//hide all divs of the page, then show the desired one.
 	$("#piirkonniti").css('display', 'none');
 	$("#riigis").css('display', 'none');
 	$("#parteidekaupa").css('display', 'none');
 	
 	$("#"+hashName).css('display','block');
-	setLocationHash("tulemused/"+hashName);
+	
+//	if (hashName=='parteidekaupa'){
+//		chart.draw(data, options);
+//	}
+	
 	
 
 	
@@ -103,35 +108,45 @@ function updateMyApp(value) {
 	var slashPos = value.indexOf('/');
 	var subpageName ="";
 	
-	
-
-	
-	if (questionMarkPos != -1 &&  slashPos!= -1){
+// 	järgnevalt uurime URLi struktuuri, et teaksime, mis sisu laadida.
+//	kokku 4 eri varianti:
+//  	1) mysite.org/#pageName/
+//  	2) mysite.org/#pageName/subPage/
+//  	3) mysite.org/#pageName/subPage/?queryString
+//  	4) mysite.org/#pageName/?queryString
+//  
+	if (slashPos != -1){
 		hashName = value.substring(0, slashPos);
-		subpageName = value.substring( slashPos +1, questionMarkPos);
-		queryString = value.substring( questionMarkPos +1); // see osa, mis järngeb ?-le
-	}
-	else if (questionMarkPos != -1){ //kui leidub queryString, siis eraldame selle
+		
+		//	3) olemas on subPage JA queryString
+		if (questionMarkPos != -1){ 
+			subpageName = value.substring( slashPos +1, questionMarkPos);
+			queryString = value.substring( questionMarkPos +1); // see osa, mis järngeb ?-le
+		} 
+		
+		// 2) olemas on subPage
+		else {						
+			subpageName = value.substring( slashPos +1);
+		}
+		
+		// 4) olemas on queryString
+	} else if (questionMarkPos != -1){ 
 		hashName = value.substring(0, questionMarkPos); // see osa stringist, mis eelneb ?-le
 		queryString = value.substring( questionMarkPos +1); // see osa, mis järngeb ?-le
 		
-	} else if (slashPos!= -1) {
-		hashName = value.substring(0, slashPos);
-		subpageName = value.substring( slashPos +1);
+	} 
+		// 1) olemas on vaid pageName
+	else { 
+		hashName = value;
 	}
-	else {
-		hashName = value;	//kui ? pole, järelikult pole ka queryStringi urlis.
-	}
-
+	
+	
 	window.location.hash = value;
 //	console.log("hashName= "+ hashName);
 //	console.log("subPage= " + subpageName);
 //	console.log("queryString= " + queryString);
 	fetchHtmlContent(hashName, subpageName, queryString);
 	
-	if (slashPos != -1){	//erilahendus tulemuste lehele, võiks üldisema variandi kunagi kirjutada
-		//loadStatisticSubpage(subpageName);
-	}
 	allowHashToUpdateApp = false;
 
 }
@@ -171,5 +186,6 @@ window.onhashchange = function(e) {
 		allowHashToUpdateApp = true;
 	} else {
 		allowHashToUpdateApp = true;
+
 	}
 };

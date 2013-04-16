@@ -105,7 +105,7 @@ a{
 	 font-family: 'Abel', 'Times New Roman';
 }
 
-#button_style input {
+#button_style input, button {
 	color:#000000;
 	font-size:18pt;
 	text-transform:uppercase;
@@ -283,7 +283,11 @@ h1 {
 /* Tulemuste lehe asjade algus
 ############################################################*/
 
-
+#graph {
+	margin: 0 auto;
+	padding-top: 3%;
+	height: 280px;
+}
 .sortIcon :hover{
 	
 }
@@ -421,6 +425,10 @@ a.poke:hover img{
 /*medium, "mobile" view:
 top bar spans wider, fonts larger for better readability on dense screens.*/
 @media only screen and (max-width: 1024px) {
+	
+.bigbutton {
+	display: none;
+}
 h1 {
 font-size: 18pt;
 }
