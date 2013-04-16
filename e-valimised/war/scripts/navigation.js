@@ -44,7 +44,7 @@ function fetchHtmlContent(hashName, subpageName, queryString){
 			$("#content").css('box-shadow', ' 4px 4px 6px rgba(50, 50, 50, 0.4)');
 		} //end of isLoggedin() portion!
 
-		} else {
+		else {
 			$("#navbar").show();
 			$("#content").css('background-color','#E7E7E7');
 			$("#content").css('box-shadow', ' 4px 4px 6px rgba(50, 50, 50, 0.4)');

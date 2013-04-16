@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html manifest="cache.manifest">
 <head>
 	
 
@@ -15,23 +16,16 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="scripts/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="scripts/navigation.js"></script>
 <script src="scripts/index.js"></script>
-<!--<script src="scripts/kandidaadid.js"></script>
-<script src="scripts/jqBarGraph.1.1.min.js"></script>
- <script src="scripts/kandideerimine.js"></script> 
-<script src="scripts/tulemused.js"></script>-->
+<!-- -->
 <script src="scripts/ticker.js"></script>
 <script src="scripts/authenticate.js"></script>
 <script src="scripts/autocomplete.js"></script>
-<<<<<<< HEAD
 <script src="scripts/haaletamine.js"></script>
 <script src="scripts/facebook.js"></script>
-=======
+<script src="scripts/caching.js"></script>
 
-
->>>>>>> b3a814f2365b37bc69026c0c5e96d58e41c07f2b
 </head>
 
 <body>
@@ -55,7 +49,7 @@
 			</ul>
 		</div>                
         <div id="login">
-			<a href="#" onClick=logIn()>Logi sisse</a>
+			<a href="#" onClick=connectFB()>Logi sisse</a>
 		</div>
         
         <div id="help">

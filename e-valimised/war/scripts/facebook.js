@@ -1,6 +1,6 @@
 
 function connectFB(){
-	
+	console.log("in facebook.js - connectFB()");
 	(function(d){
 	     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
 	     if (d.getElementById(id)) {return;}
@@ -12,7 +12,7 @@ function connectFB(){
 	window.fbAsyncInit = function() {
 	    FB.init({
 	      appId      : '546249522085914', // App ID
-	      channelUrl : 'e-valimised.appspot.com', // Channel File
+	      channelUrl : 'http://e-valimised.appspot.com', // Channel File
 	      status     : true, // check login status
 	      cookie     : true, // enable cookies to allow the server to access the session
 	      xfbml      : true  // parse XFBML

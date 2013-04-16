@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-=======
 $(document).ready(function(){
 	//startticker();
 
 });
 
->>>>>>> b3a814f2365b37bc69026c0c5e96d58e41c07f2b
 var tWidth='800px';                  // width (in pixels)
 var tHeight='25px';                  // height (in pixels)
 var tcolour='gray';               // background colour:

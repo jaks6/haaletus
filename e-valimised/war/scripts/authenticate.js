@@ -1,10 +1,10 @@
 $(document).ready(function() {
 	
-//	if(get_cookie("page")=="valimised"){
-//		var name = get_cookie("data").split(",")[0];
-//		$("#login").html("");
-//		$("#login").append("<a href=\"#\" onclick=logOut()>"+name+"</a>");
-//	}
+	if(get_cookie("page")=="valimised"){
+		var name = get_cookie("data").split(",")[0];
+		$("#login").html("");
+		$("#login").append("<a href=\"#\" onclick=logOut()>"+name+"</a>");
+	}
 	
 
 });
@@ -31,16 +31,13 @@ function logOut(){
 	document.cookie=("votedFor=\"\";expires=-1;path=/");
 	document.cookie=("data=\"\";expires=-1;path=/");
 	$("#login").html("");
-<<<<<<< HEAD
 	$("#login").append("<a href=\"\" onclick=logIn()>Logi sisse</a>");
 	FB.logout(function(response) {
 		window.location = "/";
 	});
 	console.log("logging out");
-=======
-	$("#login").append("<a href=\"#\" onclick=authenticateUser()>Logi Sisse</a>");
 	updateMyApp(getLocationHash());
->>>>>>> b3a814f2365b37bc69026c0c5e96d58e41c07f2b
+
 }
 
 function logIn(){
@@ -65,7 +62,6 @@ function user(){
 			ID=data;
 		}
 	});
-<<<<<<< HEAD
 	
 	if(ID=="No_account"){
 		var newID = "";
@@ -77,18 +73,10 @@ function user(){
 			}
 			document.cookie=("id="+newID.split(";")[0]+";expires=-1;path=/");
 			document.cookie=("cid="+newID.split(";")[1]+";expires=-1;path=/");
+			
+			updateMyApp(getLocationHash());
 		});
-=======
-	if(ID!="Fail"){
-		console.log("Success");
-		$("#login").html("");
-		$("#login").append("<a href=\"#\" onclick=logOut()>Sisse logitud</a>");
-		logged_in=true;
-		document.cookie = "name=valimised; expires=0; path=/";
-		document.cookie = "id="+ID+"; expires=0; path=/";
-		
-		updateMyApp(getLocationHash());
->>>>>>> b3a814f2365b37bc69026c0c5e96d58e41c07f2b
+
 
 	}
 	else{

@@ -1,0 +1,31 @@
+CACHE MANIFEST
+#20:52
+
+# Explicitly cached 'master entries'.
+CACHE:
+###
+index.html
+abi.html
+channel.html
+haaletamine.html
+kandidaadid.html
+kandideerimine.html
+kontakt.html
+tulemused.html
+###start of scripts
+scripts/navigation.js
+css/styles.css
+
+
+
+
+
+FALLBACK:
+*.html /offline.html
+
+offline.html
+
+
+# Resources that require the user to be online.
+NETWORK:
+*
