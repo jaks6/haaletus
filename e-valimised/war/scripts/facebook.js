@@ -73,7 +73,7 @@ function connectFB(){
 	    	var data = name+","+email+","+bday;
 	    	document.cookie = "data="+data+"; expires=0; path=/";
 	    	document.cookie = "page=valimised; expires=0; path=/";
-	    	console.log("Making cookies");
+	    	console.log("Baking cookies");
 	    	callback.call();
 	    });
   }

@@ -25,8 +25,12 @@ public class Authentication {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String authenticate(@QueryParam("name") String name){
 		System.out.println("authentication.java, name="+name);
-		String fname = name.split(" ")[0];
-		String lname = name.split(" ")[1];
+		
+		String fname = name.split(" |\\+")[0];
+		String lname = name.split(" |\\+")[1];
+		
+		System.out.println(fname);
+		System.out.println(lname);
 		
 		
 		Connection c = null;
