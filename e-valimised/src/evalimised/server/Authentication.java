@@ -54,6 +54,7 @@ public class Authentication {
 				} catch (SQLException ignore) {
 				}
 		}
+		System.out.println("ID object="+ID);
 		if(ID.size()==0){
 			return "No_account";
 		}

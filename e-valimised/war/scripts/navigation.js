@@ -82,9 +82,11 @@ function initPageScripts(hashName, queryString){
 
 	var queryFlag = false;
 	if (queryString!=""){
-		queryFlag = true; // set the flag, so that we know that we should also make the queries
+		queryFlag = true; // flag whether  we should also make queries to the server
 	}
-	
+	$.ajaxSetup({
+		  cache: true
+		});
     $.getScript("scripts/"+ hashName +".js", function(){
     	if (queryFlag){
     		contactServlet(queryString);

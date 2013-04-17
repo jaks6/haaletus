@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#17.04 23:04
+#17.04 12:48
 
 # Explicitly cached 'master entries'.
 CACHE:
@@ -22,17 +22,24 @@ scripts/authenticate.js
 scripts/autocomplete.js
 scripts/caching.js
 scripts/chart.js
+scripts/facebook.js
 scripts/haaletamine.js
 scripts/index.js
 scripts/kandidaadid.js
 scripts/kandideerimine.js
 scripts/navigation.js
+scripts/storage.js
 scripts/ticker.js
 scripts/tulemused.js
+scripts/jquery-1.9.1.js
 ####################
 ### Stylesheets
 ####################
 css/styles.css
+####################
+## External
+####################
+http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css
 
 ####################
 ### Images
@@ -49,7 +56,9 @@ images/ets.jpg
 NETWORK:
 *
 FALLBACK:
-/ /offline.html
-*.html /offline.html
-.js scripts/index.js
+#/rest/* /offline/offline.json
+/rest/jerseyshore /offline/offlineData.json
+/ /offline/offline.html
+*.html /offline/offline.html
+*.js scripts/index.js
 

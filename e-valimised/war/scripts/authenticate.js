@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 });
 
-function isLoggedIn(){
+function isLoggedIn(){ 					//jakob notes: the name of this function is misleading
 	if(get_cookie("page")!="valimised"){
 		var hash = window.location.hash.substring(1)
 		if(hash=="haaletamine"){
@@ -22,6 +22,12 @@ function isLoggedIn(){
 			$("#content").append("<p>Logige sisse,et j&aumltkata</p>");
 		}
 	}
+}
+
+/** Returns True, if the user is already logged in, False otherise */
+function userLoggedInBoolean(){
+	console.log("in userloggedinbool");
+	return (get_cookie("id")!=="" && get_cookie("id")!=="\"\"");
 }
 
 
@@ -80,9 +86,13 @@ function user(){
 
 	}
 	else{
+		if (ID.indexOf(";")!==-1){
 		console.log("Kasutaja eksisteerib ID'ga "+ID.split(";")[0]);
 		document.cookie=("id="+ID.split(";")[0]+";expires=-1;path=/");
 		document.cookie=("cid="+ID.split(";")[1]+";expires=-1;path=/");
+		} else {
+			
+		}
 	}
 	
 }
