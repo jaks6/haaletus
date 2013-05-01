@@ -105,7 +105,7 @@ a{
 	 font-family: 'Abel', 'Times New Roman';
 }
 
-#button_style input, button {
+#button_style input, #button_style button {
 	color:#000000;
 	font-size:18pt;
 	text-transform:uppercase;
@@ -342,6 +342,45 @@ img[id^="asc"], img[id^="desc"]{
 	background-color:#E9E9E9;
 	
 	
+}
+
+
+#googleMap {
+	width: auto;
+	height: 400px;
+}
+   
+/*  google mapsi juures kasutatud infoboxi stiil */ 
+.infoBox {
+	color: #FFFFFF;
+	font-size: 15px;
+	font-family:  "Segoe UI",  sans-serif;
+	font-weight: bold;
+	text-align: center;
+	background-color: rgba(20, 20, 20, .5);
+	min-width: 45px;
+	padding-left: 0px;
+	padding-right: 8px;
+	border-radius: 10px;
+	/*text-shadow: 0px 0px 4px #424242, 0px 0px 4px #424242, 0px 0px 4px #424242;*/
+	/* white-space: normal;*/
+/* background-color: white; */
+}
+
+#mapLegend {
+        background: #FFF;
+        padding: 10px;
+        margin: 5px;
+        font-size: 12px;
+        font-family: Arial, sans-serif;
+      }
+      
+#piirkonniti button {
+	font-family: "Abel" , "sans-serif";
+	font-size: medium;
+	color: #424242;
+	margin: 5px;
+	float: right;
 }
 a.poke img{
 	display:none;

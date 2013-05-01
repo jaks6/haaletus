@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpSession;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -17,7 +16,6 @@ import javax.ws.rs.core.MediaType;
 import com.google.appengine.api.rdbms.AppEngineDriver;
 import com.google.cloud.sql.jdbc.Connection;
 import com.google.cloud.sql.jdbc.PreparedStatement;
-import com.sun.xml.internal.bind.v2.model.core.ID;
 
 @Path("/authenticate")
 public class Authentication {

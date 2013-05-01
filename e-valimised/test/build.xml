@@ -1,0 +1,58 @@
+<?xml version="1.0"?> 
+<!-- Build file for our first application -->
+
+<project name="SGI Origin testid" default="build" basedir=".">
+
+<property name ="src.dir" value ="./src"/>
+<property name ="lib.dir" value ="./lib"/>
+<property name ="classes.dir" value ="./classes"/>
+	
+<property name ="reports.tests" value ="./reports"/>
+	
+	
+<path id="classpath">
+	<pathelement location="${classes.dir}" />
+    <pathelement location="${lib.dir}/junit-4.11.jar" />
+	
+    <fileset dir="${lib.dir}">
+        <include name="**/*.jar"/>
+	</fileset>
+</path>
+	
+	
+<target name="init">
+	<delete dir="${classes.dir}"/>
+	<mkdir dir="${classes.dir}"/>
+</target>
+	
+<target name="build" depends="init">
+	<mkdir dir="${classes.dir}"/>
+	<javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true" includes="**/*.java">
+		<classpath refid="classpath"/>
+	</javac>
+</target>
+	
+	
+<target name="clean" description="remove build files" >
+	<delete dir="${classes.dir}"/>
+</target>
+	
+<target name="run-tests" >
+    <mkdir dir="${reports.tests}"/>
+
+	<junit printsummary="yes" fork="no" haltonfailure="yes">
+		
+		<test name="Kandideerimine" />
+		<test name="Haaletamine" />
+		<formatter type="plain" usefile="false" />
+		<classpath refid="classpath" />
+	</junit>
+	
+</target>
+	
+	
+
+
+	 
+
+</project>

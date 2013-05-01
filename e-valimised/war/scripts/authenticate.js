@@ -63,6 +63,7 @@ function user(){
 	
 	var ID = "";
 	$.ajaxSetup({async: false});
+	console.log("NAME in authenticate.js, user()="+name);
 	$.get("rest/authenticate",{'name' : name}, function(data) {
 		for (var i in data) {
 			ID=data;

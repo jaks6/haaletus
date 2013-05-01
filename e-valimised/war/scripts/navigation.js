@@ -51,7 +51,7 @@ function fetchHtmlContent(hashName, subpageName, queryString){
 
 		}
 		console.log("initiating page scripts");
-		initPageScripts(hashName, queryString);
+		initPageScripts(hashName, subpageName, queryString);
 	});
 
 }
@@ -77,7 +77,7 @@ function loadStatisticSubpage(hashName){
  * @param hashName - the page whose scripts must be loaded
  *  @param queryString - the query to be passed, if there is one
  */
-function initPageScripts(hashName, queryString){
+function initPageScripts(hashName, subpageName, queryString){
 	
 
 	var queryFlag = false;
@@ -91,6 +91,8 @@ function initPageScripts(hashName, queryString){
     	if (queryFlag){
     		contactServlet(queryString);
     	}
+    	
+    	if (subpageName=="piirkonniti") loadMapScript(); //-------------ideepoolest temporary halb  variant
     	loadingAnimation("stop");
 
     	

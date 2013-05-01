@@ -20,7 +20,20 @@ function createKandidaat(){
 	var region_id = regions.index(regions.filter(":selected"));
 	var party_id = partys.index(partys.filter(":selected"));
 	console.log(party_id+" "+region_id+" "+uID);
-	$.post("rest/Kandideerimine",{ 'uID' :  uID , 'party' : party_id, 'region' : region_id});
+	$.post("rest/Kandideerimine",{ 'uID' :  uID , 'party' : party_id, 'region' : region_id
+		}).done(function() {
+		//stuff that we do after a successful candidate post
+		var name = get_cookie("data").split(",")[0];
+		var newID = "";
+		$.get("rest/authenticate",{'name' : name}, function(data){
+			for (var i in data) {
+				newID = data;
+			}
+			document.cookie=("cid="+newID.split(";")[1]+";expires=-1;path=/");
+
+			updateMyApp(getLocationHash());
+		});
+	});
 	
 }
 function submitEvents(){
@@ -81,7 +94,7 @@ function validateForm(){
 
 //function which pops up a confirmation when "submit" is clicked
 function kinnitaKandideerimine(){
-		if(get_cookie("cid")==""){ //If user isn't candidate
+		if(get_cookie("cid")=="\"\"" || get_cookie("cid")=="-1" ){ //If user isn't candidate
 			if (confirm("Kinnitage kandideerimine.")==true){
 				alert("Olete lisatud kandidatuuri!")
 				createKandidaat();

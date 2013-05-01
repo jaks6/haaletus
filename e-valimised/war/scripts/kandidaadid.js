@@ -7,7 +7,6 @@ $(document).ready(function(){
 function displayVote(){
 	if (userLoggedInBoolean()){
 		var vote = getVote();
-		if(vote)
 			if(vote!="" ){ 
 				$("#k_inputs").prepend("<p style=\"text-align:left\">Teie hetkene h&auml;&aumll:</p>");
 				$("#k_inputs p").append("<div id=\"currentVote\" style=\"border-style:1px solid\">"+vote+"</div>");

@@ -14,21 +14,6 @@ $(document).ready(function() {
 
 });
 
-
-//function chart2(){
-//
-//	myData = $.getJSON("rest/tulemused", function(fetchedData){
-//		drawNewChart(fetchedData);
-//		//add fetched data to local storage
-//		localStorage["storage.piechart"] = JSON.stringify(fetchedData));
-//
-//
-//	});
-//
-//
-//}
-
-
 function tulemusedInit(){
 
 	$(".sortable th").each(function(index) {
@@ -48,6 +33,7 @@ function tulemusedInit(){
 
 	sortColumnOnClick(".sortIcon");
 	loadGoogleCharts();
+	$.getScript("scripts/map.js");
 
 
 }
@@ -58,7 +44,6 @@ function loadGoogleCharts(){
 	google.load('visualization', '1', {'callback':'drawChart()', 'packages':['corechart']});
 	// Set a callback to run when the Google Visualization library is loaded.
 }
-
 
 function drawChart() {
 	// Create the data table.
