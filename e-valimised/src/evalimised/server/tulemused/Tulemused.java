@@ -115,7 +115,7 @@ public class Tulemused {
 				"GROUP BY pID) summad " +
 				
 				"WHERE Partei.ID=subquery.ParteiID AND Piirkond.ID=subquery.PiirkondID " + 
-				"AND subquery.PiirkondID=summad.pID " + 	
+				"AND subquery.PiirkondID=summad.pID AND Summa!=0 	" + 	
 				
 				"GROUP BY subquery.PiirkondID ");
 
