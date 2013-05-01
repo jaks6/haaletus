@@ -78,8 +78,11 @@ function loadMapScript() {
 	
 	if(!google || !google.maps){
 	    console.log('Not loaded yet');
+	    $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDoC27Ptu1NJy2sgwkIbOqNCsO_8T7SMjM&sensor=true&callback=initialize", function() {});
+	} else {
+		
+		initialize();
 	}
-	$.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDoC27Ptu1NJy2sgwkIbOqNCsO_8T7SMjM&sensor=true&callback=initialize", function() {});
 
 }
 
