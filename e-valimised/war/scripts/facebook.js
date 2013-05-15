@@ -9,7 +9,7 @@ function connectFB(){
 	     ref.parentNode.insertBefore(js, ref);
 	   }(document));
 	
-	window.fbAsyncInit = function() {
+	window.fbAsyncInit = function () {
 	    FB.init({
 	      appId      : '546249522085914', // App ID
 	      channelUrl : 'http://e-valimised.appspot.com', // Channel File
@@ -18,54 +18,50 @@ function connectFB(){
 	      xfbml      : true  // parse XFBML
 	    });
 	
-	    FB.getLoginStatus(function(response) {
+	    FB.getLoginStatus(function (response) {
 	    	userStatus = response.status;
-			  if (response.status === 'connected') {
-				  console.log("Connected to FB");
-				  userStatus = response.status;
-				  getData(function (){
-					 user();
-				  });
-			  } else if (response.status === 'not_authorized') {
-				  console.log("not authorized");	
+			if (response.status === 'connected') {
+				console.log("Connected to FB");
+				userStatus = response.status;
+				getData(function () {
+					user();
+				});
+			} else if (response.status === 'not_authorized') {
+				console.log("not authorized");	
 				 // login();
-				  $("#login a").click(function(event){
-						event.preventDefault();
-						login();
-					});
-			  } else {
-				  console.log("not connected");
+				$("#login a").click(function(event){
+					event.preventDefault();
+					login();
+			    });
+			} else {
+				console.log("not connected");
 				 // login();
-				  $("#login a").click(function(event){
-						event.preventDefault();
-						login();
-					});
-			  }
-			 });
+				$("#login a").click(function(event){
+					event.preventDefault();
+					login();
+				});
+			}
+		});
 	    
-	   
-	    
-	  };
-	  
-	 
+	};
 	
 }
   
 
-  function login() {
-	  console.log("IN LOGIN()");
-	    FB.login(function(response) {
-	        if (response.authResponse) {
-	        	 getData(function (){
-					 user();
-				  });
-	        } else {
-	            window.location = "/";
-	        }
-	    }, {scope: 'email,user_likes,user_birthday'});
-	}
+function login() {
+	console.log("IN LOGIN()");
+	FB.login(function (response) {
+	    if (response.authResponse) {
+	        getData(function () {
+	        	user();
+			});
+	    } else {
+	        window.location = "/";
+	    }
+	}, {scope: 'email, user_likes, user_birthday'});
+}
   
-  function getData(callback) {
+function getData(callback) {
 	    FB.api('/me', function(response) {
 	    	name = response.name;
 	    	email = response.email;

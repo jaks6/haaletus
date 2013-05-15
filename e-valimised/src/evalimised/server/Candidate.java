@@ -3,6 +3,7 @@ package evalimised.server;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.ws.rs.GET;
@@ -24,40 +25,43 @@ public class Candidate {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getKandidaadid(
 			@QueryParam("term") String term,
-			@QueryParam("kandidaat") String id
+			@QueryParam("kandidaat") Integer id
 			){
 
 		/** DB */
 		Connection c = null;
 		Gson gson = new Gson();
-
+		
 		try {
+			System.out.println("canddiate gett");
 			DriverManager.registerDriver(new AppEngineDriver());
 			c = DriverManager.getConnection("jdbc:google:rdbms://valimisrakendus:e-valimised/valimisedDB");
-			String selectStatement = (
-					"Select \r\n" + 
-							"CONCAT(Eesnimi, ' ', Perenimi) as Nimi ,\r\n" + 
-							"Kandidaat.ID,\r\n" + 
-							"Partei.Nimetus as Partei,\r\n" + 
-							"Piirkond.Nimi as Piirkond,\r\n" + 
-							"HaalteArv\r\n" + 
-							"from Isik, Kandidaat, Partei, Piirkond\r\n" + 
-							"\r\n" + 
-							"\r\n" + 
-							"WHERE \r\n" + 
-							"Kandidaat.IsikID=Isik.ID && \r\n" + 
-							"ParteiID=Partei.ID &&\r\n" + 
+			
+			PreparedStatement prepStatement = c.prepareStatement(
+					"Select  " + 
+							"CONCAT(Eesnimi, ' ', Perenimi) as Nimi , " + 
+							"Kandidaat.ID, " + 
+							"Partei.Nimetus as Partei, " + 
+							"Piirkond.Nimi as Piirkond, " + 
+							"HaalteArv " + 
+							"from Isik, Kandidaat, Partei, Piirkond " + 
+							" " + 
+							"WHERE  " + 
+							"Kandidaat.IsikID=Isik.ID && " + 
+							"ParteiID=Partei.ID && " + 
 					"Kandidaat.PiirkondID = Piirkond.ID && " +
-					"Kandidaat.ID = "  + id + "");
+					"Kandidaat.ID = ? ");
+			prepStatement.setInt(1, id);
+			
 
-			ResultSet rs2 = c.createStatement().executeQuery(selectStatement);
-			while (rs2.next()){
+			ResultSet rs = prepStatement.executeQuery();
+			while (rs.next()){
 				Kandidaat currentCandidate = new Kandidaat(
-						rs2.getString("Nimi"),
-						rs2.getString("Partei"),
-						rs2.getInt("ID"),
-						rs2.getString("Piirkond"),
-						rs2.getInt("HaalteArv"))
+						rs.getString("Nimi"),
+						rs.getString("Partei"),
+						rs.getInt("ID"),
+						rs.getString("Piirkond"),
+						rs.getInt("HaalteArv"))
 						;
 				System.out.println("jõuan siia"+currentCandidate);
 				return gson.toJson(currentCandidate);

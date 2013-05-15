@@ -22,21 +22,23 @@ function logEvent(e) {
     status = cacheStatusValues[cache.status];
     type = e.type;
     message = 'online: ' + online;
-    message+= ', event: ' + type;
-    message+= ', status: ' + status;
-    if (type == 'error' && navigator.onLine) {
-        message+= ' (prolly a syntax error in manifest)';
+    message += ', event: ' + type;
+    message += ', status: ' + status;
+    if (type === 'error' && navigator.onLine) {
+        message += ' (prolly a syntax error in manifest)';
     }
     console.log(message);
 }
 
 window.applicationCache.addEventListener(
     'updateready', 
-    function(){
+    function () {
         window.applicationCache.swapCache();
         console.log('swap cache has been called');
     }, 
     false
 );
 
-setInterval(function(){cache.update()}, 10000);
+setInterval(function () {
+	cache.update();
+}, 10000);

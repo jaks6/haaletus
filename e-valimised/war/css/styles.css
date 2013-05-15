@@ -1,78 +1,59 @@
 @import url(http://fonts.googleapis.com/css?family=Abel);
-/*
-#fakebannertop{
-	color:red;
-	text-align:center;
-	
-	border-bottom-style:solid;
-	border-bottom-color:red;
-	repeat: 
-}*/
-
-#fakebannerbottom, #fakebannertop{
+#fakebannerbottom,#fakebannertop {
 	font-family: 'Abel', 'Times New Roman';
 	background-color: #B80000;
 	color: white;
-	text-align:center;
+	text-align: center;
 	background-repeat: repeat-x;
 	width: 100%;
 	left: 0;
-
-	
 }
-
-#fakebannerbottom{
+#fakebannerbottom {
 	position: fixed;
-    bottom: 0; 
+	bottom: 0;
 }
- #fakebannertop{
-	position:absolute;
- 	top: 0;
- }
-
-#container{
+#fakebannertop {
+	position: absolute;
+	top: 0;
+}
+#container {
 	font-family: 'Abel', 'Times New Roman';
 	width: 90%;
 	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
 	min-width: 220px;
-	padding-bottom: 50px;	
+	padding-bottom: 50px;
 }
-
-
-#top{
+#top {
 	height: 18px;
 	padding-bottom: 10px;
 	margin-bottom: 40px;
-	border-bottom-style:solid;
-	border-bottom-color:#333333;
-	position: relative;	
+	border-bottom-style: solid;
+	border-bottom-color: #333333;
+	position: relative;
 }
-
-a{
-	text-decoration:none;
-	color:#333333;
+a {
+	text-decoration: none;
+	color: #333333;
 	/* ï¿½lemise riba lingid*/
 }
-#top a:hover{
-	text-decoration:overline;
-	color:#333366;
+#top a:hover {
+	text-decoration: overline;
+	color: #333366;
 }
-
 #navmenu {
 	padding: 0;
 }
 
-#navmenu a{
+#navmenu a {
 	font-size: 13pt;
 }
 
-#navmenu  li{
-	font-size:12pt;
-	text-transform:uppercase;
-	text-shadow:#003399;
-	display:inline-block;
+#navmenu  li {
+	font-size: 12pt;
+	text-transform: uppercase;
+	display: inline-block;
 	padding: 0px 5px 0px 5px;
 }
 
@@ -80,65 +61,65 @@ a{
 	min-width: 321px;
 	width: 642px;
 	margin: 0 auto;
-	text-align:center;
+	text-align: center;
 }
+
 #help {
 	position: absolute;
-	left:0;
-	top:0;
+	left: 0;
+	top: 0;
 	padding-left: 16px;
 }
 
 #login {
 	position: absolute;
-	right:0;
-	top:0;
-	padding-right:16px;
+	right: 0;
+	top: 0;
+	padding-right: 16px;
 }
 
- /* uus algus */
- 
+/* uus algus */
 #button_style {
-	 padding-top: 25px;
-	 padding-bottom: 25px;
-	 text-align: center; 
-	 font-family: 'Abel', 'Times New Roman';
+	padding-top: 25px;
+	padding-bottom: 25px;
+	text-align: center;
+	font-family: 'Abel', 'Times New Roman';
 }
 
-#button_style input, #button_style button {
-	color:#000000;
-	font-size:18pt;
-	text-transform:uppercase;
-	border-style:solid;
-	border-color:#000000;
+#button_style input,#button_style button {
+	color: #000000;
+	font-size: 18pt;
+	text-transform: uppercase;
+	border-style: solid;
+	border-color: #000000;
 }
 
-#button_style input:hover{
-	background-color:#CCC;
+#button_style input:hover {
+	background-color: #CCC;
 }
+
 #homemenu {
 	background: none;
 	box-shadow: none;
 }
-
-
 
 h1 {
 	font-size: 30pt;
 	margin-bottom: 40px;
 	padding: 0 0 0 3%;
 	border-bottom: thin;
-	border-bottom-style:solid;
+	border-bottom-style: solid;
 }
+
 #content {
 	width: 66%;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 1px 30px 40px 30px;
 	/*background-color:#efefef;*/
-	/* FOLLOWING LINES COMMENTED OUT DUE TO NAVIGATION WITH MASTER INDEX.html*/
-	/*background-color:#e7e7e7;*/
-	/*box-shadow:  4px 4px 6px rgba(50, 50, 50, 0.4);*/
+/* FOLLOWING LINES COMMENTED OUT DUE TO NAVIGATION WITH MASTER INDEX.html*/
+/*background-color:#e7e7e7;*/
+/*box-shadow:  4px 4px 6px rgba(50, 50, 50, 0.4);*/
 }
 
 #footer {
@@ -147,17 +128,17 @@ h1 {
 }
 
 #footer a {
-	color:#666666;
+	color: #666666;
 }
 
 #footer li {
 	padding: 0 8px 0 0;
-	font-size:11pt;
-	display:inline-block;
+	font-size: 11pt;
+	display: inline-block;
 }
 
-#footer a:hover{
-	color:#000000;
+#footer a:hover {
+	color: #000000;
 }
 
 #ticker {
@@ -165,158 +146,158 @@ h1 {
 }
 
 /* jaksi css */
-#kandidaadid{
-	width:95%;
-	padding-left:15px;
-	font-size:20px;
+#kandidaadid {
+	width: 95%;
+	padding-left: 15px;
+	font-size: 20px;
 }
 
-#k_table th.hover, #k_table th {
-   background-color: white;
+#k_table th.hover,#k_table th {
+	background-color: white;
 }
+
 #k_table tr.hover {
-   cursor: pointer;
-   background-color: #D0D4D9;
-   /* whatever other hover styles you want */
+	cursor: pointer;
+	background-color: #D0D4D9;
+	/* whatever other hover styles you want */
 }
-#k_left{
-	width:20%;
+
+#k_left {
+	width: 20%;
 }
-#k_right{
-	width:20%;
-	margin:-104px auto;
-	margin-bottom:10px;
-	
+
+#k_right {
+	width: 20%;
+	margin: -104px auto;
+	margin-bottom: 10px;
 }
-#k_inputs{
-	text-align:right;
+
+#k_inputs {
+	text-align: right;
 }
-#k_inputs table{
-	width:100%;
+
+#k_inputs table {
+	width: 100%;
 }
-#k_inputs select, input{
+
+#k_inputs select,input {
 	/*box-sizing is a fix to force select and input to have an equal width*/
-	box-sizing:border-box;
-	-ms-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	width: 50%; 
-
-}
-#k_inputs label{
-	min-width:69px;
-	border-collapse:collapse;
-	display:inline-block;
-	float:left;
-	text-align:left;
+	box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	width: 50%;
 }
 
-#k_table th, td{
-	width:1%;
-	border:2px solid black;
+#k_inputs label {
+	min-width: 69px;
+	border-collapse: collapse;
+	display: inline-block;
+	float: left;
+	text-align: left;
 }
-#k_table table{
-	text-align:left;
-	overflow-y:scroll;
-	width:100%;
-	background-color:white;
-	border-collapse:collapse;
-	border:1px solid black;
-	margin-bottom:20%;
-	display:block;
+
+#k_table th,td {
+	width: 1%;
+	border: 2px solid black;
+}
+
+#k_table table {
+	text-align: left;
+	overflow-y: scroll;
+	width: 100%;
+	background-color: white;
+	border-collapse: collapse;
+	border: 1px solid black;
+	margin-bottom: 20%;
+	display: block;
 }
 /* START OF HaaletamienE : */
-
 #haaletamine_refused {
 	
 }
-#haaletamine{
-	display:none;
+
+#haaletamine {
+	display: none;
 }
 
 /* END OF HAALATAMINE : */
-
-
-#abi li{
-	font-size:20px;
-	text-decoration:underline;
+#abi li {
+	font-size: 20px;
+	text-decoration: underline;
 }
 
-/* jaksi cssi lï¿½pp */
-
- /* uus algus */
- 
-#kandideerimine label { /* <-- this used to be #kandideerimine label, changed to html suffix due to master html*/
+/* uus algus */
+#kandideerimine label {
+	/* <-- this used to be #kandideerimine label, changed to html suffix due to master html*/
 	display: block;
 	float: left;
 	width: 150px;
 }
-#kandideerimise_vorm span{
+
+#kandideerimise_vorm span {
 	color: red;
-	margin-left:20px;
-}
-#kandideerimine select{
-	 box-sizing:border-box;
- 	-ms-box-sizing:border-box;
- 	-moz-box-sizing:border-box;
- 	-webkit-box-sizing:border-box;
- 	 width: 34.6%;
+	margin-left: 20px;
 }
 
-#candidate_info ul{
-	background-color:white;
+#kandideerimine select {
+	box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	width: 34.6%;
+}
+
+#candidate_info ul {
+	background-color: white;
 	font-size: x-large;
 	list-style-type: none;
-
 }
 
-
-
-
 #keskele {
-    text-align:center;
-} 
-
-
-/* uus lï¿½pp */
+	text-align: center;
+}
 
 /* Tulemuste lehe asjade algus
 ############################################################*/
-
 #graph {
 	margin: 0 auto;
 	padding-top: 3%;
 	height: 280px;
 }
-.sortIcon :hover{
+
+.sortIcon :hover {
 	
 }
-img[id^="asc"], img[id^="desc"]{
+
+img[id ^="asc"],img[id ^="desc"] {
 	display: none;
 }
-#tulemustabs li + li:before{
-    content: " | ";
-    padding: 0 5px;
+
+#tulemustabs li+li:before {
+	content: " | ";
+	padding: 0 5px;
 }
-#tulemustabs li{
+
+#tulemustabs li {
 	display: inline;
 }
 
-#tulemustabs a:hover{
-	text-decoration:overline;
-	color:#333366;
+#tulemustabs a:hover {
+	text-decoration: overline;
+	color: #333366;
 }
 
-#tulemustabs ul{
-	background-color:#CCCCCC;
-	padding-left:38%;
+#tulemustabs ul {
+	background-color: #CCCCCC;
+	padding-left: 38%;
 }
 /* make the header row stand in place*/
 .tableheader {
-	margin-top:2px;
-	/*position: absolute; */ /* välja kommenteerituna on sortIcon'id samal real headeri tekstiga. */
+	margin-top: 2px;
 	top: 0;
 }
+
 .header-background {
 	background-color: #CCCCCC;
 	height: 25px;
@@ -330,31 +311,29 @@ img[id^="asc"], img[id^="desc"]{
 	position: relative;
 	min-width: 290px;
 }
+
 #tulemustabel {
 	height: 200px;
 }
 
-#tulemustabel  table{
-	margin-top:22px;
+#tulemustabel  table {
+	margin-top: 22px;
 	width: 100%;
 	border-collapse: collapse;
 	border: none;
-	background-color:#E9E9E9;
-	
-	
+	background-color: #E9E9E9;
 }
-
 
 #googleMap {
 	width: auto;
 	height: 400px;
 }
-   
-/*  google mapsi juures kasutatud infoboxi stiil */ 
+
+/*  google mapsi juures kasutatud infoboxi stiil */
 .infoBox {
 	color: #FFFFFF;
 	font-size: 15px;
-	font-family:  "Segoe UI",  sans-serif;
+	font-family: "Segoe UI", sans-serif;
 	font-weight: bold;
 	text-align: center;
 	background-color: rgba(20, 20, 20, .5);
@@ -362,232 +341,207 @@ img[id^="asc"], img[id^="desc"]{
 	padding-left: 0px;
 	padding-right: 8px;
 	border-radius: 10px;
-	/*text-shadow: 0px 0px 4px #424242, 0px 0px 4px #424242, 0px 0px 4px #424242;*/
-	/* white-space: normal;*/
-/* background-color: white; */
 }
 
 #mapLegend {
-        background: #FFF;
-        padding: 10px;
-        margin: 5px;
-        font-size: 12px;
-        font-family: Arial, sans-serif;
-      }
-      
+	background: #FFF;
+	padding: 10px;
+	margin: 5px;
+	font-size: 12px;
+	font-family: Arial, sans-serif;
+}
+
 #piirkonniti button {
-	font-family: "Abel" , "sans-serif";
+	font-family: "Abel", "sans-serif";
 	font-size: medium;
 	color: #424242;
 	margin: 5px;
 	float: right;
 }
-a.poke img{
-	display:none;
+
+a.poke img {
+	display: none;
 	position: fixed;
 	left: 39%;
 	top: 25%;
 	z-index: 2;
 }
-a.poke:hover img{
-	display:block;
+
+a.poke:hover img {
+	display: block;
 }
 
-#tulemustabel th{
-	text-transform:uppercase;
+#tulemustabel th {
+	text-transform: uppercase;
 }
-	
-.statisticpic img{
+
+.statisticpic img {
 	max-width: 100%;
-	margin-left:auto;
-	margin-right:auto;
-	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
-
-
-
-
 
 /*TULEMUSTE lehe ASJADE L6PP ############################## */
-
 /* uus algus */
-
-#abi li{
-	font-size:20px;
-	text-decoration:underline;
+#abi li {
+	font-size: 20px;
+	text-decoration: underline;
 }
-#kontakt tr, th{
-	text-align:left;
-	padding-right:20px;
+
+#kontakt tr,th {
+	text-align: left;
+	padding-right: 20px;
 }
 
 .bigbutton {
-	text-align:center;
+	text-align: center;
 	width: 75%;
 	margin: 0 auto;
 }
 
 .bigbutton a {
-	text-align:center;
-	display:inline-block;
+	text-align: center;
+	display: inline-block;
 	height: 100px;
 	width: 42%;
 	text-transform: uppercase;
 	font-size: 1.9em;
-	background-color:#bfbfbf;
+	background-color: #bfbfbf;
 	padding: 30px 10px;
 	line-height: 110px;
 	margin: 8px;
 }
-.bigbutton a:hover{
-	box-shadow:5px 5px 15px #232129;
+
+.bigbutton a:hover {
+	box-shadow: 5px 5px 15px #232129;
 	background-color: #CCC;
 }
 
-
-#liikuv_bar{
-	margin:20px auto;
-	text-align:center;
+#liikuv_bar {
+	margin: 20px auto;
+	text-align: center;
 }
 
-
-#loading img{
-   position: fixed;
+#loading img {
+	position: fixed;
 	left: 45%;
 	top: 35%;
 	z-index: 2;
 }
 
-
 /* uus lopp */
-
-/*medium, "mobile" view:
-top bar spans wider, fonts larger for better readability on dense screens.*/
-@media only screen and (max-width: 1024px) {
-	
-.bigbutton {
-	display: none;
-}
-h1 {
-font-size: 18pt;
-}
-a{
-	font-size: 120%;
+/*
+* medium, "mobile" view:
+* top bar spans wider, fonts larger for better readability on dense screens.
+*/
+@media only screen and (max-width: 1025px) {
+	.bigbutton {
+		display: none;
 	}
-#navmenu a{
-	font-size: 150%;
-}
-#top {
-	height: 160px;
-	padding-bottom: 50px;
-	margin-bottom: 10px;
-}
-
-#navmenu  li{
-	display:block; 
-	background-color:#DBD7CA;
-	padding: 0 0 2px 0;
-	margin-top: 2px;
-}
-
-#login {
-	font-size:1.5em;
-}
-
-#help {
-	font-size:1.5em;
-}
-
-#footermenu a{
-	font-size:2em;
-}
-
-#footer{
-	width:50%;
-	text-align:center;
-}
-
-#navmenu {
-	text-align: center;
-}
-
-#navbar {
-	min-width:0;
-	padding-top:16px;
-	padding-bottom: 100px;
-	width: 100%;
-	margin: 0 auto;
-}
-#container {
-	width: 100%;
-
-}
-#content {
-	width: 100%;
-	padding: 20px 0;
-}
-#kontakt tr, th {
-    padding-right: 0;
-}
-#k_right{
-	margin:0px;
-	margin-bottom:0px;
-}
-
-#k_inputs {
-	padding-left: 20px;
-}
-#k_inputs label{
-	/* Ajuvaba22 aga tï¿½ï¿½tab */
-	min-width:100%;
-}
-
-#k_inputs table{
-	display:block;
-}
-
-#k_table table{
-	border-collapse:collapse;
-}
-
-
-
-.bigbutton {
-	text-align:center;
-	width:100%;
-}
-
-.bigbutton a{
-	width:85%;
+	h1 {
+		font-size: 18pt;
+	}
+	a {
+		font-size: 120%;
+	}
+	#navmenu a {
+		font-size: 150%;
+	}
+	#top {
+		height: 160px;
+		padding-bottom: 50px;
+		margin-bottom: 10px;
+	}
+	#navmenu  li {
+		display: block;
+		background-color: #DBD7CA;
+		padding: 0 0 2px 0;
+		margin-top: 2px;
+	}
+	#login {
+		font-size: 1.5em;
+	}
+	#help {
+		font-size: 1.5em;
+	}
+	#footermenu a {
+		font-size: 2em;
+	}
+	#footer {
+		width: 50%;
+		text-align: center;
+	}
+	#navmenu {
+		text-align: center;
+	}
+	#navbar {
+		min-width: 0;
+		padding-top: 16px;
+		padding-bottom: 100px;
+		width: 100%;
+		margin: 0 auto;
+	}
+	#container {
+		width: 100%;
+	}
+	#content {
+		width: 100%;
+		padding: 20px 0;
+	}
+	#kontakt tr,th {
+		padding-right: 0;
+	}
+	#k_right {
+		margin: 0px;
+		margin-bottom: 0px;
+	}
+	#k_inputs {
+		padding-left: 20px;
+	}
+	#k_inputs label {
+		min-width: 100%;
+	}
+	#k_inputs table {
+		display: block;
+	}
+	#k_table table {
+		border-collapse: collapse;
+	}
+	.bigbutton {
+		text-align: center;
+		width: 100%;
+	}
+	.bigbutton a {
+		width: 85%;
+	}
+	#liikuv_bar {
+		display: none;
+	}
 }
 
 
-
-#liikuv_bar{
-	display:none;
-}
-
-
-/*medium, "mobile" view:
-top bar spans wider, fonts larger for better readability on dense screens.*/
+/*
+* small, "mobile" view:
+* 
+*/
 @media only screen and (max-width: 480px) {
-#content {
-    padding: 0;
-}
-h1 {
-	margin-bottom:0;
-}
-#k_inputs input{
-	width:70px;
-}
-#tulemustabel-wrapper {
-	min-width: 230px;
-}
-.header-background {
-	display:none;
-}
-.tableheader {
-    position: inherit;
-}
-
+	#content {
+		padding: 0;
+	}
+	h1 {
+		margin-bottom: 0;
+	}
+	#k_inputs input {
+		width: 70px;
+	}
+	#tulemustabel-wrapper {
+		min-width: 230px;
+	}
+	.header-background {
+		display: none;
+	}
+	.tableheader {
+		position: inherit;
+	}
 }

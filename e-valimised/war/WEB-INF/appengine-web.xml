@@ -2,6 +2,7 @@
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
   <application>e-valimised</application>
   <version>1</version>
+  
 
   <!--
     Allows App Engine to send multiple requests to one instance in parallel:
@@ -10,6 +11,16 @@
 
   <!-- Configure serving/caching of GWT files -->
   <static-files>
+  
+ 	<include path="/**.css" expiration="7d"> 
+ 		<http-header name="Vary" value="Accept-Encoding" />
+ 	</include> 
+ 	<include path="/**.js" expiration="1h">
+ 		<http-header name="Vary" value="Accept-Encoding" />
+ 	</include> 
+ 	<include path="/**.png" expiration="10d"/> 
+ 	<include path="/**.gif" expiration="10d"/>
+ 	<include path="/**.jpg" expiration="10d"/>  
     <include path="**" />
 
     <!-- The following line requires App Engine 1.3.2 SDK -->
@@ -17,6 +28,9 @@
 
     <include path="**.cache.*" expiration="365d" />
     <exclude path="**.gwt.rpc" />
+    
+    
+   	<!-- added in hopes of optimization: -->
   </static-files>
 
   <!-- Configure java.util.logging -->

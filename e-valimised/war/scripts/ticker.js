@@ -1,48 +1,45 @@
-$(document).ready(function(){
-	//startticker();
-
-});
-
-var tWidth='800px';                  // width (in pixels)
-var tHeight='25px';                  // height (in pixels)
-var tcolour='gray';               // background colour:
-var moStop=true;                     // pause on mouseover (true or false)
-var fontfamily = 'Abel,Times New Roman'; // font for content
-var tSpeed=3;                        // scroll speed (1 = slow, 5 = fast)
+var tWidth  =  '800px';                  // width (in pixels)
+var tHeight  =  '25px';                  // height (in pixels)
+var tcolour  =  'gray';               // background colour:
+var moStop  =  true;                     // pause on mouseover (true or false)
+var fontfamily  =  'Abel,Times New Roman'; // font for content
+var tSpeed  =  3;                        // scroll speed (1  =  slow, 5  =  fast)
 
 // enter your ticker content here (use \/ and \' in place of / and ' respectively)
-var content='  TOP 5: ';
+var content  =  '  TOP 5: ';
 
 // Simple Marquee / Ticker Script
 // copyright 3rd January 2006, Stephen Chapman
 // permission to use this Javascript on your web page is granted
 // provided that all of the below code in this script (including this
 // comment) is used without any alteration
-var cps=tSpeed; 
+
+var cps = tSpeed; 
 var aw, mq; 
 var fsz = parseInt(tHeight) - 4; 
 
-function fetchTopThree(){
-	var i = 1;
+function fetchTopThree() {
+	var name, id, region, party, votes, i = 1;
 	$.ajaxSetup({async: false});
-	$.getJSON("rest/jerseyshore", function(data) {
+	$.getJSON("rest/jerseyshore", function (data) {
 		for (var candidate in data) {
-			var name = data[candidate].name;
-			var id = data[candidate].id;
-			var region = data[candidate].region;
-			var party = data[candidate].party;
-			var votes =data[candidate].votes;
-			content=content+"--- "+i+". "+name+" { "+votes+" } ---";
-			i=i+1;
+			name  =  data[candidate].name;
+			id  =  data[candidate].id;
+			region  =  data[candidate].region;
+			party  =  data[candidate].party;
+			votes  = data[candidate].votes;
+			content = content + "--- " + i + ". " + name + " { " + votes + " } ---";
+			i = i + 1;
 		}
 		
 	});
 }
 
-function startticker(){
+function startticker() {
 	fetchTopThree();
 	if (document.getElementById) {
-		var tick = '<div style="\
+
+				var tick  =  '<div style = "\
 			margin:0px auto;\
 			position:relative;\
 			width:'+tWidth+';\
@@ -50,9 +47,9 @@ function startticker(){
 			overflow:hidden;\
 			background-color:'+tcolour+'"'; 
 		
-		if (moStop) tick += ' onmouseover="cps=0" onmouseout="cps=tSpeed"'; 
+		if (moStop) tick += ' onmouseover = "cps = 0" onmouseout = "cps = tSpeed"'; 
 		
-		tick +='><div id="mq" style="\
+		tick += '><div id = "mq" style = "\
 			position:absolute;\
 			left:0px;\
 			top:0px;\
@@ -61,17 +58,17 @@ function startticker(){
 			white-space:nowrap;\
 			"><\/div><\/div>'; 
 		
-		document.getElementById('ticker').innerHTML = tick;
+		document.getElementById('ticker').innerHTML  =  tick;
 		mq = document.getElementById("mq"); 
-		mq.style.left=(parseInt(tWidth)+10)+"px"; 
-		mq.innerHTML='<span id="tx">'+content+'<\/span>'; 
+		mq.style.left = (parseInt(tWidth)+10)+"px"; 
+		mq.innerHTML = '<span id = "tx">' + content + '<\/span>'; 
 		aw = document.getElementById("tx").offsetWidth; 
-		lefttime=setInterval("scrollticker()",30);
+		lefttime = setInterval("scrollticker()", 30);
 		}
 	} 
 
-function scrollticker(){
-			mq.style.left = (parseInt(mq.style.left)>(-10 - aw)) ?parseInt(mq.style.left)-cps+"px" : parseInt(tWidth)+10+"px";
-			} 
-window.onload=startticker;
+function scrollticker() {
+			mq.style.left = (parseInt(mq.style.left)>(-10 - aw)) ?parseInt(mq.style.left)-cps + "px" : parseInt(tWidth) + 10 + "px";
+		} 
+window.onload = startticker;
                   

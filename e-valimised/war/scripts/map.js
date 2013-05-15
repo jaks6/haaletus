@@ -1,40 +1,30 @@
-
-//google.maps.event.addDomListener(window, 'load', initialize);
 var legendInfo = {};
 legendInfo.length = 0;
-function initialize()
-{
+
+function initialize() {
 	console.log("in maps.js initalize");
-
-
-
-
-
 
 	var styleArray = [{	//Turn everything gray
 		featureType: "all",
 		stylers: [{ saturation: -100 }]
 
-	},{ //make province borders pinkish
+	}, { //make province borders pinkish
 		featureType: "administrative.province",
 		elementType: "geometry.stroke",
-		stylers: [
-		          { hue: "#CC3399" },
+		stylers: [{ hue: "#CC3399" },
 		          { saturation: 50 },
 		          { weight : 2}
 		          ]
 	}];
-	var mapOptions = {
-			center:new google.maps.LatLng(58.651227,25.147705),
-			zoom:7,
-			mapTypeId:google.maps.MapTypeId.ROADMAP,
-
-			disableDefaultUI:true,	//peidame UI
+	var mapOptions = {	
+			center: new google.maps.LatLng(58.651227, 25.147705),
+			zoom: 7,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			disableDefaultUI: true,	//peidame UI
 			scrollwheel: false,
 			draggable: false
 	};
-	var map=new google.maps.Map(document.getElementById("googleMap")
-			,mapOptions);
+	var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
 
 
 	var provinces = [
@@ -58,29 +48,25 @@ function initialize()
 
 
 	//include the markerwithlabel / styledMarker script. it is important that this script is loaded after the Maps API
-	$.getScript("http://google-maps-utility-library-v3.googlecode.com/svn/trunk/styledmarker/src/StyledMarker.js", function() {
-		$.getScript("http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js", function() {
+	$.getScript("http://google-maps-utility-library-v3.googlecode.com/svn/trunk/styledmarker/src/StyledMarker.js", function () {
+		$.getScript("http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js", function () {
 			//Add text next to markers
-			setMarkers(map, provinces);
-			addLegend(map, legendInfo);
-			$("button[name='legendToggle']").click(function() {
-				$('#mapLegend').slideToggle();
-			});
+			setMarkers(map, provinces, addLegend);
+
 		});
 	});
 	map.setOptions({styles: styleArray});
 }
 
-//!TODO : REMOVE SCRIPT FROM DOM WHEN NAVIGATING AWAY FROM PAGE.
 //hetkel kutsutakse loadMapScript välja navigation.js initscripts alt
 
 function loadMapScript() {
-	
-	if(!google || !google.maps){
-	    console.log('Not loaded yet');
-	    $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDoC27Ptu1NJy2sgwkIbOqNCsO_8T7SMjM&sensor=true&callback=initialize", function() {});
+
+	if (typeof google !== 'object' || typeof google.maps !== 'object') {
+		console.log('Google Maps API Not loaded yet, loading');
+		$.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDoC27Ptu1NJy2sgwkIbOqNCsO_8T7SMjM&sensor=true&callback=initialize", function () {});
 	} else {
-		
+		console.log('Google Maps already loaded, initializing');
 		initialize();
 	}
 
@@ -89,42 +75,45 @@ function loadMapScript() {
 
 
 
-function setMarkers(map, locations) {
-	$.getJSON("rest/tulemused?region=all", function(jsonData){
+function setMarkers(map, locations, callback) {
+	$.getJSON("rest/tulemused?region=all", function (jsonData) {
 		var jsonLength = jsonData.length;
-		var markerSet = new Array();
+		var markerSet = [];
 
 		for (var i = 0; i < locations.length; i++) {
 
 			// Add anonymous grey markers to each region
 			var location = locations[i];
 			var color = "#CCCCCC";
-			var styledMarker = new StyledMarker({
-				styleIcon : new StyledIcon(StyledIconTypes.MARKER,{
+			var styledMarker = new StyledMarker({ 
+				styleIcon : new StyledIcon(StyledIconTypes.MARKER, {
 					color: color
 				}),
 				position : new google.maps.LatLng(location[0], location[1]),
-				map : map });
+				map : map 
+			});
 			markerSet.push(styledMarker);
 		}
 
 		//Add party names to legendInfo list, set name in legendInfo
-		for (var j = 0; j < jsonLength; j++){
+		for (var j = 0; j < jsonLength; j++) {
 			var partyID = jsonData[j][1];
-			if (legendInfo[partyID]== undefined ){
+			if (legendInfo[partyID] === undefined) {
 				legendInfo.length ++;
 				var partyName = jsonData[j][3];
 				legendInfo[partyID] =  {"name": partyName};
 			}
 		}
 		//get color for each party
-		for (var id in legendInfo){
-			if (id ==='length' || !legendInfo.hasOwnProperty(id)) continue;
-			legendInfo[id]["color"]=getColor(id, legendInfo.length);
+		for (var id in legendInfo) {
+			if (id === 'length' || !legendInfo.hasOwnProperty(id)) {
+				continue;
+			}
+			legendInfo[id].color = getColor(id, legendInfo.length);
 		}
-		
+
 		// Add coloured markers + infoboxes according to each regions leader
-		for (var j = 0; j < jsonLength; j++){
+		for (var j = 0; j < jsonLength; j++) {
 
 			//kui erakonna ID'd pole legendInfos, salvestame muutujasse legendInfo partei ID kohale
 			//erakonna nimetuse ja talle omistatud värvi
@@ -132,13 +121,13 @@ function setMarkers(map, locations) {
 
 			//modify existing markers' colors to match party color
 			markerSet[jsonData[j][0]-1].styleIcon.set(
-					'color', legendInfo[partyID]['color']);
+					'color', legendInfo[partyID].color);
 
-			//add infobox ( css class : ".infoBox" )
-			var location = locations[jsonData[j][0]-1];
-			var percentage = Math.floor( jsonData[j][2]/jsonData[j][5]*100 );
+			//add infobox ( css class : ".info	Box" )
+			var location = locations[jsonData[j][0] - 1];
+			var percentage = Math.floor(jsonData[j][2] / jsonData[j][5] * 100);
 			var infoBoxOptions = {	
-					content: percentage+"%",
+					content: percentage + "%",
 					disableAutoPan: true,
 					pixelOffset: new google.maps.Size(-56, -33),
 					position: new google.maps.LatLng(location[0], location[1]),
@@ -147,15 +136,20 @@ function setMarkers(map, locations) {
 					pane: "mapPane",
 					enableEventPropagation: true
 			};
+
 			var infoBox = new InfoBox(infoBoxOptions);
 			infoBox.open(map);
-
-
 		}
+
+		//finally draw the Legend.
+		callback(map, legendInfo);
+		$("button[name='legendToggle']").click(function () {	//make the legend toggleable
+			$('#mapLegend').slideToggle();
+		});
 	});
 }
 
-function addLegend(map, legendInfo){
+function addLegend(map, legendInfo) {
 	var layer = new google.maps.FusionTablesLayer({
 		query: {
 			select: 'Location',
@@ -169,9 +163,9 @@ function addLegend(map, legendInfo){
 	legend.id = 'mapLegend';
 	var content = [];
 	content.push('<h3>Legend:</h3>');
-	for (var partyID=1; partyID<=legendInfo.length; partyID++){
-		content.push('<p style="border-left: solid 16px '+legendInfo[partyID]['color']+'">&nbsp;'+
-				legendInfo[partyID]['name']+
+	for (var partyID = 1; partyID <= legendInfo.length; partyID++) {
+		content.push('<p style="border-left: solid 16px ' + legendInfo[partyID].color + '">&nbsp;' +
+				legendInfo[partyID].name +
 		'</p>');
 	}
 	content.push('<p style="border-left: solid 16px #CCCCCC">&nbsp; H&auml;&auml;led puuduvad</p>');
@@ -184,19 +178,19 @@ function addLegend(map, legendInfo){
 
 //COLOR WORK 
 /** returns a color for a party calculated by partys index and the no. of total regions*/
-function getColor(index, totalParties){
+function getColor(index, totalParties) {
 
-	var step = (1/totalParties);
-	var resultHex= hsvToRgb(((index) * step), 0.7, 1); //saturation =0,7 lightness =1
-	console.log("step="+step+", val="+ index *  step)
-	return resultHex ;
+	var step = (1 / totalParties);
+	var resultHex = hsvToRgb(((index) * step), 0.7, 1); //saturation =0,7 lightness =1
+	console.log("step=" + step + ", val=" + index *  step);
+	return resultHex;
 }
 
 function componentToHex(c) {
 	var hex = c.toString(16);
 	return hex.length == 1 ? "0" + hex : hex;
 }
-function rgbToHex(r,g,b){
+function rgbToHex(r, g, b) {
 	return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 /**
@@ -210,7 +204,7 @@ function rgbToHex(r,g,b){
  * @param   Number  v       The value
  * @return  Array           The RGB representation
  */
-function hsvToRgb(h, s, v){
+function hsvToRgb(h, s, v) {
 	var r, g, b;
 
 	var i = Math.floor(h * 6);
@@ -219,7 +213,7 @@ function hsvToRgb(h, s, v){
 	var q = v * (1 - f * s);
 	var t = v * (1 - (1 - f) * s);
 
-	switch(i % 6){
+	switch (i % 6) {
 	case 0: r = v, g = t, b = p; break;
 	case 1: r = q, g = v, b = p; break;
 	case 2: r = p, g = v, b = t; break;
